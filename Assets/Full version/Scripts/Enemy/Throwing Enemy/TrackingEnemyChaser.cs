@@ -44,7 +44,7 @@ public class TrackingEnemyChaser : MonoBehaviour
             isGrounding = true;
         }
 
-        if (movingSpeed == 0 || chasingSpeed == 0)
+        if (chasingSpeed == 0)
         {
             animator.SetBool("isRun", false);
         }
@@ -53,21 +53,19 @@ public class TrackingEnemyChaser : MonoBehaviour
             animator.SetBool("isRun", true);
         }
 
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 0.5f)
+        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 0.5f && Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 3f)
         {
             chasingSpeed = 0;
-            movingSpeed = 0;
         }
         else
         {
-            movingSpeed = movingSpeedTemp;
             chasingSpeed = chasingSpeedTemp;
         }
 
         if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance &&
-            Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 3f &&
-            isGrounding &&
-            playerController.GetComponent<PlayerController>().IsGrounded())
+        Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 3f &&
+        isGrounding &&
+        playerController.GetComponent<PlayerController>().IsGrounded())
         {
             isChasing = true;
         }
