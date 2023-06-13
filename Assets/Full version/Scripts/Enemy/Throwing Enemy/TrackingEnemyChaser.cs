@@ -63,7 +63,9 @@ public class TrackingEnemyChaser : MonoBehaviour
 
         if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance && isGrounding)
         {
-            if(playerTransform.position.x >= patrolPoints[0].position.x - 1 && playerTransform.position.x <= patrolPoints[1].position.x + 1)
+            if(playerTransform.position.x >= patrolPoints[0].position.x - 1 && 
+               playerTransform.position.x <= patrolPoints[1].position.x + 1 &&
+               Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 5f)
             {
                 isChasing = true;
             }

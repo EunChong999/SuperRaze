@@ -449,7 +449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.292, y: 8.5, z: -10}
+  m_LocalPosition: {x: -21.958, y: 23.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -959,9 +959,9 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0.5
+  m_YDamping: 0.5
+  m_ZDamping: 0.5
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -1117,7 +1117,7 @@ GameObject:
   - component: {fileID: 1078598599}
   - component: {fileID: 1078598598}
   - component: {fileID: 1078598600}
-  - component: {fileID: 1078598601}
+  - component: {fileID: 1078598603}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1133,7 +1133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078598595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.5, y: 14.5, z: 0}
+  m_LocalPosition: {x: -17.75, y: 29.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1199,21 +1199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowdownFactor: 0.25
---- !u!114 &1078598601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078598595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2355ef525f68185409441ccf88a50b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recordTime: 5
-  rb: {fileID: 742388136}
-  body: {fileID: 742388131}
 --- !u!114 &1078598602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,6 +1211,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cce5d5144591aa42b61772bc7034375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1078598603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078598595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2355ef525f68185409441ccf88a50b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 5
+  rewindSpeed: 25
+  rb: {fileID: 742388136}
+  body: {fileID: 742388131}
 --- !u!1 &1088707606
 GameObject:
   m_ObjectHideFlags: 0
