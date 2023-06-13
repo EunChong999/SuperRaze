@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TrackingEnemyChaser : MonoBehaviour
 {
-    public PlayerController playerController;
     public GameObject body;
     public Rigidbody2D rb;
     public Animator animator;
@@ -53,7 +52,7 @@ public class TrackingEnemyChaser : MonoBehaviour
             animator.SetBool("isRun", true);
         }
 
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 0.5f && Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 3f)
+        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 0.5f)
         {
             chasingSpeed = 0;
         }
@@ -62,12 +61,19 @@ public class TrackingEnemyChaser : MonoBehaviour
             chasingSpeed = chasingSpeedTemp;
         }
 
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance &&
-        Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 3f &&
-        isGrounding &&
-        playerController.GetComponent<PlayerController>().IsGrounded())
+        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance && isGrounding)
         {
-            isChasing = true;
+            if(playerTransform.position.x >= patrolPoints[0].position.x - 1 && playerTransform.position.x <= patrolPoints[1].position.x + 1)
+            {
+                isChasing = true;
+            }
+            else
+            {
+                if (Mathf.Abs(body.transform.position.y - playerTransform.position.y) > 0.5f)
+                {
+                    isChasing = false;
+                }
+            }
         }
         else
         {
