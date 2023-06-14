@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerTimeRewinder : MonoBehaviour
@@ -19,6 +20,7 @@ public class PlayerTimeRewinder : MonoBehaviour
     private Vector3 previousPosition;
     private float lerpStartTime;
     private float lerpDuration;
+    private float curTime = 0;
 
     // Use this for initialization
     void Start()
@@ -48,18 +50,27 @@ public class PlayerTimeRewinder : MonoBehaviour
     {
         if (playerPointTime.Count > 0)
         {
-            float timeSinceLerpStart = Time.time - lerpStartTime;
-            float t = Mathf.Clamp01(timeSinceLerpStart / lerpDuration);
-            body.transform.position = Vector3.Lerp(previousPosition, targetPosition, t);
+            curTime += Time.deltaTime;
 
-            if (t >= 1f)
+            if (recordTime - curTime <= 0)
             {
-                PlayerPointTime pointInTime = playerPointTime.Pop();
-                targetPosition = pointInTime.position;
-                body.transform.rotation = pointInTime.rotation;
-                previousPosition = body.transform.position;
-                lerpStartTime = Time.time;
-                lerpDuration = Vector3.Distance(previousPosition, targetPosition) / rewindSpeed;
+                StopRewind();
+            }
+            else
+            {
+                float timeSinceLerpStart = Time.time - lerpStartTime;
+                float t = Mathf.Clamp01(timeSinceLerpStart / (lerpDuration / rewindSpeed)); // rewindSpeed로 나누어 보정
+                body.transform.position = Vector3.Lerp(previousPosition, targetPosition, t);
+
+                if (t >= 1f)
+                {
+                    PlayerPointTime pointInTime = playerPointTime.Pop();
+                    targetPosition = pointInTime.position;
+                    body.transform.rotation = pointInTime.rotation;
+                    previousPosition = body.transform.position;
+                    lerpStartTime = Time.time;
+                    lerpDuration = Vector3.Distance(previousPosition, targetPosition) / rewindSpeed;
+                }
             }
         }
         else
@@ -68,10 +79,12 @@ public class PlayerTimeRewinder : MonoBehaviour
         }
     }
 
+
     void Record()
     {
         playerPointTime.Push(new PlayerPointTime(body.transform.position, body.transform.rotation));
     }
+
 
     public void StartRewind()
     {
@@ -91,6 +104,7 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     public void StopRewind()
     {
+        curTime = 0;
         playerPointTime.Clear();
         isRewinding = false;
         rb.isKinematic = false;
