@@ -32,6 +32,39 @@ public class TrackingEnemyChaser : MonoBehaviour
 
     private void Update()
     {
+        CreatePoint();
+        CheckGround();
+        CheckSpeed();
+        CheckCollision();
+        DecideChasing();
+        Move();
+    }
+
+    void CreatePoint()
+    {
+
+        //patrolPoints[0] =
+        //patrolPoints[1] =
+
+        //float x = body.transform.localScale.x;
+        //Vector2 frontVec = new Vector2(rb.position.x + x / 10, rb.position.y - 0.5f);
+        //Debug.DrawRay(frontVec, Vector3.down, Color.yellow);
+        //RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Object"));
+        //if (rayHit.collider == null)
+        //{
+        //    isGrounding = false;
+        //}
+        //else
+        //{
+        //    isGrounding = true;
+        //}
+
+        //patrolPoints[0] =
+        //patrolPoints[1] =
+    }
+
+    void CheckGround()
+    {
         float x = body.transform.localScale.x;
         Vector2 frontVec = new Vector2(rb.position.x + x / 10, rb.position.y - 0.5f);
         Debug.DrawRay(frontVec, Vector3.down, Color.yellow);
@@ -44,7 +77,10 @@ public class TrackingEnemyChaser : MonoBehaviour
         {
             isGrounding = true;
         }
+    }
 
+    void CheckSpeed()
+    {
         if (chasingSpeed == 0)
         {
             animator.SetBool("isRun", false);
@@ -53,7 +89,10 @@ public class TrackingEnemyChaser : MonoBehaviour
         {
             animator.SetBool("isRun", true);
         }
+    }
 
+    void CheckCollision()
+    {
         if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 0.5f)
         {
             chasingSpeed = 0;
@@ -62,11 +101,15 @@ public class TrackingEnemyChaser : MonoBehaviour
         {
             chasingSpeed = chasingSpeedTemp;
         }
+    }
 
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance && 
-            isGrounding && 
-            playerController.IsGrounded() && 
-            ((playerTransform.position.y + 6) -body.transform.position.y) >= 0)
+    void DecideChasing()
+    {
+        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance &&
+            ((playerTransform.position.y + 6) - body.transform.position.y) > 0 &&
+            isGrounding &&
+            playerTransform.transform.position.x > patrolPoints[0].position.x &&
+            playerTransform.transform.position.x < patrolPoints[1].position.x)
         {
             isChasing = true;
         }
@@ -74,7 +117,10 @@ public class TrackingEnemyChaser : MonoBehaviour
         {
             isChasing = false;
         }
+    }
 
+    void Move()
+    {
         if (!isGrounding)
         {
             if (body.transform.localScale == new Vector3(1, 1, 1))
