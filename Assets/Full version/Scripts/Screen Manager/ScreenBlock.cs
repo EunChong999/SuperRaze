@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Screen_Block : MonoBehaviour
+public class ScreenBlock : MonoBehaviour
 {
     public bool On;
 

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Carrot_Collision : MonoBehaviour
+public class BoxCollision : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name.Contains("Carrot"))
+        if(collision.gameObject.name.Contains("Box"))
         {
             gameObject.SetActive(false); 
         }

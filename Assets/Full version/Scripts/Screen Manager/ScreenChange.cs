@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Screen_Change : MonoBehaviour
+public class ScreenChange : MonoBehaviour
 {
     public bool On;
 
@@ -32,7 +32,7 @@ public class Screen_Change : MonoBehaviour
 
     public void ScreenChanged()
     {
-        if (CurrentScene.buildIndex + 1 < 7)
+        if (CurrentScene.buildIndex + 1 < 5)
         {
             SceneManager.LoadScene(CurrentScreenNumber + 1);
         }
