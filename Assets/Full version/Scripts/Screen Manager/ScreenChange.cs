@@ -32,7 +32,7 @@ public class ScreenChange : MonoBehaviour
 
     public void ScreenChanged()
     {
-        if (CurrentScene.buildIndex + 1 < 5)
+        if (CurrentScene.buildIndex + 1 < 7)
         {
             SceneManager.LoadScene(CurrentScreenNumber + 1);
         }
