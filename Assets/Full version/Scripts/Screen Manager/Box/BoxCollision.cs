@@ -10,7 +10,7 @@ public class BoxCollision : MonoBehaviour
         if(collision.gameObject.name.Contains("Box"))
         {
             gameObject.SetActive(false);
-            collision.gameObject.GetComponent<Rigidbody2D>().gravityScale /= 1.25f;
+            //collision.gameObject.GetComponent<Rigidbody2D>().gravityScale /= 1.25f;
         }
     }
 }

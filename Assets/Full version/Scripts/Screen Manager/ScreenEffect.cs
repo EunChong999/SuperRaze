@@ -8,7 +8,7 @@ public class ScreenEffect : MonoBehaviour
     public bool On;
     public bool Init;
 
-    public float interval = 1f;
+    public float interval;
     public GameObject EffectScreen;
 
     public Sprite[] sprites = new Sprite[4];
@@ -39,9 +39,8 @@ public class ScreenEffect : MonoBehaviour
 
             for (int i = 0; i <= 14; i++)
             {
-                interval = Random.Range(0.025f, 0.25f);
+                interval = Random.Range(0.035f, 0.35f);
                 StartCoroutine(DropBalls(interval, i));
-
             }
 
             Invoke("StopEffect", 1.25f);
