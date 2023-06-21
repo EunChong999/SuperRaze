@@ -14,6 +14,8 @@ public class ScoutingEnemyPatroller : MonoBehaviour
 
     private void Start()
     {
+        pointA.transform.parent = transform;
+        pointB.transform.parent = transform;
         currentPoint = pointB.transform;
         anim.SetBool("isRun", true);
     }

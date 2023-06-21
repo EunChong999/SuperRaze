@@ -20,6 +20,23 @@ public class ScreenChange : MonoBehaviour
         CurrentScreenName = CurrentScene.name;
     }
 
+    public void RestartScreen()
+    {
+        if (On == false)
+        {
+            On = true;
+
+            Invoke("ScreenRestarted", 1.25f);
+        }
+    }
+
+    public void ScreenRestarted()
+    {
+        SceneManager.LoadScene(CurrentScreenNumber);
+
+        On = false;
+    }
+
     public void ChangeScreen()
     {
         if(On == false)

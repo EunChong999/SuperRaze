@@ -8,6 +8,7 @@ public class PlayerTimeRewinder : MonoBehaviour
 {
     bool isRewinding = false;
 
+    public float effectDelay;
     public float recordTime = 5f;
     public float rewindSpeed = 5f;
 
@@ -27,12 +28,13 @@ public class PlayerTimeRewinder : MonoBehaviour
     void Start()
     {
         playerPointTime = new Stack<PlayerPointTime>();
-        afterImage.delay = 0.05f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        afterImage.delay = effectDelay;
+
         if (isRewinding)
         {
             Rewind();

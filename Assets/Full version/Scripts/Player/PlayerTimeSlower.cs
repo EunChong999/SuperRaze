@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class PlayerTimeSlower : MonoBehaviour
 {
+    public float effectDelay;
     [SerializeField] private float slowdownFactor = 0.5f;
     public AfterImage afterImage;
 
     private void Start()
     {
-        afterImage.delay = 0.025f;
+
     }
 
     private void Update()
     {
+        afterImage.delay = effectDelay;
+
         if (Input.GetMouseButtonDown(1))
         {
             StartSlowmotion();

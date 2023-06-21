@@ -34,40 +34,11 @@ public class TrackingEnemyChaser : MonoBehaviour
 
     private void Update()
     {
-        CreatePoint();
         CheckGround();
         CheckSpeed();
         CheckCollision();
         DecideChasing();
         Move();
-    }
-
-    void CreatePoint()
-    {
-        Vector2 frontVecA = new Vector2(patrolPoints[0].position.x, patrolPoints[0].position.y - 0.5f);
-        Debug.DrawRay(frontVecA, Vector3.down, Color.yellow);
-        RaycastHit2D rayHitA = Physics2D.Raycast(frontVecA, Vector3.down, 1, LayerMask.GetMask("Object"));
-        if (rayHitA.collider != null)
-        {
-            patrolPoints[0].Translate(new Vector2(-10, 0));
-        }
-        //else
-        //{
-        //    float vecxA = patrolPoints[0].transform.x;
-        //    ++;
-        //}
-
-        Vector2 frontVecB = new Vector2(patrolPoints[1].position.x, patrolPoints[1].position.y - 0.5f);
-        Debug.DrawRay(frontVecB, Vector3.down, Color.yellow);
-        RaycastHit2D rayHitB = Physics2D.Raycast(frontVecB, Vector3.down, 1, LayerMask.GetMask("Object"));
-        if (rayHitB.collider != null)
-        {
-            patrolPoints[1].Translate(new Vector2(10, 0));
-        }
-        //else
-        //{
-        //    patrolPoints[1].transform.x--;
-        //}
     }
 
     void CheckGround()
@@ -114,6 +85,7 @@ public class TrackingEnemyChaser : MonoBehaviour
     {
         if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance &&
             ((playerTransform.position.y + 6) - body.transform.position.y) > 0 &&
+            Mathf.Abs(body.transform.position.y - playerTransform.position.y) < chaseDistance / 2 &&
             isGrounding &&
             playerTransform.transform.position.x > patrolPoints[0].position.x &&
             playerTransform.transform.position.x < patrolPoints[1].position.x)

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-     // Move
-    private float horizontal;
+    // Move
+    [HideInInspector] public float horizontal;
     [HideInInspector] public float movingSpeed = 14f;
     private float movingSpeedTemp;
 
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask objectLayer;
+    [SerializeField] private PlayerCollisionChecker collisionChecker;
 
     private void Start()
     {
@@ -76,7 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(!isWallJumping)
+        if(!isWallJumping && !collisionChecker.isCollision)
         {
             rb.velocity = new Vector2(horizontal * movingSpeed, rb.velocity.y);
         }
