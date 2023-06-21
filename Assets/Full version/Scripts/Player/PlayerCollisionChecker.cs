@@ -16,20 +16,31 @@ public class PlayerCollisionChecker : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Ãæµ¹!");
-            collisonObject = collision.gameObject;
-            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
-
             if(!isCollision)
             {
-                isCollision = true;
+                collisonObject = collision.gameObject;
+                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
+                OnDamaged(collision.gameObject);
                 Invoke("StartDamage", 1f);
+                isCollision = true;
             }
         }
     }
 
+    void OnDamaged(GameObject target)
+    {
+        gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);
+
+        Vector2 targetpos = target.transform.position;
+
+        int dirc = gameObject.GetComponentInParent<Transform>().position.x - targetpos.x > 0 ? 1 : -1;
+
+        gameObject.GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(dirc, 1) * 70, ForceMode2D.Impulse);
+    }
+
     private void StartDamage()
     {
+        gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Physics2D.IgnoreCollision(collisonObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), false);
         isCollision = false;
     }

@@ -49,7 +49,6 @@ public class ScreenEffect : MonoBehaviour
 
     private IEnumerator DropBalls(float interval, int i)
     {
-        Debug.Log(interval);
         yield return new WaitForSeconds(interval);
         Boxes[i].gameObject.SetActive(true);
         Boxes_End_Position[i].gameObject.SetActive(true);

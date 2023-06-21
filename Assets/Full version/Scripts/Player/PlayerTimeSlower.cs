@@ -16,13 +16,11 @@ public class PlayerTimeSlower : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            afterImage.makeImage = true;
             StartSlowmotion();
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            Invoke("StopAfterImage", 0.5f);
             StopSlowmotion();
         }
     }
@@ -34,11 +32,14 @@ public class PlayerTimeSlower : MonoBehaviour
 
     private void StartSlowmotion()
     {
+        CancelInvoke();
+        afterImage.makeImage = true;
         Time.timeScale = slowdownFactor;
     }
 
     private void StopSlowmotion()
     {
+        Invoke("StopAfterImage", 0.5f);
         Time.timeScale = 1;
     }
 }

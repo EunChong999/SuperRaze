@@ -44,13 +44,11 @@ public class PlayerTimeRewinder : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            afterImage.makeImage = true;
             StartRewind();
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            afterImage.makeImage = false;
             StopRewind();
         }
     }
@@ -91,12 +89,16 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     void Record()
     {
-        playerPointTime.Push(new PlayerPointTime(body.transform.position, body.transform.rotation));
+        if (rb.velocity.x != 0 && rb.velocity.y != 0)
+        {
+            playerPointTime.Push(new PlayerPointTime(body.transform.position, body.transform.rotation));
+        }
     }
 
 
     public void StartRewind()
     {
+        afterImage.makeImage = true;
         isRewinding = true;
         rb.isKinematic = true;
 
@@ -113,6 +115,7 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     public void StopRewind()
     {
+        afterImage.makeImage = false;
         curTime = 0;
         playerPointTime.Clear();
         isRewinding = false;

@@ -24,6 +24,8 @@ public class TrackingEnemyChaser : MonoBehaviour
 
     private void Start()
     {
+        patrolPoints[0].parent = transform;
+        patrolPoints[1].parent = transform;
         isChasing = false;
         animator.SetBool("isRun", true);
         movingSpeedTemp = movingSpeed;
@@ -42,25 +44,30 @@ public class TrackingEnemyChaser : MonoBehaviour
 
     void CreatePoint()
     {
-
-        //patrolPoints[0] =
-        //patrolPoints[1] =
-
-        //float x = body.transform.localScale.x;
-        //Vector2 frontVec = new Vector2(rb.position.x + x / 10, rb.position.y - 0.5f);
-        //Debug.DrawRay(frontVec, Vector3.down, Color.yellow);
-        //RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Object"));
-        //if (rayHit.collider == null)
-        //{
-        //    isGrounding = false;
-        //}
+        Vector2 frontVecA = new Vector2(patrolPoints[0].position.x, patrolPoints[0].position.y - 0.5f);
+        Debug.DrawRay(frontVecA, Vector3.down, Color.yellow);
+        RaycastHit2D rayHitA = Physics2D.Raycast(frontVecA, Vector3.down, 1, LayerMask.GetMask("Object"));
+        if (rayHitA.collider != null)
+        {
+            patrolPoints[0].Translate(new Vector2(-10, 0));
+        }
         //else
         //{
-        //    isGrounding = true;
+        //    float vecxA = patrolPoints[0].transform.x;
+        //    ++;
         //}
 
-        //patrolPoints[0] =
-        //patrolPoints[1] =
+        Vector2 frontVecB = new Vector2(patrolPoints[1].position.x, patrolPoints[1].position.y - 0.5f);
+        Debug.DrawRay(frontVecB, Vector3.down, Color.yellow);
+        RaycastHit2D rayHitB = Physics2D.Raycast(frontVecB, Vector3.down, 1, LayerMask.GetMask("Object"));
+        if (rayHitB.collider != null)
+        {
+            patrolPoints[1].Translate(new Vector2(10, 0));
+        }
+        //else
+        //{
+        //    patrolPoints[1].transform.x--;
+        //}
     }
 
     void CheckGround()
