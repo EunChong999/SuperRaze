@@ -15,6 +15,7 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     public Rigidbody2D rb;
     public GameObject body;
+    public AfterImage afterImage;
 
     private Vector3 targetPosition;
     private Vector3 previousPosition;
@@ -26,6 +27,7 @@ public class PlayerTimeRewinder : MonoBehaviour
     void Start()
     {
         playerPointTime = new Stack<PlayerPointTime>();
+        afterImage.delay = 0.05f;
     }
 
     // Update is called once per frame
@@ -41,9 +43,16 @@ public class PlayerTimeRewinder : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(1))
+        {
+            afterImage.makeImage = true;
             StartRewind();
+        }
+
         if (Input.GetMouseButtonUp(1))
+        {
+            afterImage.makeImage = false;
             StopRewind();
+        }
     }
 
     void Rewind()

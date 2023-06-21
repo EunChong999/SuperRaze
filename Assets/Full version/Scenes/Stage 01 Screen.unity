@@ -4792,6 +4792,7 @@ GameObject:
   - component: {fileID: 1078598598}
   - component: {fileID: 1078598600}
   - component: {fileID: 1078598603}
+  - component: {fileID: 1078598604}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4873,6 +4874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowdownFactor: 0.25
+  afterImage: {fileID: 1078598604}
 --- !u!114 &1078598602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,6 +4903,22 @@ MonoBehaviour:
   rewindSpeed: 5
   rb: {fileID: 742388136}
   body: {fileID: 742388131}
+  afterImage: {fileID: 1078598604}
+--- !u!114 &1078598604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078598595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bc8852a5b9f50419622ad350d71219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.025
+  image: {fileID: 9049305401556371929, guid: 488b019cbc6569f4d9475472f74f0c59, type: 3}
+  makeImage: 0
 --- !u!1 &1088707606
 GameObject:
   m_ObjectHideFlags: 0
