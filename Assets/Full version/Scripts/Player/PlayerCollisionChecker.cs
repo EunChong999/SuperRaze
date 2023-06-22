@@ -24,18 +24,10 @@ public class PlayerCollisionChecker : MonoBehaviour
         {
             if (!isCollision)
             {
-                if (gameObject.GetComponentInParent<PlayerController>().horizontal != 0)
-                {
-                    isCollision = false;
-                }
-                else
-                {
-                    collisionObject = collision.gameObject;
-                    Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
-                    Invoke("StartDamage", 1);
-                    OnDamaged(collision.gameObject);
-                    isCollision = true;
-                }
+                collisionObject = collision.gameObject;
+                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
+                OnDamaged(collision.gameObject);
+                isCollision = true;
             }
         }
     }
@@ -45,8 +37,18 @@ public class PlayerCollisionChecker : MonoBehaviour
         gameObject.GetComponentInParent<Rigidbody2D>().sharedMaterial = null;
         gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);
         Vector2 targetpos = target.GetComponentInParent<Transform>().position;
-        int dirc = gameObject.GetComponentInParent<Transform>().position.x - targetpos.x > 0 ? 1 : -1;
-        gameObject.GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(dirc, 1) * 70, ForceMode2D.Impulse);
+
+        if(target.name.Contains("Trap"))
+        {
+            gameObject.GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(0, 1) * 70, ForceMode2D.Impulse);
+        }
+        else
+        {
+            int dirc = gameObject.GetComponentInParent<Transform>().position.x - targetpos.x > 0 ? 1 : -1;
+            gameObject.GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(dirc, 1) * 70, ForceMode2D.Impulse);
+        }
+
+        Invoke("StartDamage", 1);
     }
 
     private void StartDamage()

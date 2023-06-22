@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask objectLayer;
-    [SerializeField] private PlayerCollisionChecker collisionChecker;
+    //[SerializeField] private PlayerCollisionChecker collisionChecker;
 
     private void Start()
     {
@@ -77,9 +77,9 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(!isWallJumping && !collisionChecker.isCollision)
+        if(!isWallJumping)
         {
-            rb.velocity = new Vector2(horizontal * movingSpeed, rb.velocity.y);
+            rb.velocity += new Vector2(horizontal * movingSpeed, rb.velocity.y);
         }
 
         if (horizontal != 0)

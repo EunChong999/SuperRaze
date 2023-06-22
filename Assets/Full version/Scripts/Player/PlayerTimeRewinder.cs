@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerTimeRewinder : MonoBehaviour
 {
-    bool isRewinding = false;
+    [HideInInspector] public bool isRewinding = false;
 
     public float effectDelay;
     public float recordTime = 5f;
