@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     // Move
     [HideInInspector] public float horizontal;
-    [HideInInspector] public float movingSpeed = 14f;
+    public float movingSpeed = 7f;
     private float movingSpeedTemp;
 
     // Jump
-    [HideInInspector] public float jumpingPower = 14f;
+    public float jumpingPower = 7f;
     private bool doubleJump;
 
     // Flip
@@ -18,12 +18,12 @@ public class PlayerController : MonoBehaviour
 
     // WallSlide
     private bool isWallSliding;
-    [HideInInspector] public float wallSlidingSpeed = 2f;
+    public float wallSlidingSpeed = 2f;
 
     // WallJump
     private bool isWallJumping;
     private float wallJumpingDirection;
-    [HideInInspector] public float wallJumpingPower = 14f;
+    public float wallJumpingPower = 7f;
     private float wallJumpingTime = 0.2f;
     [HideInInspector] public float wallJumpingCounter;
     [HideInInspector] public Vector2 wallJumpingVector = new Vector2(1f, 2f);
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         if(!isWallJumping)
         {
-            rb.velocity += new Vector2(horizontal * movingSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontal * movingSpeed, rb.velocity.y);
         }
 
         if (horizontal != 0)
