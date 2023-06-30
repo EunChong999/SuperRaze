@@ -13,11 +13,30 @@ public class ScreenChange : MonoBehaviour
 
     public Scene CurrentScene;
 
+    public List<GameObject> ScreenUI;
+
     private void Update()
     {
         CurrentScene = SceneManager.GetActiveScene();
         CurrentScreenNumber = CurrentScene.buildIndex;
         CurrentScreenName = CurrentScene.name;
+
+        ManageScreenUI();
+    }
+
+    private void ManageScreenUI()
+    {
+        for(int i = 0; i < ScreenUI.Count; i++)
+        {
+            if (i == CurrentScreenNumber) 
+            {
+                ScreenUI[i].SetActive(true);
+            }
+            else
+            {
+                ScreenUI[i].SetActive(false);
+            }
+        }
     }
 
     public void RestartScreen()
