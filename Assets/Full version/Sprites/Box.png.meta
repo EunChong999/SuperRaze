@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57ce25e4132cff346b5caab564d9d901
+      spriteID: af3bf65d81ca9154e91a4b8be48b7f93
       internalID: 670887224
       vertices: []
       indices: 
@@ -184,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5d846337a9d6ba438d0615c47fbe0c9
+      spriteID: e7586ccb4585bcd41bfd1246372b8714
       internalID: -550550424
       vertices: []
       indices: 
@@ -205,8 +205,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45fdb1f264bb97c4cbacc63135a08095
+      spriteID: 4707ad9f1e0aaee4d9150b6d3124e300
       internalID: -133615043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4708f2131533a949bae084bc84d899e
+      internalID: -637343528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa00c3c94e76c5438a6397135a5d062
+      internalID: -1129443803
       vertices: []
       indices: 
       edges: []
@@ -222,6 +264,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Box_5: -1129443803
+      Box_4: -637343528
       Box_3: -133615043
       Box_2: -550550424
       Box_0: 499012835

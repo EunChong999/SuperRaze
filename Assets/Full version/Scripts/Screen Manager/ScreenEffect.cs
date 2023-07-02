@@ -1,6 +1,9 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Device;
 using UnityEngine.SceneManagement;
 
 public class ScreenEffect : MonoBehaviour
@@ -9,12 +12,20 @@ public class ScreenEffect : MonoBehaviour
     public bool Init;
 
     public float interval;
+    public ScreenChange ScreenChange;
     public GameObject EffectScreen;
 
-    public Sprite[] sprites = new Sprite[4];
+    public UnityEngine.UI.Image blockImage; 
+    public Sprite[] sprites = new Sprite[3];
+    public GameObject[] backgrounds = new GameObject[3];
     public GameObject[] Boxes;
     public Transform[] Boxes_Start_Position;
     public Transform[] Boxes_End_Position;
+
+    private void Update()
+    {
+        
+    }
 
     public void AffectScreen()
     {
@@ -23,19 +34,60 @@ public class ScreenEffect : MonoBehaviour
             On = true;
 
             EffectScreen.SetActive(true);
-
-            if (!Init)
+            
+            for (int i = 0; i <= 14; i++)
             {
-                for (int i = 0; i <= 14; i++)
+                if (!Init) 
                 {
                     Boxes[i] = GameObject.Find("Box " + "(" + (i + 1).ToString() + ")").gameObject;
                     Boxes_Start_Position[i] = GameObject.Find("Box Start Position " + "(" + (i + 1).ToString() + ")").transform;
                     Boxes_End_Position[i] = GameObject.Find("Box End Position " + "(" + (i + 1).ToString() + ")").transform;
-                    Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[0];
                 }
 
-                Init = true;
+                switch (ScreenChange.CurrentScreenNumber)
+                { 
+                    case 0: // 인트로
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[0];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                        break;
+                    case 1: // 메인
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[1];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[1].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[1].GetComponent<SpriteRenderer>().color;
+                        break;
+                    case 2: // 스테이지 1
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[1];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[1].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[1].GetComponent<SpriteRenderer>().color;
+                        break;
+                    case 3: // 스테이지 1 스코어
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[2];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                        break;
+                    case 4: // 스테이지 2
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[2];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                        break;
+                    case 5: // 스테이지 2 스코어
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[0];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                        break;
+                    case 6: // 엔딩
+                        Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[0];
+                        Boxes[i].transform.GetChild(1).GetComponent<SpriteRenderer>().color = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                        blockImage.color = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                        break;
+                    default: 
+                        break;
+                }
             }
+
+            Init = true;
+            
 
             for (int i = 0; i <= 14; i++)
             {
