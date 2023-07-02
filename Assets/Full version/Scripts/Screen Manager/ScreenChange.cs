@@ -79,4 +79,28 @@ public class ScreenChange : MonoBehaviour
 
         On = false;
     }
+
+    public void BackScreen()
+    {
+        if (On == false)
+        {
+            On = true;
+
+            Invoke("ScreenBacked", 1.25f);
+        }
+    }
+
+    public void ScreenBacked()
+    {
+        if (CurrentScene.buildIndex + 1 < 7)
+        {
+            SceneManager.LoadScene(CurrentScreenNumber - 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        On = false;
+    }
 }
