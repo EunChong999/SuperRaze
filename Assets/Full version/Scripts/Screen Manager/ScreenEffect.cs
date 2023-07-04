@@ -12,6 +12,7 @@ public class ScreenEffect : MonoBehaviour
     public bool Init;
 
     public float interval;
+    public Camera camera;
     public ScreenChange ScreenChange;
     public GameObject EffectScreen;
 
@@ -24,7 +25,32 @@ public class ScreenEffect : MonoBehaviour
 
     private void Update()
     {
-        
+        switch (ScreenChange.CurrentScreenNumber)
+        {
+            case 0: // 인트로
+                camera.backgroundColor = new Color32(38, 43, 68, 255);
+                break;
+            case 1: // 메인
+                camera.backgroundColor = new Color32(38, 43, 68, 255);
+                break;
+            case 2: // 스테이지 1
+                camera.backgroundColor = new Color32(38, 38, 38, 255);
+                break;
+            case 3: // 스테이지 1 스코어
+                camera.backgroundColor = new Color32(38, 38, 38, 255);
+                break;
+            case 4: // 스테이지 2
+                camera.backgroundColor = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                break;
+            case 5: // 스테이지 2 스코어
+                camera.backgroundColor = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                break;
+            case 6: // 엔딩
+                camera.backgroundColor = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                break;
+            default:
+                break;
+        }
     }
 
     public void AffectScreen()

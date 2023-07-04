@@ -15975,6 +15975,7 @@ MonoBehaviour:
   On: 0
   Init: 0
   interval: 1
+  camera: {fileID: 1992086260}
   ScreenChange: {fileID: 2099438390}
   EffectScreen: {fileID: 1634079469}
   blockImage: {fileID: 703242043}
