@@ -630,7 +630,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -650,7 +650,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -3605,7 +3605,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -4791,7 +4791,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -8026,7 +8026,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8046,7 +8046,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -8223,7 +8223,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 981382138}
+  - {fileID: 834745817}
+  - {fileID: 1074367648}
+  - {fileID: 1936766345}
+  - {fileID: 1552452868}
   m_Father: {fileID: 1834304791}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8284,7 +8287,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -9159,10 +9162,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1076095104}
   - {fileID: 1154381588}
   - {fileID: 1984334680}
   - {fileID: 1419686824}
-  - {fileID: 1076095104}
   m_Father: {fileID: 1078598596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9737,11 +9740,11 @@ RectTransform:
   m_GameObject: {fileID: 834745816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1922012790}
-  m_Father: {fileID: 981382138}
+  m_Father: {fileID: 672732642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9820,6 +9823,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1929927735}
         m_TargetAssemblyTypeName: ScreenBlock, Assembly-CSharp
         m_MethodName: BlockScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1929927739}
+        m_TargetAssemblyTypeName: ScreenTimer, Assembly-CSharp
+        m_MethodName: MoveTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11195,46 +11210,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &981382137
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 981382138}
-  m_Layer: 5
-  m_Name: Main Screen Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &981382138
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981382137}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 834745817}
-  - {fileID: 1074367648}
-  - {fileID: 1936766345}
-  - {fileID: 1552452868}
-  m_Father: {fileID: 672732642}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &994075515
 GameObject:
   m_ObjectHideFlags: 0
@@ -11739,7 +11714,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -12281,11 +12256,11 @@ RectTransform:
   m_GameObject: {fileID: 1074367647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1562405058}
-  m_Father: {fileID: 981382138}
+  m_Father: {fileID: 672732642}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12418,7 +12393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 742388132}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1076095105
 BoxCollider2D:
@@ -12469,6 +12444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1078598596}
+  - component: {fileID: 1078598605}
   - component: {fileID: 1078598599}
   - component: {fileID: 1078598598}
   - component: {fileID: 1078598600}
@@ -12558,6 +12534,7 @@ MonoBehaviour:
   slowdownFactor: 0.25
   afterImage: {fileID: 1078598604}
   isSlowering: 0
+  isTimeStopped: 0
 --- !u!114 &1078598604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12573,6 +12550,19 @@ MonoBehaviour:
   delay: 0.025
   image: {fileID: 9049305401556371929, guid: 488b019cbc6569f4d9475472f74f0c59, type: 3}
   makeImage: 0
+--- !u!114 &1078598605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078598595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf09908e96e748c419b65d1df0cef828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physicsMaterial: {fileID: 6200000, guid: d9341aa251454214da280bf2aa6eec77, type: 2}
 --- !u!1 &1082419166
 GameObject:
   m_ObjectHideFlags: 0
@@ -12966,7 +12956,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 742388132}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1162001687
 GameObject:
@@ -15586,7 +15576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 742388132}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436593381
 GameObject:
@@ -15876,7 +15866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -16602,11 +16592,11 @@ RectTransform:
   m_GameObject: {fileID: 1552452867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 347223567}
-  m_Father: {fileID: 981382138}
+  m_Father: {fileID: 672732642}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -18998,7 +18988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -19032,6 +19022,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1166026503}
         m_TargetAssemblyTypeName: UIEffect, Assembly-CSharp
         m_MethodName: PanelFadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1929927739}
+        m_TargetAssemblyTypeName: ScreenTimer, Assembly-CSharp
+        m_MethodName: StopTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19569,7 +19571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -19603,6 +19605,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1166026503}
         m_TargetAssemblyTypeName: UIEffect, Assembly-CSharp
         m_MethodName: PanelFadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1929927739}
+        m_TargetAssemblyTypeName: ScreenTimer, Assembly-CSharp
+        m_MethodName: MoveTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19659,6 +19673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929927738}
+  - component: {fileID: 1929927739}
   - component: {fileID: 1929927737}
   - component: {fileID: 1929927736}
   - component: {fileID: 1929927735}
@@ -19686,7 +19701,7 @@ MonoBehaviour:
   CurrentTime: 0
   Block_Screen: {fileID: 1870214465}
   Main_Screen:
-  - {fileID: 981382137}
+  - {fileID: 0}
   - {fileID: 1952191319}
   Release_Start_Position: {fileID: 1631795528}
   Release_End_Position: {fileID: 1084571885}
@@ -19803,6 +19818,19 @@ Transform:
   m_Father: {fileID: 1258988485}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929927739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929927734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b019e793f19b4d4e856df86d69b4893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimeStop: 0
 --- !u!1 &1935681823
 GameObject:
   m_ObjectHideFlags: 0
@@ -20136,11 +20164,11 @@ RectTransform:
   m_GameObject: {fileID: 1936766344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 321260561}
-  m_Father: {fileID: 981382138}
+  m_Father: {fileID: 672732642}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -20567,7 +20595,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 742388132}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995964334
 GameObject:
@@ -20778,7 +20806,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -20798,7 +20826,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1258988486}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

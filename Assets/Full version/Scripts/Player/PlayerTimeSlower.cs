@@ -8,6 +8,7 @@ public class PlayerTimeSlower : MonoBehaviour
     [SerializeField] private float slowdownFactor = 0.5f;
     public AfterImage afterImage;
     [HideInInspector] public bool isSlowering;
+    [HideInInspector] public bool isTimeStopped;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class PlayerTimeSlower : MonoBehaviour
             StartSlowmotion();
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) && !isTimeStopped)
         {
             StopSlowmotion();
         }
