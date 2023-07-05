@@ -25,8 +25,8 @@ public class FirstPlayerManager : MonoBehaviour
             gameObject.GetComponent<PlayerController>().enabled = false;
             gameObject.GetComponent<PlayerShooter>().enabled = false;
             gameObject.GetComponent<PlayerTimeSlower>().enabled = false;
-            gameObject.GetComponent<PlayerTimeSlower>().isTimeStopped = true;
             gameObject.GetComponent<AfterImage>().enabled = false;
+            gameObject.GetComponent<AfterImage>().makeImage = false;
         }
         else
         {
@@ -36,7 +36,6 @@ public class FirstPlayerManager : MonoBehaviour
             gameObject.GetComponent<PlayerController>().enabled = true;
             gameObject.GetComponent<PlayerShooter>().enabled = true;
             gameObject.GetComponent<PlayerTimeSlower>().enabled = true;
-            gameObject.GetComponent<PlayerTimeSlower>().isTimeStopped = false;
             gameObject.GetComponent<AfterImage>().enabled = true;
         }
     }
