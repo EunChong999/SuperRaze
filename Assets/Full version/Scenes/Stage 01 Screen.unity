@@ -12875,6 +12875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1150693409}
+  - component: {fileID: 1150693411}
   - component: {fileID: 1150693410}
   m_Layer: 0
   m_Name: S1 Tracking Enemy 1
@@ -12926,6 +12927,18 @@ MonoBehaviour:
   isGrounding: 0
   isUnGrounded: 0
   chaseDistance: 15
+--- !u!114 &1150693411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150693408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15ce60517a2871498e457cc8b1dcf4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1154381587
 GameObject:
   m_ObjectHideFlags: 0
@@ -13304,6 +13317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1186210861}
+  - component: {fileID: 1186210863}
   - component: {fileID: 1186210862}
   m_Layer: 0
   m_Name: S1 Scouting Enemy 1
@@ -13346,6 +13360,18 @@ MonoBehaviour:
   body: {fileID: 244205646}
   anim: {fileID: 244205651}
   movingSpeed: 1
+--- !u!114 &1186210863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186210860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225cd2e6b6f680e4ba7190b612a65f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187963897
 GameObject:
   m_ObjectHideFlags: 0
@@ -19720,9 +19746,15 @@ MonoBehaviour:
   Init: 0
   interval: 1
   camera: {fileID: 1258988486}
-  ScreenChange: {fileID: 1929927737}
-  EffectScreen: {fileID: 1707452575}
+  screenChange: {fileID: 0}
+  effectScreen: {fileID: 0}
   blockImage: {fileID: 1839869807}
+  overlay: 0
+  spaceCamera: 0
+  canvas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sprites:
   - {fileID: -637343528, guid: d6d0589a625314d4bb5715a98f889eaa, type: 3}
   - {fileID: 499012835, guid: d6d0589a625314d4bb5715a98f889eaa, type: 3}
@@ -19791,7 +19823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459794549be32fa47916fe7c1fb29d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
+  on: 0
   CurrentScreenNumber: 0
   CurrentScreenName: 
   CurrentScene:
