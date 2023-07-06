@@ -21,6 +21,7 @@ public class FirstPlayerManager : MonoBehaviour
         {
             transform.GetChild(0).GetChild(0).GetComponent<PlayerCollisionChecker>().enabled = false;
             transform.GetChild(0).GetComponent<Rigidbody2D>().sharedMaterial = null;
+            transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
             gameObject.GetComponent<PlayerShooter>().enabled = false;
@@ -32,6 +33,7 @@ public class FirstPlayerManager : MonoBehaviour
         {
             transform.GetChild(0).GetChild(0).GetComponent<PlayerCollisionChecker>().enabled = true;
             transform.GetChild(0).GetComponent<Rigidbody2D>().sharedMaterial = physicsMaterial;
+            transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<PlayerController>().enabled = true;
             gameObject.GetComponent<PlayerShooter>().enabled = true;
