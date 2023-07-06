@@ -7782,9 +7782,16 @@ MonoBehaviour:
   Init: 0
   interval: 1
   camera: {fileID: 1089728183}
-  ScreenChange: {fileID: 982823545}
-  EffectScreen: {fileID: 1425876987}
+  screenChange: {fileID: 982823545}
+  screenBlock: {fileID: 982823543}
+  effectScreen: {fileID: 1425876987}
   blockImage: {fileID: 542611634}
+  overlay: 0
+  spaceCamera: 1
+  canvas:
+  - {fileID: 1508909568}
+  - {fileID: 2006499426}
+  - {fileID: 1110734323}
   sprites:
   - {fileID: -637343528, guid: d6d0589a625314d4bb5715a98f889eaa, type: 3}
   - {fileID: 499012835, guid: d6d0589a625314d4bb5715a98f889eaa, type: 3}
@@ -7853,7 +7860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459794549be32fa47916fe7c1fb29d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
+  on: 0
   CurrentScreenNumber: 0
   CurrentScreenName: 
   CurrentScene:

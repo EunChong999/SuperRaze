@@ -13,10 +13,13 @@ public class ScreenEffect : MonoBehaviour
 
     public float interval;
     public Camera camera;
-    public ScreenChange ScreenChange;
-    public GameObject EffectScreen;
+    public ScreenChange screenChange;
+    public GameObject effectScreen;
 
-    public UnityEngine.UI.Image blockImage; 
+    public UnityEngine.UI.Image blockImage;
+    public RenderMode overlay;
+    public RenderMode spaceCamera;
+    public Canvas[] canvas = new Canvas[3];
     public Sprite[] sprites = new Sprite[3];
     public GameObject[] backgrounds = new GameObject[3];
     public GameObject[] Boxes;
@@ -25,7 +28,7 @@ public class ScreenEffect : MonoBehaviour
 
     private void Update()
     {
-        switch (ScreenChange.CurrentScreenNumber)
+        switch (screenChange.CurrentScreenNumber)
         {
             case 0: // 인트로
                 camera.backgroundColor = new Color32(38, 43, 68, 255);
@@ -35,12 +38,36 @@ public class ScreenEffect : MonoBehaviour
                 break;
             case 2: // 스테이지 1
                 camera.backgroundColor = new Color32(38, 38, 38, 255);
+                if (screenChange.on)
+                {
+                    canvas[0].renderMode = spaceCamera;
+                    canvas[1].renderMode = spaceCamera;
+                    canvas[2].renderMode = spaceCamera;
+                }
+                else
+                {
+                    canvas[0].renderMode = overlay;
+                    canvas[1].renderMode = overlay;
+                    canvas[2].renderMode = overlay;
+                }
                 break;
             case 3: // 스테이지 1 스코어
                 camera.backgroundColor = new Color32(38, 38, 38, 255);
                 break;
             case 4: // 스테이지 2
                 camera.backgroundColor = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                if (screenChange.on)
+                {
+                    canvas[0].renderMode = spaceCamera;
+                    canvas[1].renderMode = spaceCamera;
+                    canvas[2].renderMode = spaceCamera;
+                }
+                else
+                {
+                    canvas[0].renderMode = overlay;
+                    canvas[1].renderMode = overlay;
+                    canvas[2].renderMode = overlay;
+                }
                 break;
             case 5: // 스테이지 2 스코어
                 camera.backgroundColor = backgrounds[0].GetComponent<SpriteRenderer>().color;
@@ -59,7 +86,7 @@ public class ScreenEffect : MonoBehaviour
         {
             On = true;
 
-            EffectScreen.SetActive(true);
+            effectScreen.SetActive(true);
             
             for (int i = 0; i <= 14; i++)
             {
@@ -70,7 +97,7 @@ public class ScreenEffect : MonoBehaviour
                     Boxes_End_Position[i] = GameObject.Find("Box End Position " + "(" + (i + 1).ToString() + ")").transform;
                 }
 
-                switch (ScreenChange.CurrentScreenNumber)
+                switch (screenChange.CurrentScreenNumber)
                 { 
                     case 0: // 인트로
                         Boxes[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites[0];
@@ -143,6 +170,6 @@ public class ScreenEffect : MonoBehaviour
             Boxes[i].gameObject.SetActive(false);
         }
 
-        EffectScreen.SetActive(false);
+        effectScreen.SetActive(false);
     }
 }

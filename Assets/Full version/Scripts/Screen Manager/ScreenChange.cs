@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenChange : MonoBehaviour
 {
-    public bool On;
+    public bool on;
 
     public int CurrentScreenNumber;
 
@@ -41,9 +41,9 @@ public class ScreenChange : MonoBehaviour
 
     public void RestartScreen()
     {
-        if (On == false)
+        if (on == false)
         {
-            On = true;
+            on = true;
 
             Invoke("ScreenRestarted", 1.25f);
         }
@@ -53,14 +53,14 @@ public class ScreenChange : MonoBehaviour
     {
         SceneManager.LoadScene(CurrentScreenNumber);
 
-        On = false;
+        on = false;
     }
 
     public void ChangeScreen()
     {
-        if(On == false)
+        if(on == false)
         {
-            On = true;
+            on = true;
 
             Invoke("ScreenChanged", 1.25f);
         }
@@ -77,14 +77,14 @@ public class ScreenChange : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        On = false;
+        on = false;
     }
 
     public void BackScreen()
     {
-        if (On == false)
+        if (on == false)
         {
-            On = true;
+            on = true;
 
             Invoke("ScreenBacked", 1.25f);
         }
@@ -101,6 +101,6 @@ public class ScreenChange : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        On = false;
+        on = false;
     }
 }
