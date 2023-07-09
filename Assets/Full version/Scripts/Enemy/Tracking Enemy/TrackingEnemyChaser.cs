@@ -6,17 +6,15 @@ using UnityEngine;
 public class TrackingEnemyChaser : MonoBehaviour
 {
     public GameObject body;
-    public PlayerController playerController;
     public Rigidbody2D rb;
     public Animator animator;
     public Transform[] patrolPoints;
     [SerializeField] private float movingSpeed;
-    private float movingSpeedTemp;
     [SerializeField] private float chasingSpeed;
     private float chasingSpeedTemp;
     public int patrolDestination;
 
-    public Transform playerTransform;
+    private Transform playerTransform;
     public bool isChasing;
     public bool isGrounding;
     public bool isUnGrounded;
@@ -24,11 +22,11 @@ public class TrackingEnemyChaser : MonoBehaviour
 
     private void Start()
     {
+        playerTransform = GameObject.Find("Player").transform.GetChild(0);
         patrolPoints[0].parent = transform;
         patrolPoints[1].parent = transform;
         isChasing = false;
         animator.SetBool("isRun", true);
-        movingSpeedTemp = movingSpeed;
         chasingSpeedTemp = chasingSpeed;
     }
 
@@ -88,7 +86,8 @@ public class TrackingEnemyChaser : MonoBehaviour
             Mathf.Abs(body.transform.position.y - playerTransform.position.y) < chaseDistance / 2 &&
             isGrounding &&
             playerTransform.transform.position.x > patrolPoints[0].position.x &&
-            playerTransform.transform.position.x < patrolPoints[1].position.x)
+            playerTransform.transform.position.x < patrolPoints[1].position.x 
+/*            playerTransform.gameObject.layer == 7*/)
         {
             isChasing = true;
         }
