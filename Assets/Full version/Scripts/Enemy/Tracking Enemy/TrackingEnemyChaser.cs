@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrackingEnemyChaser : MonoBehaviour
@@ -8,7 +7,11 @@ public class TrackingEnemyChaser : MonoBehaviour
     public GameObject body;
     public Rigidbody2D rb;
     public Animator animator;
-    public Transform[] patrolPoints;
+    [SerializeField] private Transform pointA;
+    private Vector3 pointAtf;
+    [SerializeField] private Transform pointB;
+    private Vector3 pointBtf;
+    private Vector3 currentTransform;
     [SerializeField] private float movingSpeed;
     [SerializeField] private float chasingSpeed;
     private float chasingSpeedTemp;
@@ -22,9 +25,28 @@ public class TrackingEnemyChaser : MonoBehaviour
 
     private void Start()
     {
+        // 속도 랜덤 지정
+        movingSpeed = Random.Range(2.5f, 7.5f);
+        chasingSpeed = Random.Range(5.0f, 10.0f);
+
+        // 플레이어 오브젝트 찾기 및 시작점과 끝점을 부모로부터 해방
         playerTransform = GameObject.Find("Player").transform.GetChild(0);
-        patrolPoints[0].parent = transform;
-        patrolPoints[1].parent = transform;
+        pointA.parent = transform;
+        pointB.parent = transform;
+
+        // 시작점과 끝점을 할당
+        pointAtf = pointA.position;
+        pointBtf = pointB.position;
+        pointAtf.x = transform.parent.GetChild(0).position.x;
+        pointBtf.x = transform.parent.GetChild(1).position.x;
+        pointA.position = pointAtf;
+        pointB.position = pointBtf;
+
+        // 일정 범위 사이의 랜덤 위치 지정
+        currentTransform = transform.GetChild(0).transform.position;
+        currentTransform.x = Random.Range(pointA.position.x, pointB.position.x);
+        transform.GetChild(0).transform.position = currentTransform;
+
         isChasing = false;
         animator.SetBool("isRun", true);
         chasingSpeedTemp = chasingSpeed;
@@ -85,9 +107,8 @@ public class TrackingEnemyChaser : MonoBehaviour
             ((playerTransform.position.y + 6) - body.transform.position.y) > 0 &&
             Mathf.Abs(body.transform.position.y - playerTransform.position.y) < chaseDistance / 2 &&
             isGrounding &&
-            playerTransform.transform.position.x > patrolPoints[0].position.x &&
-            playerTransform.transform.position.x < patrolPoints[1].position.x 
-/*            playerTransform.gameObject.layer == 7*/)
+            playerTransform.transform.position.x > pointA.position.x &&
+            playerTransform.transform.position.x < pointB.position.x)
         {
             isChasing = true;
         }
@@ -144,8 +165,8 @@ public class TrackingEnemyChaser : MonoBehaviour
 
                 if (patrolDestination == 0)
                 {
-                    body.transform.position = Vector2.MoveTowards(body.transform.position, patrolPoints[0].position, movingSpeed * Time.deltaTime);
-                    if (Vector2.Distance(body.transform.position, patrolPoints[0].position) < .2f)
+                    body.transform.position = Vector2.MoveTowards(body.transform.position, pointA.position, movingSpeed * Time.deltaTime);
+                    if (Vector2.Distance(body.transform.position, pointA.position) < .2f)
                     {
                         body.transform.localScale = new Vector3(1, 1, 1);
                         patrolDestination = 1;
@@ -153,8 +174,8 @@ public class TrackingEnemyChaser : MonoBehaviour
                 }
                 if (patrolDestination == 1)
                 {
-                    body.transform.position = Vector2.MoveTowards(body.transform.position, patrolPoints[1].position, movingSpeed * Time.deltaTime);
-                    if (Vector2.Distance(body.transform.position, patrolPoints[1].position) < .2f)
+                    body.transform.position = Vector2.MoveTowards(body.transform.position, pointB.position, movingSpeed * Time.deltaTime);
+                    if (Vector2.Distance(body.transform.position, pointB.position) < .2f)
                     {
                         body.transform.localScale = new Vector3(-1, 1, 1);
                         patrolDestination = 0;

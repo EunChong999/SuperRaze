@@ -77,9 +77,31 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(!isWallJumping && !collisionChecker.isCollision)
+        if(!isWallJumping)
         {
-            rb.velocity = new Vector2(horizontal * movingSpeed, rb.velocity.y);
+            if (horizontal != 0)
+            {
+                rb.velocity = new Vector2(horizontal * movingSpeed, rb.velocity.y);
+            }
+            else
+            {
+                if(!collisionChecker.isCollision)
+                {
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
+                else
+                {
+                    if (IsGrounded())
+                    {
+                        rb.velocity += new Vector2(0, 0);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+                    }
+                }
+
+            }
         }
 
         if (horizontal != 0)

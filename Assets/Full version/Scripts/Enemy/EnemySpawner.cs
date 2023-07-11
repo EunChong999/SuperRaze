@@ -11,8 +11,8 @@ public class EnemySpawner : MonoBehaviour
     public class Wave // Wave에 대한 클래스 선언
     {
         public string name; // 적의 이름
-        public Transform enemy; // 적의 상태
-        public GameObject enemyBody; // 생성된 적
+        public Transform[] enemy; // 적의 상태
+        [HideInInspector] public GameObject enemyBody; // 생성된 적
         public int count; // 적의 숫자
         public float rate; // 적의 등급
     }
@@ -115,7 +115,8 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++) // 해당 Wave의 적의 숫자만큼 반복하여
         {
-            SpawnEnemy(wave.enemy, wave.enemyBody); // 해당 Wave의 적을 생성한다.
+            int randomEnemy = Random.Range(0, wave.enemy.Length); // 주어진 적 중에서 랜덤으로 생성할 적을 정한다.
+            SpawnEnemy(wave.enemy[randomEnemy], wave.enemyBody); // 해당 Wave의 적을 생성한다.
             yield return new WaitForSeconds(1f / wave.rate); // 등급이 높을수록(작을수록) 더 늦게 생성된다.
         }
 
@@ -130,6 +131,6 @@ public class EnemySpawner : MonoBehaviour
 
         Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)]; // 스폰 포인트를 무작위로 할당
         enemyBody = Instantiate(enemy, sp.position, sp.rotation).gameObject; // 무작위로 할당된 위치를 적의 위치에 할당
-        enemyBody.transform.SetParent(this.gameObject.transform);
+        enemyBody.transform.SetParent(sp); // 생성된 적의 부모를 스폰 포인트로 지정
     }
 }

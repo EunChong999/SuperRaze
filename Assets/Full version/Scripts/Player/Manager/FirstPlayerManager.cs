@@ -5,7 +5,8 @@ using UnityEngine;
 public class FirstPlayerManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
-    public PhysicsMaterial2D physicsMaterial;
+    public PhysicsMaterial2D physicsMaterial1;
+    public PhysicsMaterial2D physicsMaterial2;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,6 @@ public class FirstPlayerManager : MonoBehaviour
         if (screenTimer.isTimeStop) 
         {
             transform.GetChild(0).GetChild(0).GetComponent<PlayerCollisionChecker>().enabled = false;
-            transform.GetChild(0).GetComponent<Rigidbody2D>().sharedMaterial = null;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
@@ -31,7 +31,6 @@ public class FirstPlayerManager : MonoBehaviour
         else
         {
             transform.GetChild(0).GetChild(0).GetComponent<PlayerCollisionChecker>().enabled = true;
-            transform.GetChild(0).GetComponent<Rigidbody2D>().sharedMaterial = physicsMaterial;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<PlayerController>().enabled = true;
