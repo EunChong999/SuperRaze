@@ -21,6 +21,6 @@ public class CompressEffect : MonoBehaviour
 
     private void Compress()
     {
-        transform.DOMove(target, 5).SetEase(Ease.InOutElastic).SetLoops(-1, LoopType.Yoyo);
+        transform.DOMove(target, 3).SetEase(Ease.InOutElastic).SetLoops(-1, LoopType.Yoyo);
     }
 }
