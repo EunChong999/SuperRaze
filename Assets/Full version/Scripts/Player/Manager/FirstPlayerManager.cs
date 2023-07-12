@@ -5,8 +5,6 @@ using UnityEngine;
 public class FirstPlayerManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
-    public PhysicsMaterial2D physicsMaterial1;
-    public PhysicsMaterial2D physicsMaterial2;
 
     // Start is called before the first frame update
     void Start()

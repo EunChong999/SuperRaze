@@ -19,7 +19,7 @@ public class ScoutingEnemyPatroller : MonoBehaviour
     private void Start()
     {
         // 속도 랜덤 지정
-        movingSpeed = Random.Range(5.0f, 10.0f);
+        movingSpeed = Random.Range(5.0f, 7.5f);
 
         // 방향 지정 및 시작점과 끝점을 부모로부터 해방
         pointA.transform.parent = transform;

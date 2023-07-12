@@ -26,8 +26,8 @@ public class TrackingEnemyChaser : MonoBehaviour
     private void Start()
     {
         // 속도 랜덤 지정
-        movingSpeed = Random.Range(2.5f, 7.5f);
-        chasingSpeed = Random.Range(5.0f, 10.0f);
+        movingSpeed = Random.Range(2.5f, 5.0f);
+        chasingSpeed = Random.Range(5.0f, 7.5f);
 
         // 플레이어 오브젝트 찾기 및 시작점과 끝점을 부모로부터 해방
         playerTransform = GameObject.Find("Player").transform.GetChild(0);
