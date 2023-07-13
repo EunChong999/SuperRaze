@@ -5,14 +5,34 @@ using UnityEngine;
 public class ShooingEnemyThrower : MonoBehaviour
 {
     // Shoot
+    public bool isShooting;
+    public bool canShoot;
     [SerializeField] private float coolTime;
     [SerializeField] private static ShooingEnemyThrower instance;
+    public Animator animator;
 
     private List<GameObject> pooledObjects = new List<GameObject>();
     [SerializeField] private int amountToPool;
 
     [SerializeField] private GameObject bulletPrefeb;
     [SerializeField] private Transform bulletPosition;
+
+    public GameObject body;
+    public Rigidbody2D rb;
+
+    [SerializeField] private Transform pointA;
+    private Vector3 pointAtf;
+    [SerializeField] private Transform pointB;
+    private Vector3 pointBtf;
+    private Vector3 currentTransform;
+    [SerializeField] private float movingSpeed;
+    public int patrolDestination;
+
+    private Transform playerTransform;
+
+    public bool isGrounding;
+    public bool isUnGrounded;
+    public float chaseDistance;
 
     private void Awake()
     {
@@ -21,6 +41,44 @@ public class ShooingEnemyThrower : MonoBehaviour
         {
             instance = this;
         }
+
+        // 슈팅 풀링
+        isShooting = false;
+
+        for (int i = 0; i < amountToPool; i++)
+        {
+            GameObject Obj = Instantiate(bulletPrefeb, transform.GetChild(0));
+            Obj.SetActive(false);
+            pooledObjects.Add(Obj);
+        }
+    }
+
+    private void Start()
+    {
+        // 속도 랜덤 지정
+        movingSpeed = Random.Range(2.5f, 5.0f);
+
+        // 플레이어 오브젝트 찾기 및 시작점과 끝점을 부모로부터 해방
+        playerTransform = GameObject.Find("Player").transform.GetChild(0);
+        pointA.parent = transform;
+        pointB.parent = transform;
+
+        // 시작점과 끝점을 할당
+        pointAtf = pointA.position;
+        pointBtf = pointB.position;
+        pointAtf.x = transform.parent.GetChild(0).position.x;
+        pointBtf.x = transform.parent.GetChild(1).position.x;
+        pointA.position = pointAtf;
+        pointB.position = pointBtf;
+
+        // 일정 범위 사이의 랜덤 위치 지정
+        currentTransform = transform.GetChild(0).transform.position;
+        currentTransform.x = Random.Range(pointA.position.x, pointB.position.x);
+        transform.GetChild(0).transform.position = currentTransform;
+
+        // 상태 초기화
+        canShoot = false;
+        animator.SetBool("isRun", true);
     }
 
     // GetPooledObject & Shoot
@@ -56,69 +114,10 @@ public class ShooingEnemyThrower : MonoBehaviour
         isShooting = false;
     }
 
-    public GameObject body;
-    public Rigidbody2D rb;
-    public Animator animator;
-    [SerializeField] private Transform pointA;
-    private Vector3 pointAtf;
-    [SerializeField] private Transform pointB;
-    private Vector3 pointBtf;
-    private Vector3 currentTransform;
-    [SerializeField] private float movingSpeed;
-    [SerializeField] private float chasingSpeed;
-    private float chasingSpeedTemp;
-    public int patrolDestination;
-
-    private Transform playerTransform;
-    public bool isShooting;
-    public bool isGrounding;
-    public bool isUnGrounded;
-    public float chaseDistance;
-
-    private void Start()
-    {
-        // 사격
-        isShooting = false;
-
-        for (int i = 0; i < amountToPool; i++)
-        {
-            GameObject Obj = Instantiate(bulletPrefeb);
-            Obj.SetActive(false);
-            pooledObjects.Add(Obj);
-        }
-
-        // 속도 랜덤 지정
-        movingSpeed = Random.Range(2.5f, 5.0f);
-        chasingSpeed = Random.Range(5.0f, 7.5f);
-
-        // 플레이어 오브젝트 찾기 및 시작점과 끝점을 부모로부터 해방
-        playerTransform = GameObject.Find("Player").transform.GetChild(0);
-        pointA.parent = transform;
-        pointB.parent = transform;
-
-        // 시작점과 끝점을 할당
-        //pointAtf = pointA.position;
-        //pointBtf = pointB.position;
-        //pointAtf.x = transform.parent.GetChild(0).position.x;
-        //pointBtf.x = transform.parent.GetChild(1).position.x;
-        //pointA.position = pointAtf;
-        //pointB.position = pointBtf;
-
-        // 일정 범위 사이의 랜덤 위치 지정
-        currentTransform = transform.GetChild(0).transform.position;
-        currentTransform.x = Random.Range(pointA.position.x, pointB.position.x);
-        transform.GetChild(0).transform.position = currentTransform;
-
-        isShooting = false;
-        animator.SetBool("isRun", true);
-        chasingSpeedTemp = chasingSpeed;
-    }
-
     private void Update()
     {
         CheckGround();
         CheckSpeed();
-        CheckCollision();
         DecideShooting();
         Move();
     }
@@ -141,7 +140,7 @@ public class ShooingEnemyThrower : MonoBehaviour
 
     void CheckSpeed()
     {
-        if (chasingSpeed == 0)
+        if (canShoot)
         {
             animator.SetBool("isRun", false);
         }
@@ -151,33 +150,20 @@ public class ShooingEnemyThrower : MonoBehaviour
         }
     }
 
-    void CheckCollision()
-    {
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 0.5f)
-        {
-            chasingSpeed = 0;
-        }
-        else
-        {
-            chasingSpeed = chasingSpeedTemp;
-        }
-    }
-
     void DecideShooting()
     {
         if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance &&
-            ((playerTransform.position.y + 6) - body.transform.position.y) > 0 &&
-            Mathf.Abs(body.transform.position.y - playerTransform.position.y) < chaseDistance / 2 &&
+            Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 1 &&
             isGrounding &&
             playerTransform.transform.position.x > pointA.position.x &&
             playerTransform.transform.position.x < pointB.position.x &&
             playerTransform.gameObject.layer == 7)
         {
-            isShooting = true;
+            canShoot = true;
         }
         else
         {
-            isShooting = false;
+            canShoot = false;
         }
     }
 
@@ -202,9 +188,21 @@ public class ShooingEnemyThrower : MonoBehaviour
         }
         else
         {
-            if (isShooting)
+            if (canShoot)
             {
-                StartCoroutine(Shoot());
+                if (body.transform.position.x > playerTransform.position.x)
+                {
+                    body.transform.localScale = new Vector3(-1, 1, 1);
+                }
+                if (body.transform.position.x < playerTransform.position.x)
+                {
+                    body.transform.localScale = new Vector3(1, 1, 1);
+                }
+
+                if (!isShooting)
+                {
+                    StartCoroutine(Shoot());
+                }
             }
             else
             {

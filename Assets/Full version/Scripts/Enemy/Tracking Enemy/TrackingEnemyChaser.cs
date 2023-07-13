@@ -47,6 +47,7 @@ public class TrackingEnemyChaser : MonoBehaviour
         currentTransform.x = Random.Range(pointA.position.x, pointB.position.x);
         transform.GetChild(0).transform.position = currentTransform;
 
+        // 상태 초기화
         isChasing = false;
         animator.SetBool("isRun", true);
         chasingSpeedTemp = chasingSpeed;

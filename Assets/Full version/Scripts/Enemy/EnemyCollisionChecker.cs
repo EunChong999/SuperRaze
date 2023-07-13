@@ -20,7 +20,7 @@ public class EnemyCollisionChecker : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            gameObject.transform.parent.gameObject.SetActive(false);
+            gameObject.transform.parent.parent.gameObject.SetActive(false);
         }
     }
 }
