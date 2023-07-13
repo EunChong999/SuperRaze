@@ -6,14 +6,14 @@ public class PlayerBullet : MonoBehaviour
 {
     public float speed = 24f;
     private GameObject player;
-    private Animator animator;
-
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer sr;
+    private bool isDestroyed;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        isDestroyed = false;
     }
 
     private void Update()
@@ -29,12 +29,17 @@ public class PlayerBullet : MonoBehaviour
             sr.flipX = true;
         }
 
-        Invoke("BulletDestroy", 0.333f);
+        if (!isDestroyed)
+        {
+            Invoke("BulletDestroy", 0.333f);
+            isDestroyed = true;
+        }
     }
 
     void BulletDestroy()
     {
         gameObject.SetActive(false);
+        isDestroyed = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

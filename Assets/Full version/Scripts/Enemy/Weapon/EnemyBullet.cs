@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (!isDestroyed)
         {
-            Invoke("BulletDestroy", 0.5f);
+            Invoke("BulletDestroy", 1);
             isDestroyed = true;
         }
     }
@@ -40,6 +40,7 @@ public class EnemyBullet : MonoBehaviour
     void BulletDestroy()
     {
         gameObject.SetActive(false);
+        isDestroyed = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,9 +50,14 @@ public class EnemyBullet : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        if (collision.CompareTag("Player") == true)
+        if (collision.CompareTag("Player") == true && collision.gameObject.layer == 7)
         {
-            gameObject.SetActive(false);
+            Invoke("HitPlayer", 0.1f);
         }
+    }
+
+    private void HitPlayer()
+    {
+        gameObject.SetActive(false);
     }
 }
