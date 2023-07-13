@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: S1 Scouting Enemy 1_Run
+  m_Name: S1 Walking Enemy 1_Run
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0

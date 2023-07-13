@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoutingEnemyManager : MonoBehaviour
+public class WalkingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
 
@@ -20,14 +20,14 @@ public class ScoutingEnemyManager : MonoBehaviour
             transform.GetChild(0).GetChild(0).GetComponent<EnemyCollisionChecker>().enabled = false;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
-            gameObject.GetComponent<ScoutingEnemyPatroller>().enabled = false;
+            gameObject.GetComponent<WalkingEnemyPatroller>().enabled = false;
         }
         else
         {
             transform.GetChild(0).GetChild(0).GetComponent<EnemyCollisionChecker>().enabled = true;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
-            gameObject.GetComponent<ScoutingEnemyPatroller>().enabled = true;
+            gameObject.GetComponent<WalkingEnemyPatroller>().enabled = true;
         }
     }
 }

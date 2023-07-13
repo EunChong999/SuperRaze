@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-public class ScoutingEnemyPatroller : MonoBehaviour
+public class WalkingEnemyPatroller : MonoBehaviour
 {
     [SerializeField] private Transform pointA;
     private Vector3 pointAtf;
