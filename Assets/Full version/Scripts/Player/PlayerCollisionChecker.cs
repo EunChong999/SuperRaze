@@ -6,13 +6,15 @@ public class PlayerCollisionChecker : MonoBehaviour
 {
     public PhysicsMaterial2D physicsMaterial1;
     public PhysicsMaterial2D physicsMaterial2;
-    GameObject collisionObject;
+    [HideInInspector] public GameObject collisionObject;
     public PlayerController playerController;
+    public PlayerTimeSlower playerTimeSlower;
     [HideInInspector] public bool isCollision;
 
     private void Start()
     {
         isCollision = false;
+        transform.GetComponentInParent<Rigidbody2D>().sharedMaterial = physicsMaterial1;
     }
 
     private void Update()
@@ -26,7 +28,6 @@ public class PlayerCollisionChecker : MonoBehaviour
         {
             if (!isCollision)
             {
-
                 collisionObject = collision.gameObject;
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
                 OnDamaged(collision.gameObject);
@@ -51,12 +52,17 @@ public class PlayerCollisionChecker : MonoBehaviour
         Invoke("StartDamage", 1);
     }
 
-    private void StartDamage()
+    public void StartDamage()
     {
+        // isSlowering¿Ã æ∆¥“ ∂ß
+        if(!playerTimeSlower.isSlowering)
+        {
+            transform.parent.gameObject.layer = 7;
+            gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+
         isCollision = false;
-        transform.parent.gameObject.layer = 7;
         transform.GetComponentInParent<Rigidbody2D>().sharedMaterial = physicsMaterial1;
-        gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Physics2D.IgnoreCollision(collisionObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), false);
     }
 }

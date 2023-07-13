@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstPlayerManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
+    [SerializeField] private PlayerTimeSlower playerTimeSlower;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,6 @@ public class FirstPlayerManager : MonoBehaviour
     {
         if (screenTimer.isTimeStop) 
         {
-            transform.GetChild(0).GetChild(0).GetComponent<PlayerCollisionChecker>().enabled = false;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
@@ -26,15 +26,26 @@ public class FirstPlayerManager : MonoBehaviour
             gameObject.GetComponent<AfterImage>().enabled = false;
             gameObject.GetComponent<AfterImage>().makeImage = false;
         }
-        else
+        else 
         {
-            transform.GetChild(0).GetChild(0).GetComponent<PlayerCollisionChecker>().enabled = true;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<PlayerController>().enabled = true;
-            gameObject.GetComponent<PlayerShooter>().enabled = true;
             gameObject.GetComponent<PlayerTimeSlower>().enabled = true;
             gameObject.GetComponent<AfterImage>().enabled = true;
+
+            if (playerTimeSlower.isSlowering)
+            {
+                transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(0).gameObject.layer = 0;
+                gameObject.GetComponent<PlayerShooter>().enabled = false;
+            }
+            else
+            {
+                transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.layer = 7;
+                gameObject.GetComponent<PlayerShooter>().enabled = true;
+            }
         }
     }
 }

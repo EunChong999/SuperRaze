@@ -2178,7 +2178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: -0.75, z: 0}
-  time: 1.5
+  time: 1
 --- !u!1 &255674424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,8 +2497,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.49755, y: -0.0032000542, z: 0}
-    m_Extent: {x: 4.50455, y: 2.0032, z: 0}
+    m_Center: {x: -1.4960499, y: -0.0016999245, z: 0}
+    m_Extent: {x: 4.50385, y: 2.0079, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7449,8 +7449,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.5014501, y: -0.001850009, z: 0}
-    m_Extent: {x: 4.49615, y: 2.00605, z: 0}
+    m_Center: {x: -1.5044, y: -0.0019000173, z: 0}
+    m_Extent: {x: 4.5048, y: 1.9951, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7844,7 +7844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: -10, y: -0.75, z: 0}
-  time: 1
+  time: 0
 --- !u!1 &1082100909
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,8 +10271,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.5012001, y: -0.0015000105, z: 0}
-    m_Extent: {x: 4.4989, y: 2.0075998, z: 0}
+    m_Center: {x: -1.4999, y: -0.00080001354, z: 0}
+    m_Extent: {x: 4.5057, y: 2.0026999, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

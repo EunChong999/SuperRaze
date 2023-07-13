@@ -8,6 +8,12 @@ public class PlayerTimeSlower : MonoBehaviour
     [SerializeField] private float slowdownFactor = 0.5f;
     public AfterImage afterImage;
     [HideInInspector] public bool isSlowering;
+    [SerializeField] private PlayerCollisionChecker playerCollision;
+
+    private void OnEnable()
+    {
+        StopSlowmotion();
+    }
 
     private void Start()
     {
@@ -37,6 +43,7 @@ public class PlayerTimeSlower : MonoBehaviour
     private void StartSlowmotion()
     {
         isSlowering = true;
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);
         CancelInvoke();
         afterImage.makeImage = true;
         Time.timeScale = slowdownFactor;
@@ -44,7 +51,13 @@ public class PlayerTimeSlower : MonoBehaviour
 
     private void StopSlowmotion()
     {
+        if (isSlowering && playerCollision.collisionObject != null)
+        {
+            playerCollision.StartDamage();
+        }
+
         isSlowering = false;
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Invoke("StopAfterImage", 0.5f);
         Time.timeScale = 1;
     }
