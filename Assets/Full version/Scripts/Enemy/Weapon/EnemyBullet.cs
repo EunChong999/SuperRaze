@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (!isDestroyed)
         {
-            Invoke("BulletDestroy", 1);
+            Invoke("BulletDestroy", 2);
             isDestroyed = true;
         }
     }

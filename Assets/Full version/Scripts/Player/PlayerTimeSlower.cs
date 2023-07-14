@@ -27,9 +27,10 @@ public class PlayerTimeSlower : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            if (playerHealther.currentEnergy > 10)
+            playerHealther.UseSkill();
+
+            if (playerHealther.currentEnergy >= 10)
             {
-                playerHealther.UseSkill();
                 StartSlowmotion();
             }
             else
