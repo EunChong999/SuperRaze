@@ -25,9 +25,17 @@ public class PlayerTimeSlower : MonoBehaviour
     {
         afterImage.delay = effectDelay;
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
-            StartSlowmotion();
+            if (playerHealther.currentEnergy > 10)
+            {
+                playerHealther.UseSkill();
+                StartSlowmotion();
+            }
+            else
+            {
+                StopSlowmotion();
+            }
         }
 
         if (Input.GetMouseButtonUp(1))
