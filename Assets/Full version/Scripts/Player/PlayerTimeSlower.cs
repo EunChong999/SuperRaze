@@ -9,6 +9,7 @@ public class PlayerTimeSlower : MonoBehaviour
     public AfterImage afterImage;
     [HideInInspector] public bool isSlowering;
     [SerializeField] private PlayerCollisionChecker playerCollision;
+    [SerializeField] private PlayerHealther playerHealther;
 
     private void OnEnable()
     {

@@ -11,7 +11,7 @@ public class ScreenEffect : MonoBehaviour
     public bool Init;
 
     public float interval;
-    public Camera camera;
+    public new Camera camera;
     public ScreenChange screenChange;
     public GameObject effectScreen;
 

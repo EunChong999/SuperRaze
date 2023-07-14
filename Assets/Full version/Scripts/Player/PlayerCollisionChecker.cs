@@ -9,6 +9,7 @@ public class PlayerCollisionChecker : MonoBehaviour
     [HideInInspector] public GameObject collisionObject;
     public PlayerController playerController;
     public PlayerTimeSlower playerTimeSlower;
+    public PlayerCollisionChecker playerCollisionChecker;
     [HideInInspector] public bool isCollision;
 
     private void Start()
