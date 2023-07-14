@@ -48,7 +48,7 @@ public class PlayerHealther : MonoBehaviour
         }
         else
         {
-            targetHealth -= 0.1f;
+            targetHealth -= 20;
         }
     }
 
@@ -61,7 +61,7 @@ public class PlayerHealther : MonoBehaviour
         }
         else
         {
-            targetHealth += 0.025f;
+            targetHealth += 0.01f;
         }
     }
 

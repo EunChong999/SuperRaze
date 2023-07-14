@@ -9,7 +9,7 @@ public class PlayerCollisionChecker : MonoBehaviour
     [HideInInspector] public GameObject collisionObject;
     public PlayerController playerController;
     public PlayerTimeSlower playerTimeSlower;
-    public PlayerCollisionChecker playerCollisionChecker;
+    public PlayerHealther playerHealther;
     [HideInInspector] public bool isCollision;
 
     private void Start()
@@ -39,6 +39,7 @@ public class PlayerCollisionChecker : MonoBehaviour
     void OnDamaged(GameObject target)
     {
         isCollision = true;
+        playerHealther.Damage();
         transform.parent.gameObject.layer = 0;
         transform.GetComponentInParent<Rigidbody2D>().sharedMaterial = physicsMaterial2;
         gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);

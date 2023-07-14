@@ -11217,7 +11217,7 @@ MonoBehaviour:
   collisionObject: {fileID: 0}
   playerController: {fileID: 1078598599}
   playerTimeSlower: {fileID: 1078598600}
-  playerCollisionChecker: {fileID: 0}
+  playerHealther: {fileID: 1078598606}
   isCollision: 0
 --- !u!1 &1078598595
 GameObject:
@@ -11364,6 +11364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   energyBar: {fileID: 0}
+  currentHealth: 0
+  currentEnergy: 0
   slideSpeed: 0
 --- !u!1 &1080709493
 GameObject:
