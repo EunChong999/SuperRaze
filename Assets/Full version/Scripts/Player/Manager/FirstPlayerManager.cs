@@ -6,6 +6,7 @@ public class FirstPlayerManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
     [SerializeField] private PlayerTimeSlower playerTimeSlower;
+    [SerializeField] private PlayerHealther playerHealther;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,9 @@ public class FirstPlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (screenTimer.isTimeStop) 
+        if (screenTimer.isTimeStop || playerHealther.isDissolving || playerHealther.isDead) 
         {
+            transform.GetChild(0).gameObject.layer = 0;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
@@ -28,6 +30,7 @@ public class FirstPlayerManager : MonoBehaviour
         }
         else 
         {
+            transform.GetChild(0).gameObject.layer = 7;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<PlayerController>().enabled = true;
