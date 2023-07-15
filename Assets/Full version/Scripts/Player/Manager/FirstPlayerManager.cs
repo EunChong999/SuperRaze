@@ -18,6 +18,15 @@ public class FirstPlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerHealther.isDead && !playerHealther.isDissolving) 
+        {
+            gameObject.GetComponent<PlayerHealther>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<PlayerHealther>().enabled = true;
+        }
+
         if (screenTimer.isTimeStop || playerHealther.isDissolving || playerHealther.isDead) 
         {
             transform.GetChild(0).gameObject.layer = 0;

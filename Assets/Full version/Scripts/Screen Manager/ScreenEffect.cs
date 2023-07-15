@@ -45,9 +45,7 @@ public class ScreenEffect : MonoBehaviour
                 }
                 else
                 {
-                    canvas[0].renderMode = overlay;
-                    canvas[1].renderMode = overlay;
-                    canvas[2].renderMode = overlay;
+                    Invoke("ChangeRenderMode", 0.6f);
                 }
                 break;
             case 3: // 스테이지 1 스코어
@@ -63,9 +61,7 @@ public class ScreenEffect : MonoBehaviour
                 }
                 else
                 {
-                    canvas[0].renderMode = overlay;
-                    canvas[1].renderMode = overlay;
-                    canvas[2].renderMode = overlay;
+                    Invoke("ChangeRenderMode", 0.6f);
                 }
                 break;
             case 5: // 스테이지 2 스코어
@@ -77,6 +73,13 @@ public class ScreenEffect : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void ChangeRenderMode()
+    {
+        canvas[0].renderMode = overlay;
+        canvas[1].renderMode = overlay;
+        canvas[2].renderMode = overlay;
     }
 
     public void AffectScreen()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealther : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class PlayerHealther : MonoBehaviour
 
     void Start()
     {
-        screenManager = GameObject.Find("Screen Manager");
         material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
 
         isDead = false;
@@ -33,8 +33,28 @@ public class PlayerHealther : MonoBehaviour
         isDissolving = true;
     }
 
+    private void OnDisable()
+    {
+        if (!screenManager.GetComponent<ScreenBlock>().on)
+        {
+            screenManager.GetComponent<ScreenChange>().RestartScreen();
+            screenManager.GetComponent<ScreenEffect>().AffectScreen();
+            screenManager.GetComponent<ScreenBlock>().BlockScreen();
+        }
+    }
+
+    private void OnEnable()
+    {
+        isDead = false;
+    }
+
     void Update()
     {
+        if(screenManager == null)
+        {
+            screenManager = GameObject.Find("Screen Manager");
+        }
+
         if (healthBar == null)
         {
             healthBar = GameObject.Find("Health Bar").GetComponent<Slider>();
@@ -59,10 +79,12 @@ public class PlayerHealther : MonoBehaviour
             currentEnergy = Mathf.LerpUnclamped(energyBar.value, targetEnergy, 1);
             energyBar.value = currentEnergy;
 
-            if (currentHealth <= 0)
+            if (currentHealth <= 0 && !screenManager.GetComponent<ScreenChange>().on)
             {
                 currentHealth = 0;
+
                 isDead = true;
+
                 isDissolving = true;
             }
 
@@ -75,6 +97,7 @@ public class PlayerHealther : MonoBehaviour
             else
             {
                 transform.GetChild(0).GetComponent<SpriteRenderer>().material = material;
+               
                 Dead();
             }
         }

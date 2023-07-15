@@ -127,7 +127,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy(Transform enemy, GameObject enemyBody) // Wave 클래스의 적을 매개변수로 하여 적을 생성하는 함수
     {
-        Debug.Log("Spawning Enemy : " + enemy.name); // 생성된 적의 이름을 출력
+/*        Debug.Log("Spawning Enemy : " + enemy.name);*/ // 생성된 적의 이름을 출력
 
         Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)]; // 스폰 포인트를 무작위로 할당
         enemyBody = Instantiate(enemy, sp.position, sp.rotation).gameObject; // 무작위로 할당된 위치를 적의 위치에 할당

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenBlock : MonoBehaviour
 {
-    public bool On;
+    public bool on;
 
     public float LerpTime;
     public float CurrentTime;
@@ -18,7 +18,7 @@ public class ScreenBlock : MonoBehaviour
 
     private void Update()
     {
-        if(On == true)
+        if(on == true)
         {
             CurrentTime += Time.deltaTime;
 
@@ -33,7 +33,7 @@ public class ScreenBlock : MonoBehaviour
 
     public void BlockScreen()
     {
-        if (On == false)
+        if (on == false)
         {
             Block_Screen.transform.position = Release_Start_Position.position;
             CurrentTime = 0;
@@ -44,7 +44,7 @@ public class ScreenBlock : MonoBehaviour
 
     public void CreateWall()
     {
-        On = true;
+        on = true;
 
         Block_Screen.SetActive(true);
 
@@ -53,7 +53,7 @@ public class ScreenBlock : MonoBehaviour
 
     public void ReleaseWall()
     {
-        On = false;
+        on = false;
 
         Block_Screen.SetActive(false);
     }
