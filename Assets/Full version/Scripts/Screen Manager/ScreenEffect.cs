@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Device;
 using UnityEngine.SceneManagement;
 
 public class ScreenEffect : MonoBehaviour
@@ -15,7 +14,7 @@ public class ScreenEffect : MonoBehaviour
     public ScreenChange screenChange;
     public GameObject effectScreen;
 
-    public UnityEngine.UI.Image blockImage;
+    public Image blockImage;
     public RenderMode overlay;
     public RenderMode spaceCamera;
     public Canvas[] canvas = new Canvas[3];
@@ -24,6 +23,12 @@ public class ScreenEffect : MonoBehaviour
     public GameObject[] Boxes;
     public Transform[] Boxes_Start_Position;
     public Transform[] Boxes_End_Position;
+    private bool isRenderModeChanged;
+
+    private void Start()
+    {
+        isRenderModeChanged = false;
+    }
 
     private void Update()
     {
@@ -45,7 +50,11 @@ public class ScreenEffect : MonoBehaviour
                 }
                 else
                 {
-                    Invoke("ChangeRenderMode", 0.6f);
+                    if (!isRenderModeChanged)
+                    {
+                        Invoke("ChangeRenderMode", 0.6f);
+                        isRenderModeChanged = true;
+                    }
                 }
                 break;
             case 3: // 스테이지 1 스코어
@@ -61,7 +70,11 @@ public class ScreenEffect : MonoBehaviour
                 }
                 else
                 {
-                    Invoke("ChangeRenderMode", 0.6f);
+                    if (!isRenderModeChanged)
+                    {
+                        Invoke("ChangeRenderMode", 0.6f);
+                        isRenderModeChanged = true;
+                    }
                 }
                 break;
             case 5: // 스테이지 2 스코어
@@ -80,6 +93,7 @@ public class ScreenEffect : MonoBehaviour
         canvas[0].renderMode = overlay;
         canvas[1].renderMode = overlay;
         canvas[2].renderMode = overlay;
+        isRenderModeChanged = false;
     }
 
     public void AffectScreen()

@@ -18,13 +18,14 @@ public class PlayerHealther : MonoBehaviour
     [SerializeField] private float slideSpeed;
     [HideInInspector] public bool isDead;
     Material material;
-    [SerializeField] private Material materialTemp;
     [HideInInspector] public bool isDissolving;
     float fade;
-    private GameObject screenManager;
+    [SerializeField] private GameObject screenManager;
 
     void Start()
     {
+        screenManager = GameObject.Find("Screen Manager");
+
         material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
 
         isDead = false;
@@ -35,7 +36,7 @@ public class PlayerHealther : MonoBehaviour
 
     private void OnDisable()
     {
-        if (!screenManager.GetComponent<ScreenBlock>().on)
+        if (!screenManager.GetComponent<ScreenBlock>().on && isDead)
         {
             screenManager.GetComponent<ScreenChange>().RestartScreen();
             screenManager.GetComponent<ScreenEffect>().AffectScreen();
@@ -50,11 +51,6 @@ public class PlayerHealther : MonoBehaviour
 
     void Update()
     {
-        if(screenManager == null)
-        {
-            screenManager = GameObject.Find("Screen Manager");
-        }
-
         if (healthBar == null)
         {
             healthBar = GameObject.Find("Health Bar").GetComponent<Slider>();
@@ -113,7 +109,6 @@ public class PlayerHealther : MonoBehaviour
             if (fade >= 1) 
             {
                 fade = 1;
-                transform.GetChild(0).GetComponent<SpriteRenderer>().material = materialTemp;
                 isDissolving = false;
             }
 
