@@ -20,7 +20,7 @@ public class PlayerHealther : MonoBehaviour
     Material material;
     [HideInInspector] public bool isDissolving;
     float fade;
-    [SerializeField] private GameObject screenManager;
+    private GameObject screenManager;
 
     void Start()
     {

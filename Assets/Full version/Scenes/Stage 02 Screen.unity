@@ -2723,7 +2723,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &471916703
@@ -21243,7 +21243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1652978620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22058,7 +22058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad3044aabd935a4ab364841479f7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
+  on: 0
   LerpTime: 0.5
   CurrentTime: 0
   Block_Screen: {fileID: 1888010390}
@@ -22654,7 +22654,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1825588628
@@ -24624,7 +24624,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsMaterial1: {fileID: 6200000, guid: a6ab232c2cce62f45a2fca03a4d57e22, type: 2}
   physicsMaterial2: {fileID: 6200000, guid: d9341aa251454214da280bf2aa6eec77, type: 2}
+  collisionObject: {fileID: 0}
   playerController: {fileID: 330506645}
+  playerTimeSlower: {fileID: 0}
+  playerHealther: {fileID: 0}
   isCollision: 0
 --- !u!1 &2003274329
 GameObject:

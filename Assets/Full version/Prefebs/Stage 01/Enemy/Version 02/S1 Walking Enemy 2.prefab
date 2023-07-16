@@ -79,7 +79,7 @@ MonoBehaviour:
   pointB: {fileID: 6792040315122067554}
   rb: {fileID: 1106634487093199956}
   body: {fileID: 1106634487093199979}
-  anim: {fileID: 0}
+  anim: {fileID: 5035698716786789599}
   movingSpeed: 10
 --- !u!1 &1106634487093199983
 GameObject:

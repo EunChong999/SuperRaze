@@ -293,7 +293,7 @@ MonoBehaviour:
   isShooting: 0
   canShoot: 0
   coolTime: 3
-  animator: {fileID: 0}
+  animator: {fileID: 4478872686501385106}
   amountToPool: 5
   bulletPrefeb: {fileID: 2937711672827502538, guid: 237263c34e097b1468d27b0de430d813, type: 3}
   bulletPosition: {fileID: 1467162696971226979}

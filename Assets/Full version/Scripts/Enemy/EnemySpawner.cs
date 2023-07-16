@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     private int nextWave = 0; // 다음 Wave의 인덱스 번호,
                               // 첫 웨이브는 다음 웨이브이므로 인덱스 값은 0이다.
     private bool isWaveCompleted;
+    private bool isSpawnEnd;
 
     public Transform[] spawnPoints; // 적이 스폰될 포인트
 
@@ -32,23 +34,39 @@ public class EnemySpawner : MonoBehaviour
     public SpawnState currentState = SpawnState.COUNTING; // 첫 현재 상태는 집계중으로,
                                                           // 현재 씬에 존재하는 적의 수를 집계하여 다음 상태를 판단
 
+    private GameObject screenManager;
+
     private void Start() // 해당 오브젝트가 처음 생성될 때
     {
+        screenManager = GameObject.Find("Screen Manager");
+
         isWaveCompleted = false;
+        isSpawnEnd = false;
 
         if (spawnPoints.Length == 0) // 스폰 포인트가 존재하지 않을 때
         {
             Debug.LogError("No spawn points referenced."); // 경고 메세지 출력
         }
 
-        if(nextWave == 0)
+        waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 할당
+    }
+
+    private void OnDisable()
+    {
+        if (screenManager != null && isWaveCompleted)
         {
-            waveCountdown = 0; // 첫 웨이브는 기다리지 말고 바로 생성
+            if (!screenManager.GetComponent<ScreenBlock>().on)
+            {
+                screenManager.GetComponent<ScreenChange>().ChangeScreen();
+                screenManager.GetComponent<ScreenEffect>().AffectScreen();
+                screenManager.GetComponent<ScreenBlock>().BlockScreen();
+            }
         }
-        else
-        {
-            waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 할당
-        }
+    }
+
+    private void OnEnable()
+    {
+        isWaveCompleted = false;
     }
 
     private void Update() // 매 프레임마다 실행
@@ -79,6 +97,17 @@ public class EnemySpawner : MonoBehaviour
                 waveCountdown -= Time.deltaTime; // 계속하여 남은 시간을 감소시킨다.
             }
         }
+
+        if (isWaveCompleted && !isSpawnEnd)
+        {
+            Invoke("SpawnEnd", 1);
+            isSpawnEnd = true;
+        }
+    }
+
+    void SpawnEnd()
+    {
+        gameObject.SetActive(false); // 스폰 비활성화
     }
 
     void WaveCompleted() // Wave 완료 함수 
@@ -90,7 +119,11 @@ public class EnemySpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1) // 다음 Wave가 존재하지 않을 때
         {
-            isWaveCompleted = true;
+            if (!screenManager.GetComponent<ScreenChange>().on) 
+            {
+                isWaveCompleted = true; // Wave 종료
+            }
+
             //nextWave = 0; // 다음 Wave를 처음으로 초기화
             //Debug.Log("ALL WAVES COMPLETE! Looping..."); // 모든 Wave 완료 메시지 출력  
         }

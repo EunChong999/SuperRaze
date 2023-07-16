@@ -413,7 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 4310934122025183496}
   rb: {fileID: 4555993034477659661}
-  animator: {fileID: 0}
+  animator: {fileID: 7422630554832544499}
   pointA: {fileID: 7510095314236089917}
   pointB: {fileID: 1472622641687167780}
   movingSpeed: 5
