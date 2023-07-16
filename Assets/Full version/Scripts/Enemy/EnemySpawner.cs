@@ -100,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (isWaveCompleted && !isSpawnEnd)
         {
-            Invoke("SpawnEnd", 1);
+            SpawnEnd();
             isSpawnEnd = true;
         }
     }
