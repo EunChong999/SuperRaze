@@ -6,24 +6,29 @@ public class TrackingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
     private TrackingEnemyHealther trackingEnemyHealther;
+    private TrackingEnemyChaser trackingEnemyChaser;
+    [SerializeField] private GameObject collisionCheck;
 
     // Start is called before the first frame update
     void Start()
     {
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
         trackingEnemyHealther = gameObject.GetComponent<TrackingEnemyHealther>();
+        trackingEnemyChaser = gameObject.GetComponent<TrackingEnemyChaser>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (trackingEnemyHealther.isDead && !trackingEnemyHealther.isDissolving)
+        if (trackingEnemyHealther.isDead)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
+            trackingEnemyChaser.enabled = false;
+            collisionCheck.SetActive(false);
+
+            if (!trackingEnemyHealther.isDissolving)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         if (screenTimer.isTimeStop || trackingEnemyHealther.isDissolving || trackingEnemyHealther.isDead)

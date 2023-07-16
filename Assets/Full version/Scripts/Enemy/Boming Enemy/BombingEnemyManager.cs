@@ -5,27 +5,30 @@ using UnityEngine;
 public class BombingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
-    private BombingEnemyExploder bombingEnemyExploder;
     private BombingEnemyHealther bombingEnemyHealther;
+    private BombingEnemyExploder bombingEnemyExploder;
+    [SerializeField] private GameObject collisionCheck;
 
     // Start is called before the first frame update
     void Start()
     {
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
-        bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
         bombingEnemyHealther = gameObject.GetComponent<BombingEnemyHealther>();
+        bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bombingEnemyHealther.isDead && !bombingEnemyHealther.isDissolving)
+        if (bombingEnemyHealther.isDead)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
+            bombingEnemyExploder.enabled = false;
+            collisionCheck.SetActive(false);
+
+            if (!bombingEnemyHealther.isDissolving)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         if (screenTimer.isTimeStop || bombingEnemyHealther.isDissolving || bombingEnemyHealther.isDead)

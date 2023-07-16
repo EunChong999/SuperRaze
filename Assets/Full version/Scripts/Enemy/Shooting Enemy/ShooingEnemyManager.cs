@@ -6,24 +6,29 @@ public class ShooingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
     private ShootingEnemyHealther shootingEnemyHealther;
+    private ShooingEnemyThrower shooingEnemyThrower;
+    [SerializeField] private GameObject collisionCheck;
 
     // Start is called before the first frame update
     void Start()
     {
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
         shootingEnemyHealther = gameObject.GetComponent<ShootingEnemyHealther>();
+        shooingEnemyThrower = gameObject.GetComponent<ShooingEnemyThrower>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (shootingEnemyHealther.isDead && !shootingEnemyHealther.isDissolving)
+        if (shootingEnemyHealther.isDead)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
+            shooingEnemyThrower.enabled = false;
+            collisionCheck.SetActive(false);
+
+            if (!shootingEnemyHealther.isDissolving)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         if (screenTimer.isTimeStop || shootingEnemyHealther.isDissolving || shootingEnemyHealther.isDead)

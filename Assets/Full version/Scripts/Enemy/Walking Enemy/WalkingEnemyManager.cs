@@ -5,17 +5,33 @@ using UnityEngine;
 public class WalkingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
+    private WalkingEnemyHealther walkingEnemyHealther;
+    private WalkingEnemyPatroller walkingEnemyPatroller;
+    [SerializeField] private GameObject collisionCheck;
 
     // Start is called before the first frame update
     void Start()
     {
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
+        walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (screenTimer.isTimeStop)
+        if (walkingEnemyHealther.isDead)
+        {
+            walkingEnemyPatroller.enabled = false;
+            collisionCheck.SetActive(false);
+
+            if (!walkingEnemyHealther.isDissolving)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+
+        if (screenTimer.isTimeStop || walkingEnemyHealther.isDissolving || walkingEnemyHealther.isDead)
         {
             transform.GetChild(0).GetChild(0).GetComponent<WalkingEnemyCollisionChecker>().enabled = false;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;

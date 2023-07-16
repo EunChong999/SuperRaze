@@ -9041,7 +9041,7 @@ MonoBehaviour:
   - {fileID: 253862294}
   - {fileID: 503552284}
   - {fileID: 525340959}
-  timeBetweenWaves: 1
+  timeBetweenWaves: 5
   waveCountdown: 0
   currentState: 2
 --- !u!1 &854281810

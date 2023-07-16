@@ -41,7 +41,14 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("No spawn points referenced."); // 경고 메세지 출력
         }
 
-        waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 할당
+        if(nextWave == 0)
+        {
+            waveCountdown = 0; // 첫 웨이브는 기다리지 말고 바로 생성
+        }
+        else
+        {
+            waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 할당
+        }
     }
 
     private void Update() // 매 프레임마다 실행

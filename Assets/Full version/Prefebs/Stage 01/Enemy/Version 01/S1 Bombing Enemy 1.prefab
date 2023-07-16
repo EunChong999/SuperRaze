@@ -95,9 +95,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3134812446449811391}
-  - {fileID: 6863517231109685680}
   - {fileID: 7510095314236089917}
   - {fileID: 1472622641687167780}
+  - {fileID: 6863517231109685680}
   m_Father: {fileID: 7769026601155685515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,7 +369,7 @@ Transform:
   m_Children:
   - {fileID: 3047045893750062241}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5019951639366794145
 MonoBehaviour:
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8100e7c5ee17bb478fe51f50fd80f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombingEnemyHealther: {fileID: 7799708300752691220}
+  collisionCheck: {fileID: 5005191824280259976}
 --- !u!114 &7799708300752691220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7957211616689869073}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.75, y: 5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
