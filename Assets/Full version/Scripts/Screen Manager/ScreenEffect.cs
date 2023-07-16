@@ -52,7 +52,7 @@ public class ScreenEffect : MonoBehaviour
                 {
                     if (!isRenderModeChanged)
                     {
-                        Invoke("ChangeRenderMode", 0.6f);
+                        Invoke("ChangeRenderMode", 0.5f);
                         isRenderModeChanged = true;
                     }
                 }
@@ -72,7 +72,7 @@ public class ScreenEffect : MonoBehaviour
                 {
                     if (!isRenderModeChanged)
                     {
-                        Invoke("ChangeRenderMode", 0.6f);
+                        Invoke("ChangeRenderMode", 0.5f);
                         isRenderModeChanged = true;
                     }
                 }

@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8100e7c5ee17bb478fe51f50fd80f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombingEnemyHealther: {fileID: 7799708300752691220}
 --- !u!114 &7799708300752691220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +425,7 @@ MonoBehaviour:
   chaseDistance: 10
   ExplosionObj: {fileID: 7957211616689869073}
   isBombing: 0
+  collisionChecker: {fileID: 5005191824280259976}
 --- !u!1 &7957211616689869073
 GameObject:
   m_ObjectHideFlags: 0

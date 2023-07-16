@@ -25,6 +25,7 @@ public class BombingEnemyExploder : MonoBehaviour
     [SerializeField] private GameObject ExplosionObj;
     private bool isDead;
     [HideInInspector]public bool isBombing;
+    [SerializeField] private GameObject collisionChecker;
 
     private void Start()
     {
@@ -123,16 +124,16 @@ public class BombingEnemyExploder : MonoBehaviour
     {
         if(!isDead)
         {
+            collisionChecker.SetActive(false);
             ExplosionObj.SetActive(true);
-            Invoke("Dead", 0.8f);
+            Invoke("Bombed", 0.8f);
             isDead = true;
         }
     }
 
-    void Dead()
+    public void Bombed()
     {
         ExplosionObj.SetActive(false);
-        gameObject.SetActive(false);
     }
 
     void DecideChasing()

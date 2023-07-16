@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealther : MonoBehaviour
+public class TrackingEnemyHealther : MonoBehaviour
 {
     [HideInInspector] public bool isDead;
     Material material;
     [HideInInspector] public bool isDissolving;
     float fade;
     private GameObject screenManager;
-    [SerializeField] private BombingEnemyExploder bombingEnemyExploder;
+    [SerializeField] private TrackingEnemyCollisionChecker trackingEnemyCollisionChecker;
 
     void Start()
     {
         screenManager = GameObject.Find("Screen Manager");
-        bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
 
         material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
 
@@ -29,7 +28,7 @@ public class EnemyHealther : MonoBehaviour
         // 체력 및 마나
         if (!screenManager.GetComponent<ScreenTimer>().isTimeStop)
         {
-            if (bombingEnemyExploder.isBombing)
+            if (trackingEnemyCollisionChecker.isDamage)
             {
                 isDead = true;
                 isDissolving = true;

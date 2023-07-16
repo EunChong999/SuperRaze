@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4829573227598244352}
   - component: {fileID: -1380642971382034845}
+  - component: {fileID: 302503140155655056}
   - component: {fileID: 4660586594232450600}
   m_Layer: 0
   m_Name: S1 Shooting Enemy 1
@@ -261,6 +262,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e2c75dcabb28246b6a48d3c95f242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &302503140155655056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356093263895949052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc59f30ec55750f4093c8cbd9e5b3929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  isDissolving: 0
+  shooingEnemyCollisionChecker: {fileID: 1802875946088457250}
 --- !u!114 &4660586594232450600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4458589773942234364}
-  - component: {fileID: 1689260661843305761}
+  - component: {fileID: 1802875946088457250}
   - component: {fileID: 1833545300105099288}
   m_Layer: 0
   m_Name: Collision Check
@@ -384,7 +400,7 @@ Transform:
   m_Father: {fileID: 1267117795195501419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1689260661843305761
+--- !u!114 &1802875946088457250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,9 +409,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8449444828858076079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdc2e58e932faa43a01987c13cd153e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c6d3ff8d8513b5459c54d95d3e33b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDamage: 0
 --- !u!61 &1833545300105099288
 BoxCollider2D:
   m_ObjectHideFlags: 0

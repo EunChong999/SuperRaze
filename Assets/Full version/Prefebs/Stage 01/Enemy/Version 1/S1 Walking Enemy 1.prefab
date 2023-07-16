@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1106634485852871078}
   - component: {fileID: 1106634485852871077}
+  - component: {fileID: 314484999912413153}
   - component: {fileID: 1106634485852871076}
   m_Layer: 0
   m_Name: S1 Walking Enemy 1
@@ -44,6 +45,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 225cd2e6b6f680e4ba7190b612a65f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &314484999912413153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106634485852871099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4491367ff579d419407b3938fe498c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1106634485852871076
@@ -122,7 +135,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -256,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1106634487361922914}
-  - component: {fileID: 1106634487361922924}
+  - component: {fileID: 2444908788227675584}
   - component: {fileID: 1106634487361922915}
   m_Layer: 0
   m_Name: Collision Check
@@ -280,7 +293,7 @@ Transform:
   m_Father: {fileID: 1106634487093199979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1106634487361922924
+--- !u!114 &2444908788227675584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,9 +302,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106634487361922913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdc2e58e932faa43a01987c13cd153e, type: 3}
+  m_Script: {fileID: 11500000, guid: e95cc7f4c4ba75b448086b0ee7243260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDamage: 0
 --- !u!61 &1106634487361922915
 BoxCollider2D:
   m_ObjectHideFlags: 0

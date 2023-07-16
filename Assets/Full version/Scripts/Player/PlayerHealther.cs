@@ -36,11 +36,14 @@ public class PlayerHealther : MonoBehaviour
 
     private void OnDisable()
     {
-        if (!screenManager.GetComponent<ScreenBlock>().on && isDead)
+        if (screenManager != null && isDead)
         {
-            screenManager.GetComponent<ScreenChange>().RestartScreen();
-            screenManager.GetComponent<ScreenEffect>().AffectScreen();
-            screenManager.GetComponent<ScreenBlock>().BlockScreen();
+            if (!screenManager.GetComponent<ScreenBlock>().on)
+            {
+                screenManager.GetComponent<ScreenChange>().RestartScreen();
+                screenManager.GetComponent<ScreenEffect>().AffectScreen();
+                screenManager.GetComponent<ScreenBlock>().BlockScreen();
+            }
         }
     }
 
