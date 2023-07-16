@@ -121,7 +121,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -346,6 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7769026601155685515}
   - component: {fileID: 5019951639366794145}
+  - component: {fileID: 7799708300752691220}
   - component: {fileID: 5813283227241750627}
   m_Layer: 0
   m_Name: S1 Bombing Enemy 1
@@ -382,6 +383,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8100e7c5ee17bb478fe51f50fd80f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7799708300752691220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289129964597254474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4de793b1a9d764ab4668db38c3d786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  isDissolving: 0
+  bombingEnemyExploder: {fileID: 5813283227241750627}
 --- !u!114 &5813283227241750627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7957211616689869073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.75, y: 5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -483,12 +499,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 1097707223, guid: 039cf9e0e3370974dae3849d2250b73f, type: 3}
+  m_Sprite: {fileID: -521417745, guid: 12073a4e4ed0fb94db6b13f91c28d946, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 6.25, y: 6.2561035}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -547,6 +563,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.125, y: -1}
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 1

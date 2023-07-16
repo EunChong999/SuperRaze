@@ -92,8 +92,6 @@ public class PlayerHealther : MonoBehaviour
             }
             else
             {
-                transform.GetChild(0).GetComponent<SpriteRenderer>().material = material;
-               
                 Dead();
             }
         }

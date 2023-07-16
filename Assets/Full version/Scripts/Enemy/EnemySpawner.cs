@@ -117,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
         {
             int randomEnemy = Random.Range(0, wave.enemy.Length); // 주어진 적 중에서 랜덤으로 생성할 적을 정한다.
             SpawnEnemy(wave.enemy[randomEnemy], wave.enemyBody); // 해당 Wave의 적을 생성한다.
-            yield return new WaitForSeconds(1f / wave.rate); // 등급이 높을수록(작을수록) 더 늦게 생성된다.
+            yield return new WaitForSeconds(/*1f / wave.rate*/ 0); // 등급이 높을수록(작을수록) 더 늦게 생성된다.
         }
 
         currentState = SpawnState.WAITING; // 생성이 끝났으므로 현재 상태를 대기중으로 전환

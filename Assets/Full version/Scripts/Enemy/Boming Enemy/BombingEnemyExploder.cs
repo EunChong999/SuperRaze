@@ -124,7 +124,7 @@ public class BombingEnemyExploder : MonoBehaviour
         if(!isDead)
         {
             ExplosionObj.SetActive(true);
-            Invoke("Dead", 0.4f);
+            Invoke("Dead", 0.8f);
             isDead = true;
         }
     }
