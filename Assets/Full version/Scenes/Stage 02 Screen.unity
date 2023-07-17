@@ -2473,7 +2473,7 @@ MonoBehaviour:
   effectDelay: 0.075
   isRewinding: 0
   recordTime: 10
-  rewindSpeed: 10
+  rewindSpeed: 5
   playerHealther: {fileID: 330506651}
   secondPlayerController: {fileID: 330506653}
   rb: {fileID: 1275710860}
@@ -12515,7 +12515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenChange: {fileID: 1132593684}
-  character: {fileID: 509712720}
+  character:
+  - {fileID: 0}
   characters:
   - {fileID: 468894449, guid: 8f991ec9a22823a4bb96e883f517bc03, type: 3}
   - {fileID: -1314969412, guid: 8f991ec9a22823a4bb96e883f517bc03, type: 3}
@@ -12861,6 +12862,7 @@ MonoBehaviour:
     enemyBody: {fileID: 0}
     count: 1
     rate: 16
+  isWaveCompleted: 0
   spawnPoints:
   - {fileID: 1208582569}
   - {fileID: 1306929996}
@@ -12937,6 +12939,7 @@ MonoBehaviour:
     enemyBody: {fileID: 0}
     count: 1
     rate: 16
+  isWaveCompleted: 0
   spawnPoints:
   - {fileID: 1923254413}
   - {fileID: 1693251818}
@@ -12944,7 +12947,7 @@ MonoBehaviour:
   - {fileID: 1784724974}
   - {fileID: 411192217}
   - {fileID: 1745892823}
-  timeBetweenWaves: 0
+  timeBetweenWaves: 3
   waveCountdown: 0
   currentState: 2
 --- !u!4 &893070560
@@ -27975,7 +27978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1468730443
 MonoBehaviour:
   m_ObjectHideFlags: 0

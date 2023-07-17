@@ -369,7 +369,7 @@ Transform:
   m_Children:
   - {fileID: 3047045893750062241}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5019951639366794145
 MonoBehaviour:
@@ -399,6 +399,7 @@ MonoBehaviour:
   isDead: 0
   isDissolving: 0
   bombingEnemyExploder: {fileID: 5813283227241750627}
+  collisionCheck: {fileID: 5005191824280259976}
 --- !u!114 &5813283227241750627
 MonoBehaviour:
   m_ObjectHideFlags: 0

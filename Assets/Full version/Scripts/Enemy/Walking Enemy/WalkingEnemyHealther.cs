@@ -10,10 +10,12 @@ public class WalkingEnemyHealther : MonoBehaviour
     float fade;
     private GameObject screenManager;
     [SerializeField] private WalkingEnemyCollisionChecker walkingEnemyCollisionChecker;
+    [SerializeField] private GameObject collisionCheck;
 
     void Start()
     {
         screenManager = GameObject.Find("Screen Manager");
+        collisionCheck.SetActive(false);
 
         material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
 
@@ -56,6 +58,7 @@ public class WalkingEnemyHealther : MonoBehaviour
             {
                 fade = 1;
                 isDissolving = false;
+                collisionCheck.SetActive(true);
             }
 
             material.SetFloat("_Fade", fade);

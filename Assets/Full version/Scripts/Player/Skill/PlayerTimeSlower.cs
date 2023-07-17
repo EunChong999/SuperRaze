@@ -29,7 +29,7 @@ public class PlayerTimeSlower : MonoBehaviour
         {
             playerHealther.UseSkill();
 
-            if (playerHealther.currentEnergy >= 0)
+            if (playerHealther.currentEnergy > 10)
             {
                 StartSlowmotion();
             }

@@ -10,11 +10,13 @@ public class BombingEnemyHealther : MonoBehaviour
     float fade;
     private GameObject screenManager;
     [SerializeField] private BombingEnemyExploder bombingEnemyExploder;
+    [SerializeField] private GameObject collisionCheck;
 
     void Start()
     {
         screenManager = GameObject.Find("Screen Manager");
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
+        collisionCheck.SetActive(false);
 
         material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
 
@@ -57,6 +59,7 @@ public class BombingEnemyHealther : MonoBehaviour
             {
                 fade = 1;
                 isDissolving = false;
+                collisionCheck.SetActive(true);
             }
 
             material.SetFloat("_Fade", fade);

@@ -39,10 +39,10 @@ public class ScreenBlock : MonoBehaviour
 
     public void BlockScreen()
     {
-        CurrentTime = 0;
-
         if (on == false)
         {
+            CurrentTime = 0;
+
             Block_Screen.transform.position = Release_Start_Position.position;
 
             Invoke("CreateWall", 1.25f);

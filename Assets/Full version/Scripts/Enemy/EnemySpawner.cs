@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public Wave[] waves; // Wave 클래스에 대한 배열 선언
     private int nextWave = 0; // 다음 Wave의 인덱스 번호,
                               // 첫 웨이브는 다음 웨이브이므로 인덱스 값은 0이다.
-    private bool isWaveCompleted;
+    [HideInInspector] public bool isWaveCompleted;
     private bool isSpawnEnd;
 
     public Transform[] spawnPoints; // 적이 스폰될 포인트
@@ -66,6 +66,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update() // 매 프레임마다 실행
     {
+        if (isWaveCompleted && !isSpawnEnd)
+        {
+            Invoke("SpawnEnd", 1);
+            isSpawnEnd = true;
+        }
+
         if (!isWaveCompleted)
         {
             if (currentState == SpawnState.WAITING) // 현재 상태가 대기중일 때 
@@ -82,7 +88,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (waveCountdown <= 0) // 남은 시간이 0이 됐을 때
             {
-                if (currentState != SpawnState.SPAWNING) // 현재 상태가 생성중이 아니라면  
+                if (currentState != SpawnState.SPAWNING && !isSpawnEnd) // 현재 상태가 생성중이 아니라면  
                 {
                     StartCoroutine(SpawnWave(waves[nextWave])); // 다음 Wave의 스폰을 시작한다.
                 }
@@ -91,12 +97,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 waveCountdown -= Time.deltaTime; // 계속하여 남은 시간을 감소시킨다.
             }
-        }
-
-        if (isWaveCompleted && !isSpawnEnd)
-        {
-            Invoke("SpawnEnd", 1);
-            isSpawnEnd = true;
         }
     }
 

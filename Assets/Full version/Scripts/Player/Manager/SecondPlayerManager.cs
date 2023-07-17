@@ -5,6 +5,7 @@ using UnityEngine;
 public class SecondPlayerManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
+    private EnemySpawner enemySpawner;
     [SerializeField] private PlayerTimeRewinder playerTimeRewinder;
     [SerializeField] private PlayerHealther playerHealther;
     [SerializeField] private GameObject collisionCheker;
@@ -13,6 +14,7 @@ public class SecondPlayerManager : MonoBehaviour
     void Start()
     {
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        enemySpawner = GameObject.Find("Spawner").GetComponent<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class SecondPlayerManager : MonoBehaviour
             gameObject.GetComponent<PlayerHealther>().enabled = true;
         }
 
-        if (screenTimer.isTimeStop || playerHealther.isDissolving || playerHealther.isDead)
+        if (screenTimer.isTimeStop || playerHealther.isDissolving || playerHealther.isDead || enemySpawner.isWaveCompleted)
         {
             transform.GetChild(0).gameObject.layer = 0;
             collisionCheker.SetActive(false);

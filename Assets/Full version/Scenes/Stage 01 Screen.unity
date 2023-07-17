@@ -2937,7 +2937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenChange: {fileID: 1108779256}
-  character: {fileID: 1080709494}
+  character:
+  - {fileID: 0}
   characters:
   - {fileID: 468894449, guid: 8f991ec9a22823a4bb96e883f517bc03, type: 3}
   - {fileID: -1314969412, guid: 8f991ec9a22823a4bb96e883f517bc03, type: 3}
@@ -8906,6 +8907,7 @@ MonoBehaviour:
     enemyBody: {fileID: 0}
     count: 1
     rate: 16
+  isWaveCompleted: 0
   spawnPoints:
   - {fileID: 1320389593}
   - {fileID: 1976973631}
@@ -8913,7 +8915,7 @@ MonoBehaviour:
   - {fileID: 253862294}
   - {fileID: 503552284}
   - {fileID: 525340959}
-  timeBetweenWaves: 0
+  timeBetweenWaves: 3
   waveCountdown: 0
   currentState: 2
 --- !u!1 &854281810

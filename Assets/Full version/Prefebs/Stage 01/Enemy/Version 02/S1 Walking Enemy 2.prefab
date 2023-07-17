@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1106634487093199979}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1106634485852871077
 MonoBehaviour:
@@ -63,6 +63,7 @@ MonoBehaviour:
   isDead: 0
   isDissolving: 0
   walkingEnemyCollisionChecker: {fileID: 2444908788227675584}
+  collisionCheck: {fileID: 1106634487361922913}
 --- !u!114 &1106634485852871076
 MonoBehaviour:
   m_ObjectHideFlags: 0
