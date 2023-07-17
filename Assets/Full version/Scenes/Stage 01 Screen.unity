@@ -11077,7 +11077,7 @@ MonoBehaviour:
   physicsMaterial1: {fileID: 6200000, guid: a6ab232c2cce62f45a2fca03a4d57e22, type: 2}
   physicsMaterial2: {fileID: 6200000, guid: d9341aa251454214da280bf2aa6eec77, type: 2}
   collisionObject: {fileID: 0}
-  playerController: {fileID: 1078598599}
+  firstPlayerController: {fileID: 1078598599}
   playerTimeSlower: {fileID: 1078598600}
   playerHealther: {fileID: 1078598606}
   isCollision: 0
@@ -11165,7 +11165,7 @@ MonoBehaviour:
   objectLayer:
     serializedVersion: 2
     m_Bits: 64
-  collisionChecker: {fileID: 1076095106}
+  firstPlayerCollisionChecker: {fileID: 1076095106}
 --- !u!114 &1078598600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11182,7 +11182,7 @@ MonoBehaviour:
   slowdownFactor: 0.25
   afterImage: {fileID: 1078598604}
   isSlowering: 0
-  playerCollision: {fileID: 1076095106}
+  firstPlayerCollision: {fileID: 1076095106}
   playerHealther: {fileID: 1078598606}
 --- !u!114 &1078598604
 MonoBehaviour:
@@ -14779,7 +14779,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 7.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

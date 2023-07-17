@@ -64,11 +64,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        isWaveCompleted = false;
-    }
-
     private void Update() // 매 프레임마다 실행
     {
         if (!isWaveCompleted)
@@ -100,7 +95,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (isWaveCompleted && !isSpawnEnd)
         {
-            SpawnEnd();
+            Invoke("SpawnEnd", 1);
             isSpawnEnd = true;
         }
     }

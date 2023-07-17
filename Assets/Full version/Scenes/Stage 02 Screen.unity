@@ -2472,9 +2472,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectDelay: 0.075
   isRewinding: 0
-  recordTime: 5
-  rewindSpeed: 5
+  recordTime: 10
+  rewindSpeed: 10
   playerHealther: {fileID: 330506651}
+  secondPlayerController: {fileID: 330506653}
   rb: {fileID: 1275710860}
   body: {fileID: 1275710857}
   afterImage: {fileID: 330506646}

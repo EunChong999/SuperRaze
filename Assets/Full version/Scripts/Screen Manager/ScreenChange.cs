@@ -31,6 +31,7 @@ public class ScreenChange : MonoBehaviour
             if (i == CurrentScreenNumber) 
             {
                 ScreenUI[i].SetActive(true);
+                break;
             }
             else
             {

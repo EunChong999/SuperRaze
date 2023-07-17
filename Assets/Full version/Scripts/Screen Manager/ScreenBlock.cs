@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ScreenBlock : MonoBehaviour
 {
@@ -16,29 +13,39 @@ public class ScreenBlock : MonoBehaviour
     public Transform Release_Start_Position;
     public Transform Release_End_Position;
 
+    private void Start()
+    {
+        this.transform.position = Release_Start_Position.position;
+    }
+
     private void Update()
     {
-        if(on == true)
+        if (on == true)
         {
             CurrentTime += Time.deltaTime;
 
-            if(CurrentTime >= LerpTime)
+            if (CurrentTime >= LerpTime)
             {
                 CurrentTime = LerpTime;
             }
 
-            Block_Screen.transform.position = Vector3.Lerp(Release_Start_Position.position, Release_End_Position.position, CurrentTime / LerpTime);
+            float t = CurrentTime / LerpTime;
+
+            t = Mathf.Sin(t * Mathf.PI * 0.5f);
+
+            Block_Screen.transform.position = Vector3.Lerp(Release_Start_Position.position, Release_End_Position.position, t);
         }
     }
 
     public void BlockScreen()
     {
+        CurrentTime = 0;
+
         if (on == false)
         {
             Block_Screen.transform.position = Release_Start_Position.position;
-            CurrentTime = 0;
 
-            Invoke("CreateWall", 1.25f); 
+            Invoke("CreateWall", 1.25f);
         }
     }
 

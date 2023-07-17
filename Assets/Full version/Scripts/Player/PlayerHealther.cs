@@ -82,7 +82,7 @@ public class PlayerHealther : MonoBehaviour
             {
                 currentHealth = 0;
 
-                isDead = true;
+                isDead = true; // ав╢б ╫ца║
 
                 isDissolving = true;
             }

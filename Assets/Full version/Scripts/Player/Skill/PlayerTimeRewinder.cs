@@ -12,6 +12,7 @@ public class PlayerTimeRewinder : MonoBehaviour
     public float rewindSpeed = 5f;
 
     [SerializeField] private PlayerHealther playerHealther;
+    [SerializeField] private SecondPlayerController secondPlayerController;
 
     Stack<PlayerPointTime> playerPointTime;
 
@@ -47,12 +48,12 @@ public class PlayerTimeRewinder : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            if (playerPointTime.Count != 0)
+            if (playerPointTime.Count != 0 && secondPlayerController.horizontal == 0)
             {
                 playerHealther.UseSkill();
             }
 
-            if (playerHealther.currentEnergy >= 10)
+            if (playerHealther.currentEnergy >= 0 && secondPlayerController.horizontal == 0)
             {
                 StartRewind();
             }
@@ -62,7 +63,7 @@ public class PlayerTimeRewinder : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || playerPointTime.Count == 0 || playerHealther.currentEnergy <= 0)
         {
             StopRewind();
         }
@@ -113,9 +114,10 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     public void StartRewind()
     {
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);
         afterImage.makeImage = true;
         isRewinding = true;
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
 
         if (playerPointTime.Count > 0)
         {
@@ -130,10 +132,11 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     public void StopRewind()
     {
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         afterImage.makeImage = false;
         curTime = 0;
         playerPointTime.Clear();
         isRewinding = false;
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
     }
 }

@@ -54,18 +54,14 @@ public class SecondPlayerManager : MonoBehaviour
                 transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(0).gameObject.layer = 0;
                 gameObject.GetComponent<SecondPlayerShooter>().enabled = false;
-                transform.GetChild(0).GetComponent<Animator>().enabled = false;
                 gameObject.GetComponent<SecondPlayerController>().enabled = false;
-                gameObject.GetComponent<SecondPlayerShooter>().enabled = false;
             }
             else
             {
                 transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                 transform.GetChild(0).gameObject.layer = 7;
                 gameObject.GetComponent<SecondPlayerShooter>().enabled = true;
-                transform.GetChild(0).GetComponent<Animator>().enabled = true;
                 gameObject.GetComponent<SecondPlayerController>().enabled = true;
-                gameObject.GetComponent<SecondPlayerShooter>().enabled = true;
             }
         }
     }
