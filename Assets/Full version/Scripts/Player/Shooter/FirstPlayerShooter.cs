@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
 
-public class PlayerShooter : MonoBehaviour
+public class FirstPlayerShooter : MonoBehaviour
 {
     // Shoot
     [SerializeField] private bool isShooting;
     [SerializeField] private float coolTime;
-    [SerializeField] private static PlayerShooter instance;
+    [SerializeField] private static FirstPlayerShooter instance;
     [SerializeField] private Animator animator;
 
     private List<GameObject> pooledObjects = new List<GameObject>();
@@ -41,7 +41,7 @@ public class PlayerShooter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !isShooting && GetComponent<PlayerController>().IsGrounded())
+        if (Input.GetMouseButton(0) && !isShooting && GetComponent<FirstPlayerController>().IsGrounded())
         {
             StartCoroutine(Shoot());
         }

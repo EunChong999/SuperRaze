@@ -33,8 +33,8 @@ public class FirstPlayerManager : MonoBehaviour
             collisionCheker.SetActive(false);
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
-            gameObject.GetComponent<PlayerController>().enabled = false;
-            gameObject.GetComponent<PlayerShooter>().enabled = false;
+            gameObject.GetComponent<FirstPlayerController>().enabled = false;
+            gameObject.GetComponent<FirstPlayerShooter>().enabled = false;
             gameObject.GetComponent<PlayerTimeSlower>().enabled = false;
             gameObject.GetComponent<AfterImage>().enabled = false;
             gameObject.GetComponent<AfterImage>().makeImage = false;
@@ -45,7 +45,7 @@ public class FirstPlayerManager : MonoBehaviour
             collisionCheker.SetActive(true);
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
-            gameObject.GetComponent<PlayerController>().enabled = true;
+            gameObject.GetComponent<FirstPlayerController>().enabled = true;
             gameObject.GetComponent<PlayerTimeSlower>().enabled = true;
             gameObject.GetComponent<AfterImage>().enabled = true;
 
@@ -53,13 +53,13 @@ public class FirstPlayerManager : MonoBehaviour
             {
                 transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(0).gameObject.layer = 0;
-                gameObject.GetComponent<PlayerShooter>().enabled = false;
+                gameObject.GetComponent<FirstPlayerShooter>().enabled = false;
             }
             else
             {
                 transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                 transform.GetChild(0).gameObject.layer = 7;
-                gameObject.GetComponent<PlayerShooter>().enabled = true;
+                gameObject.GetComponent<FirstPlayerShooter>().enabled = true;
             }
         }
     }

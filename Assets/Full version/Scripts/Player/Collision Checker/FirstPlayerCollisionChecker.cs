@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollisionChecker : MonoBehaviour
+public class FirstPlayerCollisionChecker : MonoBehaviour
 {
     public PhysicsMaterial2D physicsMaterial1;
     public PhysicsMaterial2D physicsMaterial2;
     [HideInInspector] public GameObject collisionObject;
-    public PlayerController playerController;
+    public FirstPlayerController firstPlayerController;
     public PlayerTimeSlower playerTimeSlower;
     public PlayerHealther playerHealther;
     [HideInInspector] public bool isCollision;
@@ -44,7 +44,7 @@ public class PlayerCollisionChecker : MonoBehaviour
         transform.GetComponentInParent<Rigidbody2D>().sharedMaterial = physicsMaterial2;
         gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);
 
-        if (playerController.horizontal == 0)
+        if (firstPlayerController.horizontal == 0)
         {
             Vector2 targetpos = target.GetComponentInParent<Transform>().position;
             int dirc = gameObject.GetComponentInParent<Transform>().position.x - targetpos.x > 0 ? 1 : -1;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class SecondPlayerBullet : MonoBehaviour
 {
     public float speed = 24f;
     private GameObject player;
@@ -18,12 +18,12 @@ public class PlayerBullet : MonoBehaviour
 
     private void Update()
     {
-        if (player.GetComponent<PlayerController>().isFacingRight  && rb.velocity.x == 0)
+        if (player.GetComponent<SecondPlayerController>().isFacingRight && rb.velocity.x == 0)
         {
             rb.velocity = transform.right * speed;
             sr.flipX = false;
         }
-        else if (!player.GetComponent<PlayerController>().isFacingRight && rb.velocity.x == 0)
+        else if (!player.GetComponent<SecondPlayerController>().isFacingRight && rb.velocity.x == 0)
         {
             rb.velocity = transform.right * -1 * speed;
             sr.flipX = true;

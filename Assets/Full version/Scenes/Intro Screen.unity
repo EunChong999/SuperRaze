@@ -5817,8 +5817,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.4958, y: 0.00064992905, z: 0}
-    m_Extent: {x: 4.5017, y: 2.00845, z: 0}
+    m_Center: {x: -1.5030501, y: -0.00020003319, z: 0}
+    m_Extent: {x: 4.4991503, y: 2.0031, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6420,7 +6420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad3044aabd935a4ab364841479f7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
+  on: 0
   LerpTime: 0.5
   CurrentTime: 0
   Block_Screen: {fileID: 2057779203}
@@ -18328,7 +18328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad3044aabd935a4ab364841479f7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
+  on: 0
   LerpTime: 0.5
   CurrentTime: 0
   Block_Screen: {fileID: 914412664}
@@ -20936,7 +20936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad3044aabd935a4ab364841479f7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
+  on: 0
   LerpTime: 0.5
   CurrentTime: 0
   Block_Screen: {fileID: 2107499421}
@@ -21685,8 +21685,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.49725, y: 0.005199969, z: 0}
-    m_Extent: {x: 4.50265, y: 2.0025, z: 0}
+    m_Center: {x: -1.5019499, y: 0.0034999847, z: 0}
+    m_Extent: {x: 4.50285, y: 2.0058, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -29083,8 +29083,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.50025, y: 0.00029993057, z: 0}
-    m_Extent: {x: 4.50635, y: 2.0074, z: 0}
+    m_Center: {x: -1.49425, y: -0.0020500422, z: 0}
+    m_Extent: {x: 4.5015497, y: 2.00215, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -42202,7 +42202,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 8
+    OrthographicSize: 9
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

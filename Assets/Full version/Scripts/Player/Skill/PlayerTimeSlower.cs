@@ -8,7 +8,7 @@ public class PlayerTimeSlower : MonoBehaviour
     [SerializeField] private float slowdownFactor = 0.5f;
     public AfterImage afterImage;
     [HideInInspector] public bool isSlowering;
-    [SerializeField] private PlayerCollisionChecker playerCollision;
+    [SerializeField] private FirstPlayerCollisionChecker firstPlayerCollision;
     [SerializeField] private PlayerHealther playerHealther;
 
     private void OnEnable()
@@ -61,9 +61,9 @@ public class PlayerTimeSlower : MonoBehaviour
 
     private void StopSlowmotion()
     {
-        if (isSlowering && playerCollision.collisionObject != null)
+        if (isSlowering && firstPlayerCollision.collisionObject != null)
         {
-            playerCollision.StartDamage();
+            firstPlayerCollision.StartDamage();
         }
 
         isSlowering = false;

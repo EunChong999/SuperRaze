@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class FirstPlayerController : MonoBehaviour
 {
     // Move
     [HideInInspector] public float horizontal;
@@ -29,13 +29,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector2 wallJumpingVector = new Vector2(1f, 2f);
 
     // Common
-    [HideInInspector] public Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] private Transform body;
     [SerializeField] private Animator anim;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask objectLayer;
-    [SerializeField] private PlayerCollisionChecker collisionChecker;
+    [SerializeField] private FirstPlayerCollisionChecker firstPlayerCollisionChecker;
 
     private void Start()
     {
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if(!collisionChecker.isCollision)
+                if(!firstPlayerCollisionChecker.isCollision)
                 {
                     rb.velocity = new Vector2(0, rb.velocity.y);
                 }

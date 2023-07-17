@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class PlayerTimeRewinder : MonoBehaviour
 {
-    [HideInInspector] public bool isRewinding = false;
-
     public float effectDelay;
+    [HideInInspector] public bool isRewinding = false;
     public float recordTime = 5f;
     public float rewindSpeed = 5f;
+
+    [SerializeField] private PlayerHealther playerHealther;
 
     Stack<PlayerPointTime> playerPointTime;
 
@@ -44,9 +45,21 @@ public class PlayerTimeRewinder : MonoBehaviour
             Record();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
-            StartRewind();
+            if (playerPointTime.Count != 0)
+            {
+                playerHealther.UseSkill();
+            }
+
+            if (playerHealther.currentEnergy >= 10)
+            {
+                StartRewind();
+            }
+            else
+            {
+                StopRewind();
+            }
         }
 
         if (Input.GetMouseButtonUp(1))

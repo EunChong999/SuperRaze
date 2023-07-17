@@ -61,7 +61,7 @@ public class ScreenEffect : MonoBehaviour
                 camera.backgroundColor = new Color32(38, 38, 38, 255);
                 break;
             case 4: // 스테이지 2
-                camera.backgroundColor = backgrounds[2].GetComponent<SpriteRenderer>().color;
+                camera.backgroundColor = new Color32(31, 33, 48, 255);
                 if (screenChange.on)
                 {
                     canvas[0].renderMode = spaceCamera;
@@ -78,10 +78,10 @@ public class ScreenEffect : MonoBehaviour
                 }
                 break;
             case 5: // 스테이지 2 스코어
-                camera.backgroundColor = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                camera.backgroundColor = new Color32(31, 33, 48, 255);
                 break;
             case 6: // 엔딩
-                camera.backgroundColor = backgrounds[0].GetComponent<SpriteRenderer>().color;
+                camera.backgroundColor = new Color32(38, 43, 68, 255);
                 break;
             default:
                 break;
