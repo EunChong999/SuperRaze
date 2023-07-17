@@ -103,4 +103,21 @@ public class ScreenChange : MonoBehaviour
 
         on = false;
     }
+
+    public void GiveUp()
+    {
+        if (on == false)
+        {
+            on = true;
+
+            Invoke("GivedUp", 1.25f);
+        }
+    }
+
+    public void GivedUp()
+    {
+        SceneManager.LoadScene(1);
+
+        on = false;
+    }
 }
