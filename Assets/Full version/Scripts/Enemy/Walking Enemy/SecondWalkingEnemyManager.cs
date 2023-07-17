@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkingEnemyManager : MonoBehaviour
+public class SecondWalkingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
     private WalkingEnemyHealther walkingEnemyHealther;
     private WalkingEnemyPatroller walkingEnemyPatroller;
     [SerializeField] private GameObject collisionCheck;
+    private PlayerTimeRewinder playerTimeRewinder;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class WalkingEnemyManager : MonoBehaviour
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
         walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
         walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
+        playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class WalkingEnemyManager : MonoBehaviour
             }
         }
 
-        if (screenTimer.isTimeStop || walkingEnemyHealther.isDissolving || walkingEnemyHealther.isDead)
+        if (screenTimer.isTimeStop || walkingEnemyHealther.isDissolving || walkingEnemyHealther.isDead || playerTimeRewinder.isRewinding)
         {
             transform.GetChild(0).GetChild(0).GetComponent<WalkingEnemyCollisionChecker>().enabled = false;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;

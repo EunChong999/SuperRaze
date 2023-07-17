@@ -2,48 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackingEnemyManager : MonoBehaviour
+public class FirstWalkingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
-    private TrackingEnemyHealther trackingEnemyHealther;
-    private TrackingEnemyChaser trackingEnemyChaser;
+    private WalkingEnemyHealther walkingEnemyHealther;
+    private WalkingEnemyPatroller walkingEnemyPatroller;
     [SerializeField] private GameObject collisionCheck;
 
     // Start is called before the first frame update
     void Start()
     {
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
-        trackingEnemyHealther = gameObject.GetComponent<TrackingEnemyHealther>();
-        trackingEnemyChaser = gameObject.GetComponent<TrackingEnemyChaser>();
+        walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
+        walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (trackingEnemyHealther.isDead)
+        if (walkingEnemyHealther.isDead)
         {
-            trackingEnemyChaser.enabled = false;
+            walkingEnemyPatroller.enabled = false;
             collisionCheck.SetActive(false);
 
-            if (!trackingEnemyHealther.isDissolving)
+            if (!walkingEnemyHealther.isDissolving)
             {
                 gameObject.SetActive(false);
             }
         }
 
-        if (screenTimer.isTimeStop || trackingEnemyHealther.isDissolving || trackingEnemyHealther.isDead)
+        if (screenTimer.isTimeStop || walkingEnemyHealther.isDissolving || walkingEnemyHealther.isDead)
         {
-            transform.GetChild(0).GetChild(0).GetComponent<TrackingEnemyCollisionChecker>().enabled = false;
+            transform.GetChild(0).GetChild(0).GetComponent<WalkingEnemyCollisionChecker>().enabled = false;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
-            gameObject.GetComponent<TrackingEnemyChaser>().enabled = false;
+            gameObject.GetComponent<WalkingEnemyPatroller>().enabled = false;
         }
         else
         {
-            transform.GetChild(0).GetChild(0).GetComponent<TrackingEnemyCollisionChecker>().enabled = true;
+            transform.GetChild(0).GetChild(0).GetComponent<WalkingEnemyCollisionChecker>().enabled = true;
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
-            gameObject.GetComponent<TrackingEnemyChaser>().enabled = true;
+            gameObject.GetComponent<WalkingEnemyPatroller>().enabled = true;
         }
     }
 }

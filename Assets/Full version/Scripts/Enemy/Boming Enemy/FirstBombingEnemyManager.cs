@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombingEnemyManager : MonoBehaviour
+public class FirstBombingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
     private BombingEnemyHealther bombingEnemyHealther;
     private BombingEnemyExploder bombingEnemyExploder;
     [SerializeField] private GameObject collisionCheck;
+    private PlayerTimeRewinder playerTimeRewinder;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class BombingEnemyManager : MonoBehaviour
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
         bombingEnemyHealther = gameObject.GetComponent<BombingEnemyHealther>();
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
+        playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class BombingEnemyManager : MonoBehaviour
             }
         }
 
-        if (screenTimer.isTimeStop || bombingEnemyHealther.isDissolving || bombingEnemyHealther.isDead)
+        if (screenTimer.isTimeStop || bombingEnemyHealther.isDissolving || bombingEnemyHealther.isDead || playerTimeRewinder.isRewinding)
         {
             transform.GetChild(0).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetChild(0).GetComponent<Animator>().enabled = false;

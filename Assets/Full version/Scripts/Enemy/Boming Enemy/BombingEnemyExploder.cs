@@ -64,7 +64,7 @@ public class BombingEnemyExploder : MonoBehaviour
 
     private void Update()
     {
-        if(!isBombing)
+        if (!isBombing)
         {
             CheckGround();
             CheckSpeed();

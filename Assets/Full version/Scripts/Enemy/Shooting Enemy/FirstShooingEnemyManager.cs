@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooingEnemyManager : MonoBehaviour
+public class FirstShooingEnemyManager : MonoBehaviour
 {
     private ScreenTimer screenTimer;
     private ShootingEnemyHealther shootingEnemyHealther;
