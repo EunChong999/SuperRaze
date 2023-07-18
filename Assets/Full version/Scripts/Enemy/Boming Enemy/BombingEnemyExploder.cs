@@ -104,7 +104,7 @@ public class BombingEnemyExploder : MonoBehaviour
 
     void CheckCollision()
     {
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 3 && isChasing)
+        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 2 && isChasing)
         {
             chasingSpeed = 0;
 
@@ -139,8 +139,7 @@ public class BombingEnemyExploder : MonoBehaviour
     void DecideChasing()
     {
         if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < chaseDistance &&
-            ((playerTransform.position.y + 6) - body.transform.position.y) > 0 &&
-            Mathf.Abs(body.transform.position.y - playerTransform.position.y) < chaseDistance / 2 &&
+            Mathf.Abs(body.transform.position.y - playerTransform.position.y) < 1 &&
             isGrounding &&
             playerTransform.transform.position.x > pointA.position.x &&
             playerTransform.transform.position.x < pointB.position.x &&

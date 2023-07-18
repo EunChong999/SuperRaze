@@ -88,7 +88,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (waveCountdown <= 0) // 남은 시간이 0이 됐을 때
             {
-                if (currentState != SpawnState.SPAWNING && !isSpawnEnd) // 현재 상태가 생성중이 아니라면  
+                if (currentState != SpawnState.SPAWNING) // 현재 상태가 생성중이 아니라면  
                 {
                     StartCoroutine(SpawnWave(waves[nextWave])); // 다음 Wave의 스폰을 시작한다.
                 }

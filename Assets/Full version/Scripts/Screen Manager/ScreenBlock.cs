@@ -8,7 +8,6 @@ public class ScreenBlock : MonoBehaviour
     public float CurrentTime;
 
     public GameObject Block_Screen;
-    public GameObject[] Main_Screen = new GameObject[2];
 
     public Transform Release_Start_Position;
     public Transform Release_End_Position;
