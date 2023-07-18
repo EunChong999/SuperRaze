@@ -140,7 +140,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
+  - {fileID: 2100000, guid: 0ea7f777007e9ad4ca0eb58d2912daee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 765804928, guid: c38c1d3c5a677ed4d88ab392311bff5b, type: 3}
+  m_Sprite: {fileID: -1146609836, guid: baeee35769aa677489e17bc209eb8b37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -231,18 +231,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12252188, y: -0.187944}
+  m_Offset: {x: 0.039104715, y: -0.787386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75495625, y: 1.624112}
+  m_Size: {x: 0.5881219, y: 1.0787739}
   m_EdgeRadius: 0
 --- !u!95 &1106634487093199976
 Animator:
@@ -254,7 +254,7 @@ Animator:
   m_GameObject: {fileID: 1106634487093199983}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85b5d9272f43f2e4c8efea378ca187bb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f302211b14d75d4aaafe9a4b41c3670, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -343,18 +343,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12252188, y: -0.3121775}
+  m_Offset: {x: 0.039104715, y: -0.787386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75495625, y: 1.3756449}
+  m_Size: {x: 0.5881219, y: 1.0787739}
   m_EdgeRadius: 0
 --- !u!1 &6792040314650666468
 GameObject:

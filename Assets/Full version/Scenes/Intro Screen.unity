@@ -1660,6 +1660,9 @@ MonoBehaviour:
   - {fileID: 109452288}
   - {fileID: 1920081905}
   - {fileID: 1251480430}
+  - {fileID: 1104343121}
+  - {fileID: 57355845}
+  - {fileID: 1344129462}
   sprites:
   - {fileID: -637343528, guid: d6d0589a625314d4bb5715a98f889eaa, type: 3}
   - {fileID: 499012835, guid: d6d0589a625314d4bb5715a98f889eaa, type: 3}
@@ -2741,8 +2744,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.49785, y: 0.002499938, z: 0}
-    m_Extent: {x: 4.50705, y: 2.0066, z: 0}
+    m_Center: {x: -1.5014, y: -0.0038000345, z: 0}
+    m_Extent: {x: 4.5032, y: 2.0054998, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8850,8 +8853,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.5022, y: 0.0041499734, z: 0}
-    m_Extent: {x: 4.5059, y: 2.00195, z: 0}
+    m_Center: {x: -1.49995, y: -0.0019999743, z: 0}
+    m_Extent: {x: 4.5005503, y: 2.0068998, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12016,8 +12019,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.50565, y: -0.003350079, z: 0}
-    m_Extent: {x: 4.50425, y: 1.9972501, z: 0}
+    m_Center: {x: -1.5020499, y: -0.0029000044, z: 0}
+    m_Extent: {x: 4.50035, y: 2.0042, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12185,7 +12188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1404394086
 MonoBehaviour:
   m_ObjectHideFlags: 0

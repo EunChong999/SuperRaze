@@ -6,6 +6,7 @@ public class ShooingEnemyThrower : MonoBehaviour
 {
     // Shoot
     public bool isShooting;
+    public bool isShooted;
     public bool canShoot;
     [SerializeField] private float coolTime;
     [SerializeField] private static ShooingEnemyThrower instance;
@@ -44,6 +45,7 @@ public class ShooingEnemyThrower : MonoBehaviour
 
         // ½´ÆÃ Ç®¸µ
         isShooting = false;
+        isShooted = false;
 
         for (int i = 0; i < amountToPool; i++)
         {
@@ -95,8 +97,10 @@ public class ShooingEnemyThrower : MonoBehaviour
         return null;
     }
 
-    IEnumerator Shoot()
+    IEnumerator Shoot(float waitTime)
     {
+        yield return new WaitForSeconds(waitTime);
+
         animator.SetBool("isRun", false);
 
         GameObject Bullet = GetPooledObject();
@@ -112,6 +116,8 @@ public class ShooingEnemyThrower : MonoBehaviour
         yield return new WaitForSeconds(coolTime);
 
         isShooting = false;
+
+        isShooted = false;
     }
 
     private void Update()
@@ -199,9 +205,10 @@ public class ShooingEnemyThrower : MonoBehaviour
                     body.transform.localScale = new Vector3(1, 1, 1);
                 }
 
-                if (!isShooting)
+                if (!isShooting && !isShooted)
                 {
-                    StartCoroutine(Shoot());
+                    StartCoroutine(Shoot(0.4f));
+                    isShooted = true;
                 }
             }
             else

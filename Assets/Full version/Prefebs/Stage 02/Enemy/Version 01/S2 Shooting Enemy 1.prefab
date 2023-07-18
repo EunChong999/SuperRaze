@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
+  - {fileID: 2100000, guid: 0ea7f777007e9ad4ca0eb58d2912daee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,18 +150,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.032588005, y: -0.21542692}
+  m_Offset: {x: 0.041407764, y: -0.8361586}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81386757, y: 1.5691462}
+  m_Size: {x: 0.75004447, y: 1.0033761}
   m_EdgeRadius: 0
 --- !u!95 &5457075053068768210
 Animator:
@@ -173,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 2805457383599084185}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83188d3fc56155346b5c9440aabe01ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6d182798ff1f23c4ca66b5268991922b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -279,11 +279,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShooting: 0
+  isShooted: 0
   canShoot: 0
   coolTime: 3
   animator: {fileID: 5457075053068768210}
   amountToPool: 5
-  bulletPrefeb: {fileID: 2937711672827502538, guid: 237263c34e097b1468d27b0de430d813, type: 3}
+  bulletPrefeb: {fileID: 2937711672827502538, guid: 208c4408ac5723e4582ab716888f25f1, type: 3}
   bulletPosition: {fileID: 1467162696971226979}
   body: {fileID: 2805457383599084185}
   rb: {fileID: 702802322475995692}
@@ -447,16 +448,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03300476, y: -0.40584195}
+  m_Offset: {x: 0.041407764, y: -0.8361586}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81105804, y: 1.1883161}
+  m_Size: {x: 0.75004447, y: 1.0033761}
   m_EdgeRadius: 0

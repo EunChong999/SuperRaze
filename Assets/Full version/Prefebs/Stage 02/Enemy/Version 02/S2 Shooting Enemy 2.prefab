@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
+  - {fileID: 2100000, guid: 0ea7f777007e9ad4ca0eb58d2912daee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,18 +150,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001039207, y: -0.5613153}
+  m_Offset: {x: -0.04157448, y: -0.75038135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75077, y: 0.8773694}
+  m_Size: {x: 0.7488761, y: 1.1641059}
   m_EdgeRadius: 0
 --- !u!95 &4478872686501385106
 Animator:
@@ -173,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 2805457383599084185}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: affa74a9c1eb59249a620f7f4cfa5b50, type: 2}
+  m_Controller: {fileID: 9100000, guid: 312f7fee07c84a14687a0231b095c4b8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2953614857919115968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: -0.5, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,7 +248,7 @@ Transform:
   m_Children:
   - {fileID: 1267117795195501419}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &302503140155655056
 MonoBehaviour:
@@ -279,11 +279,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShooting: 0
+  isShooted: 0
   canShoot: 0
   coolTime: 3
   animator: {fileID: 4478872686501385106}
   amountToPool: 5
-  bulletPrefeb: {fileID: 2937711672827502538, guid: 237263c34e097b1468d27b0de430d813, type: 3}
+  bulletPrefeb: {fileID: 2937711672827502538, guid: 208c4408ac5723e4582ab716888f25f1, type: 3}
   bulletPosition: {fileID: 1467162696971226979}
   body: {fileID: 2805457383599084185}
   rb: {fileID: 702802322475995692}
@@ -447,16 +448,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0017741174, y: -0.56310403}
+  m_Offset: {x: -0.04157448, y: -0.75038135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7485968, y: 0.87379193}
+  m_Size: {x: 0.7488761, y: 1.1641059}
   m_EdgeRadius: 0

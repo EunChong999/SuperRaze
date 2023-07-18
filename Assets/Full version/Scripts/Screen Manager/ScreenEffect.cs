@@ -47,12 +47,15 @@ public class ScreenEffect : MonoBehaviour
                     canvas[0].renderMode = spaceCamera;
                     canvas[1].renderMode = spaceCamera;
                     canvas[2].renderMode = spaceCamera;
+                    canvas[3].renderMode = spaceCamera;
+                    canvas[4].renderMode = spaceCamera;
+                    canvas[5].renderMode = spaceCamera;
                 }
                 else
                 {
                     if (!isRenderModeChanged)
                     {
-                        Invoke("ChangeRenderMode", 0.5f);
+                        Invoke("ChangeRenderMode", 0.75f);
                         isRenderModeChanged = true;
                     }
                 }
@@ -67,12 +70,15 @@ public class ScreenEffect : MonoBehaviour
                     canvas[0].renderMode = spaceCamera;
                     canvas[1].renderMode = spaceCamera;
                     canvas[2].renderMode = spaceCamera;
+                    canvas[3].renderMode = spaceCamera;
+                    canvas[4].renderMode = spaceCamera;
+                    canvas[5].renderMode = spaceCamera;
                 }
                 else
                 {
                     if (!isRenderModeChanged)
                     {
-                        Invoke("ChangeRenderMode", 0.5f);
+                        Invoke("ChangeRenderMode", 0.75f);
                         isRenderModeChanged = true;
                     }
                 }
@@ -93,6 +99,9 @@ public class ScreenEffect : MonoBehaviour
         canvas[0].renderMode = overlay;
         canvas[1].renderMode = overlay;
         canvas[2].renderMode = overlay;
+        canvas[3].renderMode = overlay;
+        canvas[4].renderMode = overlay;
+        canvas[5].renderMode = overlay;
         isRenderModeChanged = false;
     }
 

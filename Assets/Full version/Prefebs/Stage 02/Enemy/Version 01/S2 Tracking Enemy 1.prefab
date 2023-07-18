@@ -120,7 +120,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3a150c8fbf34844e883dd2d79c141a3, type: 2}
+  - {fileID: 2100000, guid: 0ea7f777007e9ad4ca0eb58d2912daee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,18 +211,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00025105476, y: -0.5932393}
+  m_Offset: {x: -0.04301831, y: -0.7913285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75168926, y: 0.8135214}
+  m_Size: {x: 0.7543941, y: 1.0842911}
   m_EdgeRadius: 0
 --- !u!95 &2654888404819496354
 Animator:
@@ -234,7 +234,7 @@ Animator:
   m_GameObject: {fileID: 1253881078524434535}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fe346d97d423d74e845c010ec78702e, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb77ec768404ffb4d92562ba5a958006, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -278,7 +278,7 @@ Transform:
   m_Children:
   - {fileID: 2113933304612908387}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &596564169154430466
 MonoBehaviour:
@@ -411,16 +411,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000008493662, y: -0.5947021}
+  m_Offset: {x: -0.04301831, y: -0.7913285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7498706, y: 0.81059575}
+  m_Size: {x: 0.7543941, y: 1.0842911}
   m_EdgeRadius: 0
