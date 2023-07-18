@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: S1 Tracking Enemy 1_Idle
+  m_Name: S2 Tracking Enemy 1_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 30cc0dd637a1a8440b68a69b9fa16902, type: 2}
+  m_Motion: {fileID: 7400000, guid: cdc358b894dc3d24d83642a1dd6587fc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -66,7 +66,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -87,7 +87,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: S1 Tracking Enemy 1_Run
+  m_Name: S2 Tracking Enemy 1_Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -101,7 +101,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 78c8b21af931c934f92f88f618679aca, type: 2}
+  m_Motion: {fileID: 7400000, guid: a115a6db2a8a6504e8fee5c29163f3b2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

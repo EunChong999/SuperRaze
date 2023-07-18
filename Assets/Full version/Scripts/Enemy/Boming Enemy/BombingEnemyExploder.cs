@@ -110,7 +110,7 @@ public class BombingEnemyExploder : MonoBehaviour
 
             if (!isBombing)
             {
-                Bomb();
+                Invoke("Bomb", 0.4f);
                 isBombing = true;
             }
         }
