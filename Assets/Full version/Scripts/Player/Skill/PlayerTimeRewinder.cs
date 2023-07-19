@@ -25,6 +25,7 @@ public class PlayerTimeRewinder : MonoBehaviour
     private float lerpStartTime;
     private float lerpDuration;
     private float curTime = 0;
+    [SerializeField] private GameObject skillEffect;
 
     // Use this for initialization
     void Start()
@@ -122,10 +123,10 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     public void StartRewind()
     {
-        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.4f);
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(235f / 255f, 75f / 255f, 76f / 255f, 0.4f);
         afterImage.makeImage = true;
+        skillEffect.SetActive(true);
         isRewinding = true;
-        //rb.isKinematic = true;
 
         if (playerPointTime.Count > 0)
         {
@@ -144,7 +145,7 @@ public class PlayerTimeRewinder : MonoBehaviour
         afterImage.makeImage = false;
         curTime = 0;
         playerPointTime.Clear();
+        skillEffect.SetActive(false);
         isRewinding = false;
-        //rb.isKinematic = false;
     }
 }
