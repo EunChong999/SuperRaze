@@ -3404,7 +3404,7 @@ MonoBehaviour:
   effectDelay: 0.075
   isRewinding: 0
   recordTime: 10
-  rewindSpeed: 10
+  rewindSpeed: 5
   playerHealther: {fileID: 330506651}
   secondPlayerController: {fileID: 330506653}
   rb: {fileID: 1275710860}

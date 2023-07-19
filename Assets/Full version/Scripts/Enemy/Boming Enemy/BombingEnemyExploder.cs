@@ -104,7 +104,7 @@ public class BombingEnemyExploder : MonoBehaviour
 
     void CheckCollision()
     {
-        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 2 && isChasing)
+        if (Mathf.Abs(body.transform.position.x - playerTransform.position.x) < 3 && isChasing)
         {
             chasingSpeed = 0;
 
