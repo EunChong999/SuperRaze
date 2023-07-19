@@ -11824,6 +11824,7 @@ MonoBehaviour:
   - {fileID: 1461815244}
   - {fileID: 994228799}
   - {fileID: 808803676}
+  timer: {fileID: 0}
 --- !u!4 &685259002
 Transform:
   m_ObjectHideFlags: 0
@@ -23322,7 +23323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1677483271
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class ScreenChange : MonoBehaviour
 
     public List<GameObject> ScreenUI;
 
+    [SerializeField] private Timer timer;
+
     private void Update()
     {
         CurrentScene = SceneManager.GetActiveScene();
@@ -52,7 +54,7 @@ public class ScreenChange : MonoBehaviour
     public void ScreenRestarted()
     {
         SceneManager.LoadScene(CurrentScreenNumber);
-
+        timer.ResetTimer();
         on = false;
     }
 
@@ -71,34 +73,12 @@ public class ScreenChange : MonoBehaviour
         if (CurrentScene.buildIndex + 1 < 7)
         {
             SceneManager.LoadScene(CurrentScreenNumber + 1);
+            timer.ResetTimer();
         }
         else
         {
-            SceneManager.LoadScene(0);
-        }
-
-        on = false;
-    }
-
-    public void BackScreen()
-    {
-        if (on == false)
-        {
-            on = true;
-
-            Invoke("ScreenBacked", 1.25f);
-        }
-    }
-
-    public void ScreenBacked()
-    {
-        if (CurrentScene.buildIndex + 1 < 7)
-        {
-            SceneManager.LoadScene(CurrentScreenNumber - 1);
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
+            timer.ResetTimer();
         }
 
         on = false;
@@ -117,7 +97,7 @@ public class ScreenChange : MonoBehaviour
     public void GivedUp()
     {
         SceneManager.LoadScene(1);
-
+        timer.ResetTimer();
         on = false;
     }
 }

@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    private float timeDuration = 3f * 60f;
+    private float timeDuration = 10f;
+
+    [SerializeField]
+    private bool coolDown = true;
 
     private float timer;
 
@@ -20,6 +23,9 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI secondSecond;
 
+    private float flashTimer;
+    private float flashDuration = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +35,14 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer > 0)
+        if(coolDown && timer > 0)
         {
             timer -= Time.deltaTime;
+            UpdateTimeDisplay(timer);
+        }
+        else if(!coolDown && timer < timeDuration)
+        {
+            timer += Time.deltaTime;
             UpdateTimeDisplay(timer);
         }
         else
@@ -40,13 +51,26 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void ResetTimer()
+    public void ResetTimer()
     {
-        timer = timeDuration;
+        if(coolDown)
+        {
+            timer = timeDuration;
+        }
+        else
+        {
+            timer = 0;
+        }
+        SetTextDisplay(true);
     }
 
     private void UpdateTimeDisplay(float time)
     {
+        if (time < 0)
+        {
+            time = 0;    
+        }
+
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
 
@@ -59,6 +83,40 @@ public class Timer : MonoBehaviour
 
     private void Flash()
     {
+        if(coolDown && timer != 0)
+        {
+            timer = 0;
+            UpdateTimeDisplay(timer);
+        }
 
+        if (!coolDown && timer != timeDuration)
+        {
+            timer = 0;
+            UpdateTimeDisplay(timer);
+        }
+
+        if (flashTimer <= 0)
+        {
+            flashTimer = flashDuration;
+        }
+        else if(flashTimer >= flashDuration / 2)
+        {
+            flashTimer -= Time.deltaTime;
+            SetTextDisplay(false);
+        }
+        else
+        {
+            flashTimer -= Time.deltaTime;
+            SetTextDisplay(true);
+        }
+    }
+
+    private void SetTextDisplay(bool enabled)
+    {
+        firstMinute.enabled = enabled;
+        secondMinute.enabled = enabled;
+        separator.enabled = enabled;
+        firstSecond.enabled = enabled;
+        secondSecond.enabled = enabled;
     }
 }

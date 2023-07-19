@@ -34,10 +34,15 @@ public class EnemySpawner : MonoBehaviour
     public SpawnState currentState = SpawnState.COUNTING; // 첫 현재 상태는 집계중으로,
                                                           // 현재 씬에 존재하는 적의 수를 집계하여 다음 상태를 판단
 
+    private GameObject timer;
+
     private GameObject screenManager;
 
     private void Start() // 해당 오브젝트가 처음 생성될 때
     {
+
+        timer = GameObject.Find("Time Canvas");
+
         screenManager = GameObject.Find("Screen Manager");
 
         isWaveCompleted = false;
@@ -49,6 +54,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 할당
+
     }
 
     private void OnDisable()
@@ -118,12 +124,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 isWaveCompleted = true; // Wave 종료
             }
-
-            //nextWave = 0; // 다음 Wave를 처음으로 초기화
-            //Debug.Log("ALL WAVES COMPLETE! Looping..."); // 모든 Wave 완료 메시지 출력  
         }
         else
         {
+            timer.GetComponent<Timer>().ResetTimer();
             nextWave++; // 다음 Wave로 이동
         }
     }
