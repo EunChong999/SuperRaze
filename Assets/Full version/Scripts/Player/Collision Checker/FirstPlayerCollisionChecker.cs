@@ -11,9 +11,13 @@ public class FirstPlayerCollisionChecker : MonoBehaviour
     public PlayerTimeSlower playerTimeSlower;
     public PlayerHealther playerHealther;
     [HideInInspector] public bool isCollision;
+    private CameraShake cameraShake;
 
     private void Start()
     {
+        // ShakeCamera
+        cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
+
         isCollision = false;
         transform.GetComponentInParent<Rigidbody2D>().sharedMaterial = physicsMaterial1;
     }
@@ -29,6 +33,7 @@ public class FirstPlayerCollisionChecker : MonoBehaviour
         {
             if (!isCollision)
             {
+                cameraShake.ShakeCamera(8, 0.25f);
                 collisionObject = collision.gameObject;
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
                 OnDamaged(collision.gameObject);

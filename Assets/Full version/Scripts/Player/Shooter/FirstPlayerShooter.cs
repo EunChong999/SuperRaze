@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class FirstPlayerShooter : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefeb;
     [SerializeField] private Transform bulletPosition;
+    private CameraShake cameraShake;
 
     private void Awake()
     {
@@ -28,6 +30,9 @@ public class FirstPlayerShooter : MonoBehaviour
 
     private void Start()
     {
+        // ShakeCamera
+        cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
+        
         // Shoot
         isShooting = false;    
 
@@ -44,6 +49,7 @@ public class FirstPlayerShooter : MonoBehaviour
         if (Input.GetMouseButton(0) && !isShooting && GetComponent<FirstPlayerController>().IsGrounded())
         {
             StartCoroutine(Shoot());
+            cameraShake.ShakeCamera(10, 0.1f);
         }
     }
 

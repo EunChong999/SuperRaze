@@ -15,6 +15,7 @@ public class SecondPlayerShooter : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefeb;
     [SerializeField] private Transform bulletPosition;
+    private CameraShake cameraShake;
 
     private void Awake()
     {
@@ -27,6 +28,9 @@ public class SecondPlayerShooter : MonoBehaviour
 
     private void Start()
     {
+        // ShakeCamera
+        cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
+
         // Shoot
         isShooting = false;
 
@@ -43,6 +47,7 @@ public class SecondPlayerShooter : MonoBehaviour
         if (Input.GetMouseButton(0) && !isShooting && GetComponent<SecondPlayerController>().IsGrounded())
         {
             StartCoroutine(Shoot());
+            cameraShake.ShakeCamera(10, 0.05f); 
         }
     }
 

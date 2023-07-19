@@ -26,9 +26,13 @@ public class BombingEnemyExploder : MonoBehaviour
     private bool isDead;
     [HideInInspector]public bool isBombing;
     [SerializeField] private GameObject collisionChecker;
+    private CameraShake cameraShake;
 
     private void Start()
     {
+        // ShakeCamera
+        cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
+
         // 속도 랜덤 지정
         movingSpeed = Random.Range(2.5f, 5.0f);
         chasingSpeed = Random.Range(5.0f, 7.5f);
@@ -124,6 +128,7 @@ public class BombingEnemyExploder : MonoBehaviour
     {
         if(!isDead)
         {
+            cameraShake.ShakeCamera(8, 0.5f);
             collisionChecker.SetActive(false);
             ExplosionObj.SetActive(true);
             Invoke("Bombed", 0.8f);

@@ -52,6 +52,9 @@ public class Timer : MonoBehaviour
 
         string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
         firstMinute.text = currentTime[0].ToString();
+        secondMinute.text = currentTime[1].ToString();
+        firstSecond.text = currentTime[2].ToString();
+        secondSecond.text = currentTime[3].ToString();
     }
 
     private void Flash()

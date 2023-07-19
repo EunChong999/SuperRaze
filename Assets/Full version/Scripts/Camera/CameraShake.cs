@@ -33,14 +33,11 @@ public class CameraShake : MonoBehaviour
         {
             shakeTimer -= Time.deltaTime;
 
-            if (shakeTimer <= 0f)
-            {
-                // 타임 오버
-                CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
-                        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            // 타임 오버
+            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
+                    cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-                cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = Mathf.Lerp(startingIntensity, 0f, shakeTimer / shakeTimerTotal);
-            }
+            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = Mathf.Lerp(startingIntensity, 0f, 1 - (shakeTimer / shakeTimerTotal));
         }
     }
 }
