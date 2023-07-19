@@ -34,14 +34,10 @@ public class EnemySpawner : MonoBehaviour
     public SpawnState currentState = SpawnState.COUNTING; // 첫 현재 상태는 집계중으로,
                                                           // 현재 씬에 존재하는 적의 수를 집계하여 다음 상태를 판단
 
-    private GameObject timer;
-
     private GameObject screenManager;
 
     private void Start() // 해당 오브젝트가 처음 생성될 때
     {
-
-        timer = GameObject.Find("Time Canvas");
 
         screenManager = GameObject.Find("Screen Manager");
 
@@ -127,12 +123,11 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            timer.GetComponent<Timer>().ResetTimer();
             nextWave++; // 다음 Wave로 이동
         }
     }
 
-    bool EnemyIsAlive() // 적의 생존 여부 확인
+    public bool EnemyIsAlive() // 적의 생존 여부 확인
     {
         searchCountdown -= Time.deltaTime; // 계속하여 남은 시간을 감소시킨다.
         if (searchCountdown <= 0f) // 남은 시간이 0이 됐을 때

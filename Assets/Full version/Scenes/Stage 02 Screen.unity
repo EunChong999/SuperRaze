@@ -13943,7 +13943,46 @@ MonoBehaviour:
     - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
     - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
     enemyBody: {fileID: 0}
-    count: 16
+    count: 4
+    rate: 16
+  - name: Wave 2
+    enemy:
+    - {fileID: 1106634485852871078, guid: 93d8bbe75fbf78848a27fb1375be72e5, type: 3}
+    - {fileID: 1279980142083644658, guid: 3250978fdcc3cd049ab76c8e5fcdcb72, type: 3}
+    - {fileID: 4829573227598244352, guid: 526385d1962a0014da62d3e8f77ec3cf, type: 3}
+    - {fileID: 7769026601155685515, guid: c3c550f1dea1ede4980e879ab3b9422a, type: 3}
+    - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
+    - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
+    - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
+    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    enemyBody: {fileID: 0}
+    count: 4
+    rate: 16
+  - name: Wave 3
+    enemy:
+    - {fileID: 1106634485852871078, guid: 93d8bbe75fbf78848a27fb1375be72e5, type: 3}
+    - {fileID: 1279980142083644658, guid: 3250978fdcc3cd049ab76c8e5fcdcb72, type: 3}
+    - {fileID: 4829573227598244352, guid: 526385d1962a0014da62d3e8f77ec3cf, type: 3}
+    - {fileID: 7769026601155685515, guid: c3c550f1dea1ede4980e879ab3b9422a, type: 3}
+    - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
+    - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
+    - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
+    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    enemyBody: {fileID: 0}
+    count: 4
+    rate: 16
+  - name: Wave 4
+    enemy:
+    - {fileID: 1106634485852871078, guid: 93d8bbe75fbf78848a27fb1375be72e5, type: 3}
+    - {fileID: 1279980142083644658, guid: 3250978fdcc3cd049ab76c8e5fcdcb72, type: 3}
+    - {fileID: 4829573227598244352, guid: 526385d1962a0014da62d3e8f77ec3cf, type: 3}
+    - {fileID: 7769026601155685515, guid: c3c550f1dea1ede4980e879ab3b9422a, type: 3}
+    - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
+    - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
+    - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
+    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    enemyBody: {fileID: 0}
+    count: 4
     rate: 16
   isWaveCompleted: 0
   spawnPoints:

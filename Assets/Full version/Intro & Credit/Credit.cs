@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Credit : MonoBehaviour
 {
-    [SerializeField] private int choice;
+    [SerializeField] public int choice;
     [SerializeField] private GameObject[] choices = new GameObject[4];
     [SerializeField] private AudioSource[] audioSource = new AudioSource[2];
     [SerializeField] private GameObject[] robots = new GameObject[2];
@@ -17,30 +18,46 @@ public class Credit : MonoBehaviour
         screenManager = GameObject.Find("Screen Manager");
         Invoke("NextScene", 9);
 
+    }
+
+    private void Update()
+    {
         switch (choice)
         {
             case 1:
-                choices[0].SetActive(true);
-                Invoke("FirLivSecLiv", 1);
-                StartCoroutine(DisAppear(1, 1));
+                if (!choices[0].activeSelf)
+                {
+                    Invoke("FirLivSecLiv", 1);
+                    StartCoroutine(DisAppear(1, 1));
+                    choices[0].SetActive(true);
+                }
                 break;
             case 2:
-                choices[1].SetActive(true);
-                Invoke("FirLivSecDea", 1);
-                StartCoroutine(DisAppear(1, 0));
+                if (!choices[1].activeSelf)
+                {
+                    Invoke("FirLivSecDea", 1);
+                    StartCoroutine(DisAppear(1, 0));
+                    choices[1].SetActive(true);
+                }
                 break;
             case 3:
-                choices[2].SetActive(true);
-                Invoke("FirDeaSecLiv", 1);
-                StartCoroutine(DisAppear(0, 1));
+                if (!choices[2].activeSelf)
+                {
+                    Invoke("FirDeaSecLiv", 1);
+                    StartCoroutine(DisAppear(0, 1));
+                    choices[2].SetActive(true);
+                }
                 break;
             case 4:
-                choices[3].SetActive(true);
-                Invoke("FirDeaSecDea", 1);
-                StartCoroutine(DisAppear(0, 0));
+                if (!choices[3].activeSelf)
+                {
+                    Invoke("FirDeaSecDea", 1);
+                    StartCoroutine(DisAppear(0, 0));
+                    choices[3].SetActive(true);
+                }
                 break;
-                default:
-                break;
+            default:
+                return;
         }
     }
 

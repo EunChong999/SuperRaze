@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static EnemySpawner;
 
 public class Timer : MonoBehaviour
 {
-    private float timeDuration = 10f;
+    private float timeDuration = 30f;
 
     [SerializeField]
     private bool coolDown = true;
 
+    private bool isTimeOver = false;
+
     private float timer;
+
+    [SerializeField] public int firstTimeOverCount;
+    [SerializeField] public int secondTimeOverCount;
 
     [SerializeField]
     private TextMeshProUGUI firstMinute;
@@ -26,34 +32,84 @@ public class Timer : MonoBehaviour
     private float flashTimer;
     private float flashDuration = 1f;
 
+    EnemySpawner enemySpawner;
+    [SerializeField] private ScreenTimer screenTimer;
+    GameObject player;
+    [SerializeField] private GameObject screenManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        firstTimeOverCount = 0;
+        secondTimeOverCount = 0;
         ResetTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(coolDown && timer > 0)
+        if (enemySpawner == null)
         {
-            timer -= Time.deltaTime;
-            UpdateTimeDisplay(timer);
+            enemySpawner = GameObject.Find("Spawner").GetComponent<EnemySpawner>();
         }
-        else if(!coolDown && timer < timeDuration)
+
+        if (player == null)
         {
-            timer += Time.deltaTime;
-            UpdateTimeDisplay(timer);
+            player = GameObject.Find("Player");
+        }
+
+        if (enemySpawner.currentState == EnemySpawner.SpawnState.COUNTING)
+        {
+            if (!enemySpawner.isWaveCompleted)
+            {
+                ResetTimer();
+            }
         }
         else
         {
-            Flash();
+            if (!screenTimer.isTimeStop &&
+           !player.GetComponent<PlayerHealther>().isDead &&
+           !player.GetComponent<PlayerHealther>().isDissolving &&
+           enemySpawner.currentState != EnemySpawner.SpawnState.SPAWNING &&
+           !screenManager.GetComponent<ScreenChange>().on)
+            {
+                if (coolDown && timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                    UpdateTimeDisplay(timer);
+                }
+                else if (!coolDown && timer < timeDuration)
+                {
+                    timer += Time.deltaTime;
+                    UpdateTimeDisplay(timer);
+                }
+                else
+                {
+                    Flash();
+
+                    if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 2 && !isTimeOver)
+                    {
+                        firstTimeOverCount++;
+                        isTimeOver = true;
+                    }
+                    else if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 4 && !isTimeOver)
+                    {
+                        secondTimeOverCount++;
+                        isTimeOver = true;
+                    }
+
+                }
+            }
         }
     }
 
+
+
     public void ResetTimer()
     {
-        if(coolDown)
+        isTimeOver = false;
+
+        if (coolDown)
         {
             timer = timeDuration;
         }

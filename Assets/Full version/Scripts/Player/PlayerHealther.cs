@@ -122,7 +122,7 @@ public class PlayerHealther : MonoBehaviour
     {
         if(!isDead)
         {
-            targetHealth -= 20;
+            targetHealth -= 25;
         }
     }
 
@@ -135,7 +135,7 @@ public class PlayerHealther : MonoBehaviour
         }
         else
         {
-            targetHealth += 0.01f;
+            targetHealth += 0.0125f;
         }
     }
 
