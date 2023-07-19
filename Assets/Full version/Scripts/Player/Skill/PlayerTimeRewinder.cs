@@ -53,22 +53,13 @@ public class PlayerTimeRewinder : MonoBehaviour
             {
                 playerHealther.UseSkill();
             }
-            else
-            {
-                StopRewind();
-            }
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-
             if (playerHealther.currentEnergy >= 0 && secondPlayerController.horizontal == 0)
             {
                 StartRewind();
-            }
-            else
-            {
-                StopRewind();
             }
         }
 

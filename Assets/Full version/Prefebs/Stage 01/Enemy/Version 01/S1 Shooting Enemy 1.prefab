@@ -292,8 +292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShooting: 0
+  isShooted: 0
   canShoot: 0
-  coolTime: 2
+  coolTime: 3
   animator: {fileID: 5457075053068768210}
   amountToPool: 5
   bulletPrefeb: {fileID: 2937711672827502538, guid: 237263c34e097b1468d27b0de430d813, type: 3}

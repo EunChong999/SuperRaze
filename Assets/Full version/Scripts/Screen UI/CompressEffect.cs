@@ -7,20 +7,27 @@ using UnityEngine.PlayerLoop;
 public class CompressEffect : MonoBehaviour
 {
     [SerializeField] private Vector3 target;
+    private Vector3 origin;
     [SerializeField] private float time;
 
     private void Awake()
     {
-
+        origin = transform.position;
     }
 
     private void Start()
     {
-        Invoke("Compress", time);
+        Invoke("CompressDown", time);
     }
 
-    private void Compress()
+    private void CompressDown()
     {
-        transform.DOMove(target, 3).SetEase(Ease.InOutElastic).SetLoops(-1, LoopType.Yoyo);
+        transform.DOMove(target, 5).SetEase(Ease.InOutElastic);
+        Invoke("CompressUp", 3);
+    }
+
+    private void CompressUp()
+    {
+        transform.DOMove(origin, 5).SetEase(Ease.InOutElastic);
     }
 }
