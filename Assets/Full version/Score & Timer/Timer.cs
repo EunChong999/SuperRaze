@@ -6,7 +6,7 @@ using static EnemySpawner;
 
 public class Timer : MonoBehaviour
 {
-    private float timeDuration = 30f;
+    private float timeDuration = 31f;
 
     [SerializeField]
     private bool coolDown = true;
@@ -67,10 +67,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            if (!screenTimer.isTimeStop &&
-           !player.GetComponent<PlayerHealther>().isDead &&
-           !player.GetComponent<PlayerHealther>().isDissolving &&
-           enemySpawner.currentState != EnemySpawner.SpawnState.SPAWNING &&
+            if (!screenTimer.isTimeStop&&
            !screenManager.GetComponent<ScreenChange>().on)
             {
                 if (coolDown && timer > 0)

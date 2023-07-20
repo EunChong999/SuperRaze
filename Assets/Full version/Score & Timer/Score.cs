@@ -12,33 +12,45 @@ public class Score : MonoBehaviour
     [SerializeField] private GameObject credit;
     [SerializeField] TextMeshProUGUI textMeshProUGUI1;
     [SerializeField] TextMeshProUGUI textMeshProUGUI2;
+    PlayerHealther playerHealther;
 
     private void Update()
     {
         if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 6) 
         {
             credit = GameObject.Find("Credit");
+
+            if (credit != null)
+            {
+                if (firstScore <= 2 && secondScore <= 2)
+                {
+                    credit.GetComponent<Credit>().choice = 1;
+                }
+                else if (firstScore > 2 && secondScore <= 2)
+                {
+                    credit.GetComponent<Credit>().choice = 2;
+                }
+                else if (firstScore <= 2 && secondScore > 2)
+                {
+                    credit.GetComponent<Credit>().choice = 3;
+                }
+                else if (firstScore > 2 && secondScore > 2)
+                {
+                    credit.GetComponent<Credit>().choice = 4;
+                }
+            }
         }
 
-        if (firstScore < 2 && secondScore < 2)
+        if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 2 || screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 4)
         {
-            credit.GetComponent<Credit>().choice = 1;
-        }
-        else if (secondScore < 2 && firstScore > 2)
-        {
-            credit.GetComponent<Credit>().choice = 2;
-        }
-        else if (secondScore > 2 && firstScore < 2)
-        {
-            credit.GetComponent<Credit>().choice = 3;
-        }
-        else
-        {
-            credit.GetComponent<Credit>().choice = 4;
-        }
+            playerHealther = GameObject.Find("Player").GetComponent<PlayerHealther>();
 
-        firstScore = timer[0].GetComponent<Timer>().firstTimeOverCount;
-        secondScore = timer[1].GetComponent<Timer>().secondTimeOverCount;
+            if (playerHealther != null && !playerHealther.isDead) 
+            {
+                firstScore = timer[0].GetComponent<Timer>().firstTimeOverCount;
+                secondScore = timer[1].GetComponent<Timer>().secondTimeOverCount;
+            }
+        }
 
         if (firstScore <= 2)
         {
@@ -63,9 +75,13 @@ public class Score : MonoBehaviour
         }
     }
 
-    void ResetScore()
+    public void ResetScore1()
     {
-        firstScore = 0;
-        secondScore = 0;
+        timer[0].GetComponent<Timer>().firstTimeOverCount = 0;
+    }
+
+    public void ResetScore2()
+    {
+        timer[1].GetComponent<Timer>().secondTimeOverCount = 0;
     }
 }

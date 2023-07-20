@@ -5,10 +5,13 @@ using UnityEngine;
 public class ShootingEnemyCollisionChecker : MonoBehaviour
 {
     [HideInInspector] public bool isDamage;
+    [SerializeField] AudioSource hit;
 
     // Start is called before the first frame update
     void Start()
     {
+        hit = GameObject.Find("HitOrDead").GetComponent<AudioSource>();
+
         isDamage = false;
     }
 
@@ -22,6 +25,7 @@ public class ShootingEnemyCollisionChecker : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            hit.Play();
             isDamage = true;
         }
     }

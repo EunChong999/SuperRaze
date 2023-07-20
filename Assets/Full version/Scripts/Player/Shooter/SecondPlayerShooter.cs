@@ -16,6 +16,7 @@ public class SecondPlayerShooter : MonoBehaviour
     [SerializeField] private GameObject bulletPrefeb;
     [SerializeField] private Transform bulletPosition;
     private CameraShake cameraShake;
+    private AudioSource shoot;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class SecondPlayerShooter : MonoBehaviour
 
     private void Start()
     {
+        shoot = GameObject.Find("PlayerShoot").GetComponent<AudioSource>();
+
         // ShakeCamera
         cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
 
@@ -67,6 +70,8 @@ public class SecondPlayerShooter : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        shoot.Play();
+
         animator.SetTrigger("isShooting");
 
         GameObject Bullet = GetPooledObject();

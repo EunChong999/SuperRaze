@@ -35,6 +35,8 @@ public class ShooingEnemyThrower : MonoBehaviour
     public bool isUnGrounded;
     public float chaseDistance;
 
+    [SerializeField] AudioSource shoot;
+
     private void Awake()
     {
         // Shoot
@@ -57,6 +59,8 @@ public class ShooingEnemyThrower : MonoBehaviour
 
     private void Start()
     {
+        shoot = GameObject.Find("EnemyShoot").GetComponent<AudioSource>();
+
         // 속도 랜덤 지정
         movingSpeed = Random.Range(2.5f, 5.0f);
 
@@ -100,6 +104,8 @@ public class ShooingEnemyThrower : MonoBehaviour
     IEnumerator Shoot(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+
+        shoot.Play();
 
         animator.SetBool("isRun", false);
 
@@ -207,6 +213,7 @@ public class ShooingEnemyThrower : MonoBehaviour
 
                 if (!isShooting && !isShooted)
                 {
+
                     StartCoroutine(Shoot(0.4f));
                     isShooted = true;
                 }

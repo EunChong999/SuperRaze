@@ -27,9 +27,12 @@ public class BombingEnemyExploder : MonoBehaviour
     [HideInInspector]public bool isBombing;
     [SerializeField] private GameObject collisionChecker;
     private CameraShake cameraShake;
+    [SerializeField] AudioSource explod;
 
     private void Start()
     {
+        explod = GameObject.Find("EnemyExplosion").GetComponent<AudioSource>();
+
         // ShakeCamera
         cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
 
@@ -128,6 +131,7 @@ public class BombingEnemyExploder : MonoBehaviour
     {
         if(!isDead)
         {
+            explod.Play();
             cameraShake.ShakeCamera(8, 0.5f);
             collisionChecker.SetActive(false);
             ExplosionObj.SetActive(true);

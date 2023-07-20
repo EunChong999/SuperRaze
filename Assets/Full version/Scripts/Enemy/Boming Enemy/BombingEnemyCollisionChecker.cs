@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BombingEnemyCollisionChecker : MonoBehaviour
 {
+    [SerializeField] AudioSource hit;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        hit = GameObject.Find("HitOrDead").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class BombingEnemyCollisionChecker : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            hit.Play();
             gameObject.transform.parent.parent.GetComponent<BombingEnemyExploder>().Bombed();
             gameObject.transform.parent.parent.GetComponent<BombingEnemyExploder>().isBombing = true;
         }

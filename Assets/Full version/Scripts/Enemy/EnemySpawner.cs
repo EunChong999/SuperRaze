@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public Wave[] waves; // Wave 클래스에 대한 배열 선언
-    private int nextWave = 0; // 다음 Wave의 인덱스 번호,
+    public int nextWave = 0; // 다음 Wave의 인덱스 번호,
                               // 첫 웨이브는 다음 웨이브이므로 인덱스 값은 0이다.
     [HideInInspector] public bool isWaveCompleted;
     private bool isSpawnEnd;

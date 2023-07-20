@@ -15,7 +15,7 @@ public class ScreenChange : MonoBehaviour
 
     public List<GameObject> ScreenUI;
 
-    [SerializeField] private Timer timer;
+    [SerializeField] private GameObject scoreManager;
 
     private void Update()
     {
@@ -47,6 +47,15 @@ public class ScreenChange : MonoBehaviour
         {
             on = true;
 
+            if (CurrentScreenNumber == 2)
+            {
+                scoreManager.GetComponent<Score>().ResetScore1();
+            }
+            else if (CurrentScreenNumber == 4)
+            {
+                scoreManager.GetComponent<Score>().ResetScore2();
+            }
+
             Invoke("ScreenRestarted", 1.25f);
         }
     }
@@ -54,7 +63,6 @@ public class ScreenChange : MonoBehaviour
     public void ScreenRestarted()
     {
         SceneManager.LoadScene(CurrentScreenNumber);
-        timer.ResetTimer();
         on = false;
     }
 
@@ -73,12 +81,10 @@ public class ScreenChange : MonoBehaviour
         if (CurrentScene.buildIndex + 1 < 7)
         {
             SceneManager.LoadScene(CurrentScreenNumber + 1);
-            timer.ResetTimer();
         }
         else
         {
             SceneManager.LoadScene(1);
-            timer.ResetTimer();
         }
 
         on = false;
@@ -90,6 +96,9 @@ public class ScreenChange : MonoBehaviour
         {
             on = true;
 
+            scoreManager.GetComponent<Score>().ResetScore1();
+            scoreManager.GetComponent<Score>().ResetScore2();
+
             Invoke("GivedUp", 1.25f);
         }
     }
@@ -97,7 +106,6 @@ public class ScreenChange : MonoBehaviour
     public void GivedUp()
     {
         SceneManager.LoadScene(1);
-        timer.ResetTimer();
         on = false;
     }
 }

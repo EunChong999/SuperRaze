@@ -12,9 +12,12 @@ public class SecondPlayerCollisionChecker : MonoBehaviour
     public PlayerHealther playerHealther;
     [HideInInspector] public bool isCollision;
     private CameraShake cameraShake;
+    [SerializeField] AudioSource hit;
 
     private void Start()
     {
+        hit = GameObject.Find("HitOrDead").GetComponent<AudioSource>();
+
         // ShakeCamera
         cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
 
@@ -33,6 +36,7 @@ public class SecondPlayerCollisionChecker : MonoBehaviour
         {
             if (!isCollision)
             {
+                hit.Play();
                 cameraShake.ShakeCamera(8, 0.25f);
                 collisionObject = collision.gameObject;
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
