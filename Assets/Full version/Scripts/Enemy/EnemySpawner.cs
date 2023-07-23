@@ -109,7 +109,7 @@ public class EnemySpawner : MonoBehaviour
 
     void WaveCompleted() // Wave 완료 함수 
     {
-        Debug.Log("Wave Completed!"); // Wave 완료 메시지 출력
+/*        Debug.Log("Wave Completed!");*/ // Wave 완료 메시지 출력
 
         currentState = SpawnState.COUNTING; // 현재 상태를 집계중으로 전환
         waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 재할당
@@ -144,7 +144,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave wave) // Wave 클래스를 매개변수로 하여 Wave를 순환시키는 SpawnWave 코루틴 선언 
     {
-        Debug.Log("Spawning Wave : " + wave.name);
+        //Debug.Log("Spawning Wave : " + wave.name);
         currentState = SpawnState.SPAWNING; // 현재 상태를 생성중으로 전환
 
         for (int i = 0; i < wave.count; i++) // 해당 Wave의 적의 숫자만큼 반복하여

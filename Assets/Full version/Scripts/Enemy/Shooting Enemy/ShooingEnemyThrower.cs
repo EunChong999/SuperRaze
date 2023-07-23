@@ -101,10 +101,8 @@ public class ShooingEnemyThrower : MonoBehaviour
         return null;
     }
 
-    IEnumerator Shoot(float waitTime)
+    IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(waitTime);
-
         shoot.Play();
 
         animator.SetBool("isRun", false);
@@ -214,7 +212,7 @@ public class ShooingEnemyThrower : MonoBehaviour
                 if (!isShooting && !isShooted)
                 {
 
-                    StartCoroutine(Shoot(0.4f));
+                    StartCoroutine(Shoot());
                     isShooted = true;
                 }
             }
