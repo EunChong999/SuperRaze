@@ -148,7 +148,7 @@ public class PlayerHealther : MonoBehaviour
         }
         else
         {
-            targetEnergy -= 2.5f;
+            targetEnergy -= 1f;
         }
     }
 
