@@ -52,7 +52,7 @@ public class Credit : MonoBehaviour
                 }
                 break;
             default:
-                return;
+                break;
         }
     }
 
@@ -100,6 +100,8 @@ public class Credit : MonoBehaviour
             robots[0].SetActive(false);
             robots[1].SetActive(false);
         }
+
+        yield break;
     }
 
     private void NextScene()
