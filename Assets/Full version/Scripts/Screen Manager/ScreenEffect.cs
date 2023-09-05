@@ -44,12 +44,10 @@ public class ScreenEffect : MonoBehaviour
                 camera.backgroundColor = new Color32(38, 38, 38, 255);
                 if (screenChange.on)
                 {
-                    canvas[0].renderMode = spaceCamera;
-                    canvas[1].renderMode = spaceCamera;
-                    canvas[2].renderMode = spaceCamera;
-                    canvas[3].renderMode = spaceCamera;
-                    canvas[4].renderMode = spaceCamera;
-                    canvas[5].renderMode = spaceCamera;
+                    for (int i = 0; i < 10; i++)
+                    {
+                        canvas[i].renderMode = spaceCamera;
+                    }
                 }
                 else
                 {
@@ -67,12 +65,10 @@ public class ScreenEffect : MonoBehaviour
                 camera.backgroundColor = new Color32(31, 33, 48, 255);
                 if (screenChange.on)
                 {
-                    canvas[0].renderMode = spaceCamera;
-                    canvas[1].renderMode = spaceCamera;
-                    canvas[2].renderMode = spaceCamera;
-                    canvas[3].renderMode = spaceCamera;
-                    canvas[4].renderMode = spaceCamera;
-                    canvas[5].renderMode = spaceCamera;
+                    for (int i = 0; i < 10; i++)
+                    {
+                        canvas[i].renderMode = spaceCamera;
+                    }
                 }
                 else
                 {
@@ -96,12 +92,10 @@ public class ScreenEffect : MonoBehaviour
 
     private void ChangeRenderMode()
     {
-        canvas[0].renderMode = overlay;
-        canvas[1].renderMode = overlay;
-        canvas[2].renderMode = overlay;
-        canvas[3].renderMode = overlay;
-        canvas[4].renderMode = overlay;
-        canvas[5].renderMode = overlay;
+        for (int i = 0; i < 10; i++)
+        {
+            canvas[i].renderMode = overlay;
+        }
         isRenderModeChanged = false;
     }
 
