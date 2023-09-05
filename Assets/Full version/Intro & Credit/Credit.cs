@@ -65,21 +65,24 @@ public class Credit : MonoBehaviour
     {
         yield return new WaitForSeconds(6);
 
-        if (isLiv1 == 1)
+        if (isLiv1 == 1 && isLiv2 == 1) 
         {
             robots[0].SetActive(true);
-        }
-        else
-        {
-            robots[0].SetActive(false);
-        }
-
-        if (isLiv2 == 1)
-        {
             robots[1].SetActive(true);
         }
-        else
+        else if (isLiv1 == 0 && isLiv2 == 1)
         {
+            robots[0].SetActive(false);
+            robots[1].SetActive(true);
+        }
+        else if (isLiv1 == 1 && isLiv2 == 0)
+        {
+            robots[0].SetActive(true);
+            robots[1].SetActive(false);
+        }
+        else if (isLiv1 == 0 && isLiv2 == 0)
+        {
+            robots[0].SetActive(false);
             robots[1].SetActive(false);
         }
     }
