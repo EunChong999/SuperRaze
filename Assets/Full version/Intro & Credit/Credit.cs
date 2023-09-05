@@ -17,7 +17,6 @@ public class Credit : MonoBehaviour
     {
         screenManager = GameObject.Find("Screen Manager");
         Invoke("NextScene", 9);
-
     }
 
     private void Update()
@@ -27,7 +26,6 @@ public class Credit : MonoBehaviour
             case 1:
                 if (!choices[0].activeSelf)
                 {
-                    Invoke("FirLivSecLiv", 1);
                     StartCoroutine(DisAppear(1, 1));
                     choices[0].SetActive(true);
                 }
@@ -35,7 +33,6 @@ public class Credit : MonoBehaviour
             case 2:
                 if (!choices[1].activeSelf)
                 {
-                    Invoke("FirLivSecDea", 1);
                     StartCoroutine(DisAppear(1, 0));
                     choices[1].SetActive(true);
                 }
@@ -43,7 +40,6 @@ public class Credit : MonoBehaviour
             case 3:
                 if (!choices[2].activeSelf)
                 {
-                    Invoke("FirDeaSecLiv", 1);
                     StartCoroutine(DisAppear(0, 1));
                     choices[2].SetActive(true);
                 }
@@ -51,7 +47,6 @@ public class Credit : MonoBehaviour
             case 4:
                 if (!choices[3].activeSelf)
                 {
-                    Invoke("FirDeaSecDea", 1);
                     StartCoroutine(DisAppear(0, 0));
                     choices[3].SetActive(true);
                 }
@@ -63,22 +58,42 @@ public class Credit : MonoBehaviour
 
     IEnumerator DisAppear(int isLiv1, int isLiv2)
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(1);
+
+        if (isLiv1 == 1 && isLiv2 == 1)
+        {
+
+        }
+        else if (isLiv1 == 1 && isLiv2 == 0)
+        {
+            audioSource[1].Play();
+        }
+        else if (isLiv1 == 0 && isLiv2 == 1)
+        {
+            audioSource[0].Play();
+        }
+        else if (isLiv1 == 0 && isLiv2 == 0)
+        {
+            audioSource[0].Play();
+            audioSource[1].Play();
+        }
+
+        yield return new WaitForSeconds(5);
 
         if (isLiv1 == 1 && isLiv2 == 1) 
         {
             robots[0].SetActive(true);
             robots[1].SetActive(true);
         }
-        else if (isLiv1 == 0 && isLiv2 == 1)
-        {
-            robots[0].SetActive(false);
-            robots[1].SetActive(true);
-        }
         else if (isLiv1 == 1 && isLiv2 == 0)
         {
             robots[0].SetActive(true);
             robots[1].SetActive(false);
+        }
+        else if (isLiv1 == 0 && isLiv2 == 1)
+        {
+            robots[0].SetActive(false);
+            robots[1].SetActive(true);
         }
         else if (isLiv1 == 0 && isLiv2 == 0)
         {
@@ -92,29 +107,5 @@ public class Credit : MonoBehaviour
         screenManager.GetComponent<ScreenChange>().ChangeScreen();
         screenManager.GetComponent<ScreenEffect>().AffectScreen();
         screenManager.GetComponent<ScreenBlock>().BlockScreen();
-    }
-
-    void FirLivSecLiv()
-    {
-
-    }
-
-    void FirLivSecDea()
-    {
-
-        audioSource[1].Play();
-    }
-
-    void FirDeaSecLiv()
-    {
-
-        audioSource[0].Play();
-    }
-
-    void FirDeaSecDea()
-    {
-
-        audioSource[0].Play();
-        audioSource[1].Play();
     }
 }
