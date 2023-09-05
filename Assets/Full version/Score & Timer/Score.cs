@@ -81,11 +81,11 @@ public class Score : MonoBehaviour
                 {
                     credit.GetComponent<Credit>().choice = 1;
                 }
-                else if (firstScore > 2 && secondScore <= 2)
+                else if (firstScore <= 2 && secondScore > 2)
                 {
                     credit.GetComponent<Credit>().choice = 2;
                 }
-                else if (firstScore <= 2 && secondScore > 2)
+                else if (firstScore > 2 && secondScore <= 2)
                 {
                     credit.GetComponent<Credit>().choice = 3;
                 }
