@@ -11519,8 +11519,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.4999499, y: -0.0029999614, z: 0}
-    m_Extent: {x: 4.50695, y: 2.0015, z: 0}
+    m_Center: {x: -1.5015, y: 0.00034999847, z: 0}
+    m_Extent: {x: 4.508, y: 2.00335, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15006,8 +15006,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.49835, y: 0.0041999817, z: 0}
-    m_Extent: {x: 4.50055, y: 2.0045, z: 0}
+    m_Center: {x: -1.5054001, y: -0.0000500679, z: 0}
+    m_Extent: {x: 4.5032, y: 2.00735, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -21618,11 +21618,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1704227362}
-  - {fileID: 580073965}
   - {fileID: 1444594855}
-  - {fileID: 2116423904}
   - {fileID: 1705798733}
   - {fileID: 1482868261}
+  - {fileID: 580073965}
+  - {fileID: 2116423904}
   - {fileID: 283500226}
   m_Father: {fileID: 1076709907}
   m_RootOrder: 1

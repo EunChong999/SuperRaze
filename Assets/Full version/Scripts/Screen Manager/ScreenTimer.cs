@@ -20,13 +20,13 @@ public class ScreenTimer : MonoBehaviour
 
     public void MoveTime()
     {
-        Time.timeScale = 1;
         isTimeStop = false;
+        Time.timeScale = 1;
     }
 
     public void StopTime()
     {
-        Time.timeScale = 1;
         isTimeStop = true;
+        Time.timeScale = 1;
     }
 }

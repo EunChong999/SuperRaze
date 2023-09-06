@@ -37,7 +37,12 @@ public class SecondPlayerManager : MonoBehaviour
             transform.GetChild(0).GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<SecondPlayerController>().enabled = false;
             gameObject.GetComponent<SecondPlayerShooter>().enabled = false;
-            gameObject.GetComponent<PlayerTimeRewinder>().enabled = false;
+
+            if (!gameObject.GetComponent<PlayerTimeRewinder>().isRewinding)
+            {
+                gameObject.GetComponent<PlayerTimeRewinder>().enabled = false;
+            }
+
             gameObject.GetComponent<AfterImage>().enabled = false;
             gameObject.GetComponent<AfterImage>().makeImage = false;
         }
@@ -49,6 +54,7 @@ public class SecondPlayerManager : MonoBehaviour
             transform.GetChild(0).GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<SecondPlayerController>().enabled = true;
             gameObject.GetComponent<PlayerTimeRewinder>().enabled = true;
+
             gameObject.GetComponent<AfterImage>().enabled = true;
 
             if (playerTimeRewinder.isRewinding)

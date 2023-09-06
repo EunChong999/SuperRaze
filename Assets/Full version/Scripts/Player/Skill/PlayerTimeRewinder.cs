@@ -26,11 +26,13 @@ public class PlayerTimeRewinder : MonoBehaviour
     private float lerpDuration;
     private float curTime = 0;
     [SerializeField] private GameObject skillEffect;
+    ScreenTimer screenTimer;
 
     // Use this for initialization
     void Start()
     {
         playerPointTime = new Stack<PlayerPointTime>();
+        screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
     }
 
     // Update is called once per frame
@@ -57,13 +59,13 @@ public class PlayerTimeRewinder : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (playerHealther.currentEnergy >= 0)
+            if (playerHealther.currentEnergy >= 0 && !screenTimer.isTimeStop)
             {
                 StartRewind();
             }
         }
 
-        if (Input.GetMouseButtonUp(1) || playerPointTime.Count == 0 || playerHealther.currentEnergy <= 0)
+        if (Input.GetMouseButtonUp(1) || playerPointTime.Count == 0 || playerHealther.currentEnergy <= 0 || screenTimer.isTimeStop)
         {
             StopRewind();
         }
