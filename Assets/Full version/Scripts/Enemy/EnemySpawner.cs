@@ -38,7 +38,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start() // 해당 오브젝트가 처음 생성될 때
     {
-
         screenManager = GameObject.Find("Screen Manager");
 
         isWaveCompleted = false;
@@ -68,36 +67,39 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update() // 매 프레임마다 실행
     {
-        if (isWaveCompleted && !isSpawnEnd)
+        if (!screenManager.GetComponent<ScreenTimer>().isTimeStop) 
         {
-            Invoke("SpawnEnd", 1);
-            isSpawnEnd = true;
-        }
-
-        if (!isWaveCompleted)
-        {
-            if (currentState == SpawnState.WAITING) // 현재 상태가 대기중일 때 
+            if (isWaveCompleted && !isSpawnEnd)
             {
-                if (!EnemyIsAlive()) // 적이 존재하지 않는다면
-                {
-                    WaveCompleted(); // Wave 완료 함수 호출
-                }
-                else // 적이 존재한다면
-                {
-                    return; // 다시 처음으로 이동
-                }
+                Invoke("SpawnEnd", 1);
+                isSpawnEnd = true;
             }
 
-            if (waveCountdown <= 0) // 남은 시간이 0이 됐을 때
+            if (!isWaveCompleted)
             {
-                if (currentState != SpawnState.SPAWNING) // 현재 상태가 생성중이 아니라면  
+                if (currentState == SpawnState.WAITING) // 현재 상태가 대기중일 때 
                 {
-                    StartCoroutine(SpawnWave(waves[nextWave])); // 다음 Wave의 스폰을 시작한다.
+                    if (!EnemyIsAlive()) // 적이 존재하지 않는다면
+                    {
+                        WaveCompleted(); // Wave 완료 함수 호출
+                    }
+                    else // 적이 존재한다면
+                    {
+                        return; // 다시 처음으로 이동
+                    }
                 }
-            }
-            else // 남은 시간이 0이 아니라면 
-            {
-                waveCountdown -= Time.deltaTime; // 계속하여 남은 시간을 감소시킨다.
+
+                if (waveCountdown <= 0) // 남은 시간이 0이 됐을 때
+                {
+                    if (currentState != SpawnState.SPAWNING) // 현재 상태가 생성중이 아니라면  
+                    {
+                        StartCoroutine(SpawnWave(waves[nextWave])); // 다음 Wave의 스폰을 시작한다.
+                    }
+                }
+                else // 남은 시간이 0이 아니라면 
+                {
+                    waveCountdown -= Time.deltaTime; // 계속하여 남은 시간을 감소시킨다.
+                }
             }
         }
     }
