@@ -168,6 +168,8 @@ public class PlayerHealther : MonoBehaviour
     // 플레이어 사망
     public void Dead()
     {
+        Time.timeScale = 1;
+
         if (isDissolving)
         {
             fade -= Time.deltaTime;
