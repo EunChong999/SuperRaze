@@ -3,7 +3,7 @@ guid: 393274daced2b164689c0631769eee3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3213,159 +3233,158 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Robot_Tiles_3: 407363012
+      Robot_Tiles_0: -563386318
+      Robot_Tiles_1: -1299530103
+      Robot_Tiles_10: -1800777396
+      Robot_Tiles_100: 886902652
+      Robot_Tiles_101: 256965703
+      Robot_Tiles_102: 526675597
       Robot_Tiles_103: -1253559022
-      Robot_Tiles_81: 808996863
-      Robot_Tiles_134: 1535915582
-      Robot_Tiles_31: 253224569
-      Robot_Tiles_147: -2047573983
-      Robot_Tiles_2: 2034711971
+      Robot_Tiles_104: -947972047
+      Robot_Tiles_105: 2017294212
+      Robot_Tiles_106: -393122073
+      Robot_Tiles_107: 261914735
+      Robot_Tiles_108: -863991512
       Robot_Tiles_109: -578371072
-      Robot_Tiles_8: -749002132
-      Robot_Tiles_54: -998565590
-      Robot_Tiles_145: 1205279369
+      Robot_Tiles_11: -1808317850
+      Robot_Tiles_110: -1020251900
+      Robot_Tiles_111: -514008709
+      Robot_Tiles_112: 414918105
+      Robot_Tiles_113: 1711928653
+      Robot_Tiles_114: -2084264270
+      Robot_Tiles_115: -2105811859
+      Robot_Tiles_116: 1604639521
+      Robot_Tiles_117: -2004775149
+      Robot_Tiles_118: -70409383
+      Robot_Tiles_119: 1945928131
+      Robot_Tiles_12: -1786565666
+      Robot_Tiles_120: -1255456832
+      Robot_Tiles_121: -540839863
+      Robot_Tiles_122: 69773397
       Robot_Tiles_123: 939439347
+      Robot_Tiles_124: -347503805
+      Robot_Tiles_125: 2098155758
+      Robot_Tiles_126: -1956457301
+      Robot_Tiles_127: -1240714832
+      Robot_Tiles_128: -2115113080
+      Robot_Tiles_129: 1080443960
+      Robot_Tiles_13: -905257774
+      Robot_Tiles_130: -1631986414
+      Robot_Tiles_131: 1121644453
+      Robot_Tiles_132: -399154971
+      Robot_Tiles_133: 1877936095
+      Robot_Tiles_134: 1535915582
+      Robot_Tiles_135: -1435656574
+      Robot_Tiles_136: 1255759253
+      Robot_Tiles_137: 2058313791
+      Robot_Tiles_138: -817498155
+      Robot_Tiles_139: 1846462015
+      Robot_Tiles_14: -879985535
+      Robot_Tiles_140: 201590212
+      Robot_Tiles_141: -1795632730
+      Robot_Tiles_142: 2006065532
+      Robot_Tiles_143: 1453545760
+      Robot_Tiles_144: -1127431432
+      Robot_Tiles_145: 1205279369
+      Robot_Tiles_146: 293929565
+      Robot_Tiles_147: -2047573983
+      Robot_Tiles_148: -1875531483
+      Robot_Tiles_149: -2115717804
+      Robot_Tiles_15: -2011930631
+      Robot_Tiles_16: -1339829283
+      Robot_Tiles_17: -267204559
+      Robot_Tiles_18: 1280199306
+      Robot_Tiles_19: 42875939
+      Robot_Tiles_2: 2034711971
+      Robot_Tiles_20: -1684482563
+      Robot_Tiles_21: 808287199
+      Robot_Tiles_22: 1609080252
       Robot_Tiles_23: -117238982
-      Robot_Tiles_9: -597462078
+      Robot_Tiles_24: -1636870310
+      Robot_Tiles_25: 2073538763
+      Robot_Tiles_26: 723106496
+      Robot_Tiles_27: 717146653
+      Robot_Tiles_28: -1525693259
+      Robot_Tiles_29: 909968632
+      Robot_Tiles_3: 407363012
+      Robot_Tiles_30: 1101397461
+      Robot_Tiles_31: 253224569
+      Robot_Tiles_32: 999542306
+      Robot_Tiles_33: -898068070
+      Robot_Tiles_34: 1903534154
+      Robot_Tiles_35: -859853998
+      Robot_Tiles_36: 350079714
+      Robot_Tiles_37: -730720937
+      Robot_Tiles_38: 1697963329
       Robot_Tiles_39: -263109943
       Robot_Tiles_4: 2033375803
-      Robot_Tiles_86: -1449264329
-      Robot_Tiles_63: -848680921
-      Robot_Tiles_90: -1209047503
-      Robot_Tiles_92: -5050392
-      Robot_Tiles_100: 886902652
-      Robot_Tiles_49: -1015421359
-      Robot_Tiles_141: -1795632730
-      Robot_Tiles_36: 350079714
-      Robot_Tiles_42: 1275161848
-      Robot_Tiles_118: -70409383
-      Robot_Tiles_131: 1121644453
-      Robot_Tiles_112: 414918105
-      Robot_Tiles_111: -514008709
-      Robot_Tiles_119: 1945928131
-      Robot_Tiles_102: 526675597
-      Robot_Tiles_120: -1255456832
-      Robot_Tiles_99: -1089380707
-      Robot_Tiles_74: -2008009789
-      Robot_Tiles_16: -1339829283
-      Robot_Tiles_107: 261914735
-      Robot_Tiles_51: -104763578
-      Robot_Tiles_38: 1697963329
-      Robot_Tiles_43: -1655021889
-      Robot_Tiles_82: 1741001718
-      Robot_Tiles_127: -1240714832
-      Robot_Tiles_75: -2047600520
-      Robot_Tiles_128: -2115113080
-      Robot_Tiles_32: 999542306
-      Robot_Tiles_34: 1903534154
-      Robot_Tiles_87: 992729185
-      Robot_Tiles_58: 79259552
-      Robot_Tiles_55: -1334023540
-      Robot_Tiles_66: -385963226
-      Robot_Tiles_14: -879985535
-      Robot_Tiles_59: -1420130985
-      Robot_Tiles_133: 1877936095
-      Robot_Tiles_83: 84775887
-      Robot_Tiles_6: -396780812
-      Robot_Tiles_76: -1494764577
-      Robot_Tiles_121: -540839863
-      Robot_Tiles_117: -2004775149
-      Robot_Tiles_11: -1808317850
-      Robot_Tiles_132: -399154971
-      Robot_Tiles_27: 717146653
-      Robot_Tiles_41: -1459050805
-      Robot_Tiles_56: 2060936556
-      Robot_Tiles_93: -232210325
-      Robot_Tiles_79: 1282402305
-      Robot_Tiles_148: -1875531483
-      Robot_Tiles_143: 1453545760
-      Robot_Tiles_122: 69773397
-      Robot_Tiles_67: -1326106813
-      Robot_Tiles_142: 2006065532
-      Robot_Tiles_108: -863991512
-      Robot_Tiles_136: 1255759253
-      Robot_Tiles_18: 1280199306
-      Robot_Tiles_20: -1684482563
-      Robot_Tiles_77: 102968089
-      Robot_Tiles_78: 188329022
-      Robot_Tiles_19: 42875939
-      Robot_Tiles_25: 2073538763
-      Robot_Tiles_47: -2023338571
-      Robot_Tiles_22: 1609080252
-      Robot_Tiles_13: -905257774
-      Robot_Tiles_62: 117178085
-      Robot_Tiles_104: -947972047
-      Robot_Tiles_24: -1636870310
-      Robot_Tiles_110: -1020251900
-      Robot_Tiles_129: 1080443960
-      Robot_Tiles_7: 654561465
-      Robot_Tiles_30: 1101397461
-      Robot_Tiles_98: -1899810123
-      Robot_Tiles_33: -898068070
-      Robot_Tiles_35: -859853998
-      Robot_Tiles_97: -1829053497
-      Robot_Tiles_139: 1846462015
-      Robot_Tiles_126: -1956457301
-      Robot_Tiles_124: -347503805
-      Robot_Tiles_135: -1435656574
-      Robot_Tiles_146: 293929565
-      Robot_Tiles_26: 723106496
-      Robot_Tiles_71: -478610982
-      Robot_Tiles_88: 1427682990
-      Robot_Tiles_70: -938864346
-      Robot_Tiles_91: -196702347
-      Robot_Tiles_96: 803957407
-      Robot_Tiles_105: 2017294212
       Robot_Tiles_40: -1264922556
-      Robot_Tiles_48: 151918023
-      Robot_Tiles_37: -730720937
-      Robot_Tiles_52: -1415683503
-      Robot_Tiles_115: -2105811859
-      Robot_Tiles_17: -267204559
-      Robot_Tiles_10: -1800777396
-      Robot_Tiles_144: -1127431432
-      Robot_Tiles_28: -1525693259
-      Robot_Tiles_72: 191976753
-      Robot_Tiles_69: 2067947667
-      Robot_Tiles_15: -2011930631
-      Robot_Tiles_116: 1604639521
-      Robot_Tiles_140: 201590212
-      Robot_Tiles_101: 256965703
-      Robot_Tiles_5: -2003605253
-      Robot_Tiles_149: -2115717804
-      Robot_Tiles_114: -2084264270
-      Robot_Tiles_94: -1072318808
-      Robot_Tiles_138: -817498155
-      Robot_Tiles_53: 1696692040
-      Robot_Tiles_84: 1329222294
-      Robot_Tiles_57: -1130173710
-      Robot_Tiles_137: 2058313791
-      Robot_Tiles_64: -1290588334
-      Robot_Tiles_106: -393122073
-      Robot_Tiles_1: -1299530103
-      Robot_Tiles_89: -1710984628
-      Robot_Tiles_45: -255182863
-      Robot_Tiles_29: 909968632
-      Robot_Tiles_46: -1543187219
-      Robot_Tiles_0: -563386318
-      Robot_Tiles_12: -1786565666
-      Robot_Tiles_80: -288573309
-      Robot_Tiles_113: 1711928653
-      Robot_Tiles_85: 998676408
-      Robot_Tiles_21: 808287199
-      Robot_Tiles_125: 2098155758
-      Robot_Tiles_130: -1631986414
-      Robot_Tiles_95: 544806989
+      Robot_Tiles_41: -1459050805
+      Robot_Tiles_42: 1275161848
+      Robot_Tiles_43: -1655021889
       Robot_Tiles_44: 1450873162
-      Robot_Tiles_65: -1290042820
+      Robot_Tiles_45: -255182863
+      Robot_Tiles_46: -1543187219
+      Robot_Tiles_47: -2023338571
+      Robot_Tiles_48: 151918023
+      Robot_Tiles_49: -1015421359
+      Robot_Tiles_5: -2003605253
       Robot_Tiles_50: -1644541691
-      Robot_Tiles_68: -289600057
+      Robot_Tiles_51: -104763578
+      Robot_Tiles_52: -1415683503
+      Robot_Tiles_53: 1696692040
+      Robot_Tiles_54: -998565590
+      Robot_Tiles_55: -1334023540
+      Robot_Tiles_56: 2060936556
+      Robot_Tiles_57: -1130173710
+      Robot_Tiles_58: 79259552
+      Robot_Tiles_59: -1420130985
+      Robot_Tiles_6: -396780812
       Robot_Tiles_60: 536970996
       Robot_Tiles_61: 1703539018
+      Robot_Tiles_62: 117178085
+      Robot_Tiles_63: -848680921
+      Robot_Tiles_64: -1290588334
+      Robot_Tiles_65: -1290042820
+      Robot_Tiles_66: -385963226
+      Robot_Tiles_67: -1326106813
+      Robot_Tiles_68: -289600057
+      Robot_Tiles_69: 2067947667
+      Robot_Tiles_7: 654561465
+      Robot_Tiles_70: -938864346
+      Robot_Tiles_71: -478610982
+      Robot_Tiles_72: 191976753
       Robot_Tiles_73: 686283106
-  spritePackingTag: 
+      Robot_Tiles_74: -2008009789
+      Robot_Tiles_75: -2047600520
+      Robot_Tiles_76: -1494764577
+      Robot_Tiles_77: 102968089
+      Robot_Tiles_78: 188329022
+      Robot_Tiles_79: 1282402305
+      Robot_Tiles_8: -749002132
+      Robot_Tiles_80: -288573309
+      Robot_Tiles_81: 808996863
+      Robot_Tiles_82: 1741001718
+      Robot_Tiles_83: 84775887
+      Robot_Tiles_84: 1329222294
+      Robot_Tiles_85: 998676408
+      Robot_Tiles_86: -1449264329
+      Robot_Tiles_87: 992729185
+      Robot_Tiles_88: 1427682990
+      Robot_Tiles_89: -1710984628
+      Robot_Tiles_9: -597462078
+      Robot_Tiles_90: -1209047503
+      Robot_Tiles_91: -196702347
+      Robot_Tiles_92: -5050392
+      Robot_Tiles_93: -232210325
+      Robot_Tiles_94: -1072318808
+      Robot_Tiles_95: 544806989
+      Robot_Tiles_96: 803957407
+      Robot_Tiles_97: -1829053497
+      Robot_Tiles_98: -1899810123
+      Robot_Tiles_99: -1089380707
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
