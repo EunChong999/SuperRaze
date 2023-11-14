@@ -4314,6 +4314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853116889}
   - component: {fileID: 853116890}
+  - component: {fileID: 853116891}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -4419,6 +4420,43 @@ MonoBehaviour:
   timeBetweenWaves: 1
   waveCountdown: 0
   currentState: 2
+--- !u!114 &853116891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853116888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2789893c3549f014cb1749089be7502a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Enemy 1
+    prefeb: {fileID: 1106634485852871099, guid: 8aefb74543537844d88ef140d1ecc3ea, type: 3}
+    size: 10
+  - tag: Enemy 2
+    prefeb: {fileID: 4243699188075963944, guid: 435842604f33b2a4ab251e54f67d20f1, type: 3}
+    size: 10
+  - tag: Enemy 3
+    prefeb: {fileID: 3356093263895949052, guid: 69178fac7bec171408b8dce20fd938ca, type: 3}
+    size: 10
+  - tag: Enemy 4
+    prefeb: {fileID: 5289129964597254474, guid: bdbdcf33ebcbea745b98a1671fa517d6, type: 3}
+    size: 10
+  - tag: Enemy 5
+    prefeb: {fileID: 1106634485852871099, guid: b1700bb22a0d9c14897250f7b9ea5ff6, type: 3}
+    size: 10
+  - tag: Enemy 6
+    prefeb: {fileID: 4243699188075963944, guid: 3a4c24a1af948764999a42705cbfe5f9, type: 3}
+    size: 10
+  - tag: Enemy 7
+    prefeb: {fileID: 3356093263895949052, guid: 2ebae1deeceaab848a69a7b2ed061f1d, type: 3}
+    size: 10
+  - tag: Enemy 8
+    prefeb: {fileID: 5289129964597254474, guid: dc5988e3b80658f42aae2be7358ff05d, type: 3}
+    size: 10
 --- !u!1 &972137639
 GameObject:
   m_ObjectHideFlags: 0

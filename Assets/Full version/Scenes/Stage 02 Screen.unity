@@ -7256,6 +7256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893070560}
   - component: {fileID: 893070559}
+  - component: {fileID: 893070561}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -7361,6 +7362,43 @@ Transform:
   m_Father: {fileID: 515380816}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &893070561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893070558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2789893c3549f014cb1749089be7502a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Enemy 1
+    prefeb: {fileID: 1106634485852871099, guid: 93d8bbe75fbf78848a27fb1375be72e5, type: 3}
+    size: 10
+  - tag: Enemy 2
+    prefeb: {fileID: 4243699188075963944, guid: 3250978fdcc3cd049ab76c8e5fcdcb72, type: 3}
+    size: 10
+  - tag: Enemy 3
+    prefeb: {fileID: 3356093263895949052, guid: 526385d1962a0014da62d3e8f77ec3cf, type: 3}
+    size: 10
+  - tag: Enemy 4
+    prefeb: {fileID: 5289129964597254474, guid: c3c550f1dea1ede4980e879ab3b9422a, type: 3}
+    size: 10
+  - tag: Enemy 5
+    prefeb: {fileID: 1106634485852871099, guid: eb6734082719cf4499a69eb98c903494, type: 3}
+    size: 10
+  - tag: Enemy 6
+    prefeb: {fileID: 4243699188075963944, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
+    size: 10
+  - tag: Enemy 7
+    prefeb: {fileID: 3356093263895949052, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
+    size: 10
+  - tag: Enemy 8
+    prefeb: {fileID: 5289129964597254474, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    size: 10
 --- !u!1 &902811192
 GameObject:
   m_ObjectHideFlags: 0

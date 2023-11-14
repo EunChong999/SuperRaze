@@ -36,9 +36,13 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject screenManager;
 
+    private ObjectPooler objectPooler;
+
     private void Start() // 해당 오브젝트가 처음 생성될 때
     {
         screenManager = GameObject.Find("Screen Manager");
+
+        objectPooler = ObjectPooler.Instance;
 
         isWaveCompleted = false;
         isSpawnEnd = false;
@@ -111,8 +115,6 @@ public class EnemySpawner : MonoBehaviour
 
     void WaveCompleted() // Wave 완료 함수 
     {
-/*        Debug.Log("Wave Completed!");*/ // Wave 완료 메시지 출력
-
         currentState = SpawnState.COUNTING; // 현재 상태를 집계중으로 전환
         waveCountdown = timeBetweenWaves; // WaveCountdown에 timeBetweenwaves를 재할당
 
@@ -152,7 +154,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++) // 해당 Wave의 적의 숫자만큼 반복하여
         {
             int randomEnemy = Random.Range(0, wave.enemy.Length); // 주어진 적 중에서 랜덤으로 생성할 적을 정한다.
-            SpawnEnemy(wave.enemy[randomEnemy], wave.enemyBody); // 해당 Wave의 적을 생성한다.
+            SpawnEnemy(wave.enemyBody, randomEnemy); // 해당 Wave의 적을 생성한다.
             yield return new WaitForSeconds(/*1f / wave.rate*/ 0); // 등급이 높을수록(작을수록) 더 늦게 생성된다.
         }
 
@@ -161,12 +163,10 @@ public class EnemySpawner : MonoBehaviour
         yield break; // 코루틴 탈출
     }
 
-    void SpawnEnemy(Transform enemy, GameObject enemyBody) // Wave 클래스의 적을 매개변수로 하여 적을 생성하는 함수
+    void SpawnEnemy(GameObject enemyBody, int randomEnemy) // Wave 클래스의 적을 매개변수로 하여 적을 생성하는 함수
     {
-/*        Debug.Log("Spawning Enemy : " + enemy.name);*/ // 생성된 적의 이름을 출력
-
         Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)]; // 스폰 포인트를 무작위로 할당
-        enemyBody = Instantiate(enemy, sp.position, sp.rotation).gameObject; // 무작위로 할당된 위치를 적의 위치에 할당
+        enemyBody = objectPooler.SpawnFromPool($"Enemy {randomEnemy+1}", sp.position, sp.rotation); // 무작위로 할당된 위치를 적의 위치에 할당
         enemyBody.transform.SetParent(sp); // 생성된 적의 부모를 스폰 포인트로 지정
     }
 }
