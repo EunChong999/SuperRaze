@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondBombingEnemyManager : MonoBehaviour
+public class SecondBombingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
     private BombingEnemyHealther bombingEnemyHealther;
@@ -10,10 +10,9 @@ public class SecondBombingEnemyManager : MonoBehaviour
     [SerializeField] private GameObject collisionCheck;
     private PlayerTimeRewinder playerTimeRewinder;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
-        screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        screenTimer = FindObjectOfType<ScreenTimer>();
         bombingEnemyHealther = gameObject.GetComponent<BombingEnemyHealther>();
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
         playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();

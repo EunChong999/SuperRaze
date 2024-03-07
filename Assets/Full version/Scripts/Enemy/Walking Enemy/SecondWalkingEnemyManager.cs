@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondWalkingEnemyManager : MonoBehaviour
+public class SecondWalkingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
     private WalkingEnemyHealther walkingEnemyHealther;
@@ -10,10 +10,9 @@ public class SecondWalkingEnemyManager : MonoBehaviour
     [SerializeField] private GameObject collisionCheck;
     private PlayerTimeRewinder playerTimeRewinder;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
-        screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        screenTimer = FindObjectOfType<ScreenTimer>();
         walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
         walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
         playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstShooingEnemyManager : MonoBehaviour
+public class FirstShooingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
     private ShootingEnemyHealther shootingEnemyHealther;
     private ShooingEnemyThrower shooingEnemyThrower;
     [SerializeField] private GameObject collisionCheck;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
-        screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        screenTimer = FindObjectOfType<ScreenTimer>();
         shootingEnemyHealther = gameObject.GetComponent<ShootingEnemyHealther>();
         shooingEnemyThrower = gameObject.GetComponent<ShooingEnemyThrower>();
     }

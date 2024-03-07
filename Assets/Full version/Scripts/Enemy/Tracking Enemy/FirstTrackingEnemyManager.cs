@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstTrackingEnemyManager : MonoBehaviour
+public class FirstTrackingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
     private TrackingEnemyHealther trackingEnemyHealther;
     private TrackingEnemyChaser trackingEnemyChaser;
     [SerializeField] private GameObject collisionCheck;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
-        screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        screenTimer = FindObjectOfType<ScreenTimer>();
         trackingEnemyHealther = gameObject.GetComponent<TrackingEnemyHealther>();
         trackingEnemyChaser = gameObject.GetComponent<TrackingEnemyChaser>();
     }
