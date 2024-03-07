@@ -11669,8 +11669,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.4966999, y: -0.00030004978, z: 0}
-    m_Extent: {x: 4.5032, y: 2.0040998, z: 0}
+    m_Center: {x: -1.50295, y: -0.0052000284, z: 0}
+    m_Extent: {x: 4.5026503, y: 2.001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15156,8 +15156,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.4998001, y: 0.00049996376, z: 0}
-    m_Extent: {x: 4.4996, y: 2.009, z: 0}
+    m_Center: {x: -1.5057999, y: -0.0035499334, z: 0}
+    m_Extent: {x: 4.499, y: 2.0009499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15643,7 +15643,7 @@ GameObject:
   - component: {fileID: 1412119923}
   m_Layer: 0
   m_Name: Screen Manager
-  m_TagString: Untagged
+  m_TagString: ScreenTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

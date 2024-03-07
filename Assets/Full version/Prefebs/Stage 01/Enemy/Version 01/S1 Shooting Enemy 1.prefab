@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   isDissolving: 0
-  shooingEnemyCollisionChecker: {fileID: 1802875946088457250}
+  collisionChecker: {fileID: 1802875946088457250}
   collisionCheck: {fileID: 8449444828858076079}
 --- !u!114 &4660586594232450600
 MonoBehaviour:
@@ -308,6 +308,7 @@ MonoBehaviour:
   isGrounding: 0
   isUnGrounded: 0
   chaseDistance: 8
+  shoot: {fileID: 0}
 --- !u!1 &4751634944041929698
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamage: 0
+  hit: {fileID: 0}
 --- !u!61 &1833545300105099288
 BoxCollider2D:
   m_ObjectHideFlags: 0

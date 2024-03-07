@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
+    ScreenTimer timer;
+
     // 풀 클래스
     [System.Serializable]
     public class Pool
@@ -40,6 +42,8 @@ public class ObjectPooler : MonoBehaviour
 
     private void Start()
     {
+        timer = FindObjectOfType<ScreenTimer>();
+
         // 풀 초기화
         InitPool();
     }
@@ -103,7 +107,7 @@ public class ObjectPooler : MonoBehaviour
         // 풀링된 오브젝트에 대한 함수가 할당되었을 경우
         if (pooledObj != null)
         {
-            pooledObj.OnObjectSpawn();
+            pooledObj.OnObjectSpawn(timer);
         }
 
         // 생성 오브젝트를 풀 딕셔너리에 저장

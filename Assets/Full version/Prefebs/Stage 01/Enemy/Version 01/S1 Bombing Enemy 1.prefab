@@ -291,6 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdc2e58e932faa43a01987c13cd153e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDamage: 0
+  hit: {fileID: 0}
 --- !u!61 &7827559698646152414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -398,8 +400,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   isDissolving: 0
-  bombingEnemyExploder: {fileID: 5813283227241750627}
+  screenTimer: {fileID: 0}
+  collisionChecker: {fileID: 9030015583435195681}
   collisionCheck: {fileID: 5005191824280259976}
+  bombingEnemyExploder: {fileID: 5813283227241750627}
 --- !u!114 &5813283227241750627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +431,7 @@ MonoBehaviour:
   ExplosionObj: {fileID: 7957211616689869073}
   isBombing: 0
   collisionChecker: {fileID: 5005191824280259976}
+  explod: {fileID: 0}
 --- !u!1 &7957211616689869073
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,9 @@ public class FirstBombingEnemyManager : MonoBehaviour, IPooledObject
     private BombingEnemyExploder bombingEnemyExploder;
     [SerializeField] private GameObject collisionCheck;
 
-    public void OnObjectSpawn()
+    public void OnObjectSpawn(ScreenTimer timer)
     {
-        screenTimer = FindObjectOfType<ScreenTimer>();
+        screenTimer = timer;
         bombingEnemyHealther = gameObject.GetComponent<BombingEnemyHealther>();
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
     }

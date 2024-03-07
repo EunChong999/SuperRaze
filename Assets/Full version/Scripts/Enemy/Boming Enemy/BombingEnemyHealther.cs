@@ -2,34 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombingEnemyHealther : MonoBehaviour
+public class BombingEnemyHealther : EnemyHealther
 {
-    [HideInInspector] public bool isDead;
-    Material material;
-    [HideInInspector] public bool isDissolving;
-    float fade;
-    private GameObject screenManager;
     [SerializeField] private BombingEnemyExploder bombingEnemyExploder;
-    [SerializeField] private GameObject collisionCheck;
 
-    void Start()
+    public override void Init()
     {
-        screenManager = GameObject.Find("Screen Manager");
+        base.Init();
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
-        collisionCheck.SetActive(false);
-
-        material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
-
-        isDead = false;
-
-        fade = 0;
-        isDissolving = true;
     }
 
-    void Update()
+    public override void Live()
     {
         // 체력 및 마나
-        if (!screenManager.GetComponent<ScreenTimer>().isTimeStop)
+        if (!screenTimer.isTimeStop)
         {
             if (bombingEnemyExploder.isBombing)
             {
@@ -48,38 +34,13 @@ public class BombingEnemyHealther : MonoBehaviour
         }
     }
 
-    // 플레이어 생성
-    public void Spawn()
+    void Start()
     {
-        if (isDissolving)
-        {
-            fade += Time.deltaTime;
-
-            if (fade >= 1)
-            {
-                fade = 1;
-                isDissolving = false;
-                collisionCheck.SetActive(true);
-            }
-
-            material.SetFloat("_Fade", fade);
-        }
+        Init();
     }
 
-    // 플레이어 사망
-    public void Dead()
+    void Update()
     {
-        if (isDissolving)
-        {
-            fade -= Time.deltaTime;
-
-            if (fade <= 0)
-            {
-                fade = 0;
-                isDissolving = false;
-            }
-
-            material.SetFloat("_Fade", fade);
-        }
+        Live();
     }
 }

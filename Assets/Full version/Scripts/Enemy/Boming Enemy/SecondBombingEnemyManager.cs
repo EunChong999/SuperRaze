@@ -10,9 +10,9 @@ public class SecondBombingEnemyManager : MonoBehaviour, IPooledObject
     [SerializeField] private GameObject collisionCheck;
     private PlayerTimeRewinder playerTimeRewinder;
 
-    public void OnObjectSpawn()
+    public void OnObjectSpawn(ScreenTimer timer)
     {
-        screenTimer = FindObjectOfType<ScreenTimer>();
+        screenTimer = timer;
         bombingEnemyHealther = gameObject.GetComponent<BombingEnemyHealther>();
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
         playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();

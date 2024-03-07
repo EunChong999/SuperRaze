@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - Object
+  - ScreenTimer
   layers:
   - Default
   - TransparentFX

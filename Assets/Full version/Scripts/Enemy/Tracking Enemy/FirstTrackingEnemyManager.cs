@@ -9,9 +9,9 @@ public class FirstTrackingEnemyManager : MonoBehaviour, IPooledObject
     private TrackingEnemyChaser trackingEnemyChaser;
     [SerializeField] private GameObject collisionCheck;
 
-    public void OnObjectSpawn()
+    public void OnObjectSpawn(ScreenTimer timer)
     {
-        screenTimer = FindObjectOfType<ScreenTimer>();
+        screenTimer = timer;
         trackingEnemyHealther = gameObject.GetComponent<TrackingEnemyHealther>();
         trackingEnemyChaser = gameObject.GetComponent<TrackingEnemyChaser>();
     }

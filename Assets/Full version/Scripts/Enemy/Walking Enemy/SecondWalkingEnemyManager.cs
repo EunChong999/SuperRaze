@@ -10,9 +10,9 @@ public class SecondWalkingEnemyManager : MonoBehaviour, IPooledObject
     [SerializeField] private GameObject collisionCheck;
     private PlayerTimeRewinder playerTimeRewinder;
 
-    public void OnObjectSpawn()
+    public void OnObjectSpawn(ScreenTimer timer)
     {
-        screenTimer = FindObjectOfType<ScreenTimer>();
+        screenTimer = timer;
         walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
         walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
         playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();

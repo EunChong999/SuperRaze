@@ -307,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   isDissolving: 0
-  trackingEnemyCollisionChecker: {fileID: 381012720601985150}
+  collisionChecker: {fileID: 381012720601985150}
   collisionCheck: {fileID: 8942651430600210938}
 --- !u!114 &3343067764686388185
 MonoBehaviour:
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamage: 0
+  hit: {fileID: 0}
 --- !u!61 &7928552595937002835
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,9 +9,9 @@ public class FirstWalkingEnemyManager : MonoBehaviour, IPooledObject
     private WalkingEnemyPatroller walkingEnemyPatroller;
     [SerializeField] private GameObject collisionCheck;
 
-    public void OnObjectSpawn()
+    public void OnObjectSpawn(ScreenTimer timer)
     {
-        screenTimer = FindObjectOfType<ScreenTimer>();
+        screenTimer = timer;
         walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
         walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
     }
