@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstWalkingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
+    [SerializeField] EnemyHealther enemyHealther;
     private WalkingEnemyHealther walkingEnemyHealther;
     private WalkingEnemyPatroller walkingEnemyPatroller;
     [SerializeField] private GameObject collisionCheck;
@@ -12,6 +13,7 @@ public class FirstWalkingEnemyManager : MonoBehaviour, IPooledObject
     public void OnObjectSpawn(ScreenTimer timer)
     {
         screenTimer = timer;
+        enemyHealther.screenTimer = timer;
         walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
         walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
     }

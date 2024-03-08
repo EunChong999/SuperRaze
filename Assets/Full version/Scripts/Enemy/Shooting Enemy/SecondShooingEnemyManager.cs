@@ -5,6 +5,7 @@ using UnityEngine;
 public class SecondShooingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
+    [SerializeField] EnemyHealther enemyHealther;
     private ShootingEnemyHealther shootingEnemyHealther;
     private ShooingEnemyThrower shooingEnemyThrower;
     [SerializeField] private GameObject collisionCheck;
@@ -13,6 +14,7 @@ public class SecondShooingEnemyManager : MonoBehaviour, IPooledObject
     public void OnObjectSpawn(ScreenTimer timer)
     {
         screenTimer = timer;
+        enemyHealther.screenTimer = timer;
         shootingEnemyHealther = gameObject.GetComponent<ShootingEnemyHealther>();
         shooingEnemyThrower = gameObject.GetComponent<ShooingEnemyThrower>();
         playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();

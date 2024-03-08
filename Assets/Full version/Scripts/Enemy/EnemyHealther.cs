@@ -14,7 +14,6 @@ public class EnemyHealther : MonoBehaviour
 
     virtual public void Init()
     {
-        screenTimer = GameObject.FindWithTag("ScreenTimer").GetComponent<ScreenTimer>();
         collisionCheck.SetActive(false);
 
         material = transform.GetChild(0).GetComponent<SpriteRenderer>().material;

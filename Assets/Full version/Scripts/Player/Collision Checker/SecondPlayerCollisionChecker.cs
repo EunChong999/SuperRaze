@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SecondPlayerCollisionChecker : MonoBehaviour
@@ -16,18 +14,11 @@ public class SecondPlayerCollisionChecker : MonoBehaviour
 
     private void Start()
     {
-        hit = GameObject.Find("HitOrDead").GetComponent<AudioSource>();
-
         // ShakeCamera
         cameraShake = GameObject.Find("CM vcam1").GetComponent<CameraShake>();
 
         isCollision = false;
         transform.GetComponentInParent<Rigidbody2D>().sharedMaterial = physicsMaterial1;
-    }
-
-    private void Update()
-    {
-
     }
 
     private void OnTriggerStay2D(Collider2D collision)

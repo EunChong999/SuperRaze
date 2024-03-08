@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionChecker : MonoBehaviour
@@ -9,7 +7,6 @@ public class CollisionChecker : MonoBehaviour
 
     void Start()
     {
-        hit = GameObject.Find("HitOrDead").GetComponent<AudioSource>();
         isDamage = false;
     }
 

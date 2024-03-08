@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstBombingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
+    [SerializeField] EnemyHealther enemyHealther;
     private BombingEnemyHealther bombingEnemyHealther;
     private BombingEnemyExploder bombingEnemyExploder;
     [SerializeField] private GameObject collisionCheck;
@@ -12,6 +13,7 @@ public class FirstBombingEnemyManager : MonoBehaviour, IPooledObject
     public void OnObjectSpawn(ScreenTimer timer)
     {
         screenTimer = timer;
+        enemyHealther.screenTimer = timer;
         bombingEnemyHealther = gameObject.GetComponent<BombingEnemyHealther>();
         bombingEnemyExploder = gameObject.GetComponent<BombingEnemyExploder>();
     }

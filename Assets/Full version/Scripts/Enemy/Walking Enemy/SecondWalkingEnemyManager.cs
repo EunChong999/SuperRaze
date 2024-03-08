@@ -5,6 +5,7 @@ using UnityEngine;
 public class SecondWalkingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
+    [SerializeField] EnemyHealther enemyHealther;
     private WalkingEnemyHealther walkingEnemyHealther;
     private WalkingEnemyPatroller walkingEnemyPatroller;
     [SerializeField] private GameObject collisionCheck;
@@ -13,6 +14,7 @@ public class SecondWalkingEnemyManager : MonoBehaviour, IPooledObject
     public void OnObjectSpawn(ScreenTimer timer)
     {
         screenTimer = timer;
+        enemyHealther.screenTimer = timer;
         walkingEnemyHealther = gameObject.GetComponent<WalkingEnemyHealther>();
         walkingEnemyPatroller = gameObject.GetComponent<WalkingEnemyPatroller>();
         playerTimeRewinder = GameObject.Find("Player").GetComponent<PlayerTimeRewinder>();

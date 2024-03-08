@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstTrackingEnemyManager : MonoBehaviour, IPooledObject
 {
     private ScreenTimer screenTimer;
+    [SerializeField] EnemyHealther enemyHealther;
     private TrackingEnemyHealther trackingEnemyHealther;
     private TrackingEnemyChaser trackingEnemyChaser;
     [SerializeField] private GameObject collisionCheck;
@@ -12,6 +13,7 @@ public class FirstTrackingEnemyManager : MonoBehaviour, IPooledObject
     public void OnObjectSpawn(ScreenTimer timer)
     {
         screenTimer = timer;
+        enemyHealther.screenTimer = timer;
         trackingEnemyHealther = gameObject.GetComponent<TrackingEnemyHealther>();
         trackingEnemyChaser = gameObject.GetComponent<TrackingEnemyChaser>();
     }

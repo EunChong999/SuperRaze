@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FirstShooingEnemyManager : MonoBehaviour, IPooledObject
 {
-    public ScreenTimer screenTimer;
+    ScreenTimer screenTimer;
+    [SerializeField] EnemyHealther enemyHealther;
     private ShootingEnemyHealther shootingEnemyHealther;
     private ShooingEnemyThrower shooingEnemyThrower;
     [SerializeField] private GameObject collisionCheck;
@@ -12,6 +13,7 @@ public class FirstShooingEnemyManager : MonoBehaviour, IPooledObject
     public void OnObjectSpawn(ScreenTimer timer)
     {
         screenTimer = timer;
+        enemyHealther.screenTimer = timer;
         shootingEnemyHealther = gameObject.GetComponent<ShootingEnemyHealther>();
         shooingEnemyThrower = gameObject.GetComponent<ShooingEnemyThrower>();
     }
