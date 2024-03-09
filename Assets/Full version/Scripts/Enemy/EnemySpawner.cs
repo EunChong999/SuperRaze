@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
                                                             // 각각 생성중, 대기중, 집계중이다.
 
     [System.Serializable] // 인스펙터창에서 클래스 내의 값을 변경할 수 있도록 한다.
-    public class Wave // Wave에 대한 클래스 선언
+    public struct Wave // Wave에 대한 클래스 선언
     {
         public string name; // 적의 이름
         public Transform[] enemy; // 적의 상태
@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
 
     private ObjectPooler objectPooler;
 
-    private void Start() // 해당 오브젝트가 처음 생성될 때
+    private void Start() 
     {
         screenManager = GameObject.Find("Screen Manager");
 
@@ -69,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void Update() // 매 프레임마다 실행
+    private void Update() 
     {
         if (!screenManager.GetComponent<ScreenTimer>().isTimeStop) 
         {
