@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooingEnemyThrower : MonoBehaviour
+public class ShooingEnemyThrower : BasicEnemy
 {
     // Shoot
     public bool isShooting;
@@ -18,15 +18,6 @@ public class ShooingEnemyThrower : MonoBehaviour
     [SerializeField] private GameObject bulletPrefeb;
     [SerializeField] private Transform bulletPosition;
 
-    public GameObject body;
-    public Rigidbody2D rb;
-
-    [SerializeField] private Transform pointA;
-    private Vector3 pointAtf;
-    [SerializeField] private Transform pointB;
-    private Vector3 pointBtf;
-    private Vector3 currentTransform;
-    [SerializeField] private float movingSpeed;
     public int patrolDestination;
 
     private Transform playerTransform;
@@ -38,6 +29,11 @@ public class ShooingEnemyThrower : MonoBehaviour
     [SerializeField] AudioSource shoot;
 
     private void Awake()
+    {
+        InitPooling();
+    }
+
+    private void InitPooling()
     {
         // Shoot
         if (instance == null)
@@ -57,34 +53,20 @@ public class ShooingEnemyThrower : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected override void Init()
     {
-        shoot = GameObject.Find("EnemyShoot").GetComponent<AudioSource>();
-
-        // 속도 랜덤 지정
-        movingSpeed = Random.Range(2.5f, 5.0f);
-
-        // 플레이어 오브젝트 찾기 및 시작점과 끝점을 부모로부터 해방
-        playerTransform = GameObject.Find("Player").transform.GetChild(0);
-        pointA.parent = transform;
-        pointB.parent = transform;
-
-        // 시작점과 끝점을 할당
-        pointAtf = pointA.position;
-        pointBtf = pointB.position;
-        pointAtf.x = transform.parent.GetChild(0).position.x;
-        pointBtf.x = transform.parent.GetChild(1).position.x;
-        pointA.position = pointAtf;
-        pointB.position = pointBtf;
-
-        // 일정 범위 사이의 랜덤 위치 지정
-        currentTransform = transform.GetChild(0).transform.position;
-        currentTransform.x = Random.Range(pointA.position.x, pointB.position.x);
-        transform.GetChild(0).transform.position = currentTransform;
+        base.Init();
 
         // 상태 초기화
+        shoot = GameObject.Find("EnemyShoot").GetComponent<AudioSource>();
+        playerTransform = GameObject.Find("Player").transform.GetChild(0);
         canShoot = false;
         animator.SetBool("isRun", true);
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     // GetPooledObject & Shoot

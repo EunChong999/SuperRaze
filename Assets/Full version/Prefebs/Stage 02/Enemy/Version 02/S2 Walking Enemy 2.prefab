@@ -64,6 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c39c2f49e16fa41bacc3485408aa67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSpeed: 5
+  maxSpeed: 7.5
   pointA: {fileID: 6792040314650666475}
   pointB: {fileID: 6792040315122067554}
   rb: {fileID: 1106634487093199956}

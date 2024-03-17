@@ -7158,7 +7158,7 @@ MonoBehaviour:
     - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
     - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
     - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
-    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    - {fileID: 7038429736072913914, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
     enemyBody: {fileID: 0}
     count: 10
     rate: 10
@@ -7171,7 +7171,7 @@ MonoBehaviour:
     - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
     - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
     - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
-    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    - {fileID: 7038429736072913914, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
     enemyBody: {fileID: 0}
     count: 10
     rate: 10
@@ -7184,7 +7184,7 @@ MonoBehaviour:
     - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
     - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
     - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
-    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    - {fileID: 7038429736072913914, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
     enemyBody: {fileID: 0}
     count: 10
     rate: 10
@@ -7197,7 +7197,7 @@ MonoBehaviour:
     - {fileID: 1106634485852871078, guid: eb6734082719cf4499a69eb98c903494, type: 3}
     - {fileID: 1279980142083644658, guid: ee826bfe4a677954a8bfb9596c213903, type: 3}
     - {fileID: 4829573227598244352, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
-    - {fileID: 7769026601155685515, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    - {fileID: 7038429736072913914, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
     enemyBody: {fileID: 0}
     count: 10
     rate: 10
@@ -7269,7 +7269,7 @@ MonoBehaviour:
     prefeb: {fileID: 3356093263895949052, guid: ec36acf6697789d41a331f9d38058db4, type: 3}
     size: 10
   - tag: Enemy 8
-    prefeb: {fileID: 5289129964597254474, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
+    prefeb: {fileID: 2104532131876135202, guid: 3d1bd331b6202db4998da30b7f588aa2, type: 3}
     size: 10
 --- !u!1 &902811192
 GameObject:

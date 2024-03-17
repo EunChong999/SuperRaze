@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackingEnemyChaser : MonoBehaviour
+public class TrackingEnemyChaser : BasicEnemy
 {
-    public GameObject body;
-    public Rigidbody2D rb;
-    public Animator animator;
-    [SerializeField] private Transform pointA;
-    private Vector3 pointAtf;
-    [SerializeField] private Transform pointB;
-    private Vector3 pointBtf;
-    private Vector3 currentTransform;
-    [SerializeField] private float movingSpeed;
     [SerializeField] private float chasingSpeed;
     private float chasingSpeedTemp;
     public int patrolDestination;
@@ -23,34 +14,21 @@ public class TrackingEnemyChaser : MonoBehaviour
     public bool isUnGrounded;
     public float chaseDistance;
 
-    private void Start()
+    protected override void Init()
     {
-        // 속도 랜덤 지정
-        movingSpeed = Random.Range(2.5f, 5.0f);
-        chasingSpeed = Random.Range(5.0f, 7.5f);
-
-        // 플레이어 오브젝트 찾기 및 시작점과 끝점을 부모로부터 해방
-        playerTransform = GameObject.Find("Player").transform.GetChild(0);
-        pointA.parent = transform;
-        pointB.parent = transform;
-
-        // 시작점과 끝점을 할당
-        pointAtf = pointA.position;
-        pointBtf = pointB.position;
-        pointAtf.x = transform.parent.GetChild(0).position.x;
-        pointBtf.x = transform.parent.GetChild(1).position.x;
-        pointA.position = pointAtf;
-        pointB.position = pointBtf;
-
-        // 일정 범위 사이의 랜덤 위치 지정
-        currentTransform = transform.GetChild(0).transform.position;
-        currentTransform.x = Random.Range(pointA.position.x, pointB.position.x);
-        transform.GetChild(0).transform.position = currentTransform;
+        base.Init();
 
         // 상태 초기화
+        chasingSpeed = Random.Range(5.0f, 7.5f);
+        playerTransform = GameObject.Find("Player").transform.GetChild(0);
         isChasing = false;
-        animator.SetBool("isRun", true);
+        anim.SetBool("isRun", true);
         chasingSpeedTemp = chasingSpeed;
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     private void Update()
@@ -82,11 +60,11 @@ public class TrackingEnemyChaser : MonoBehaviour
     {
         if (chasingSpeed == 0)
         {
-            animator.SetBool("isRun", false);
+            anim.SetBool("isRun", false);
         }
         else
         {
-            animator.SetBool("isRun", true);
+            anim.SetBool("isRun", true);
         }
     }
 

@@ -500,11 +500,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7272b6bc13b852147a55840fb69dae66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 4310934122025183496}
-  rb: {fileID: 4555993034477659661}
-  animator: {fileID: 6722261615742612015}
+  minSpeed: 2.5
+  maxSpeed: 5
   pointA: {fileID: 7510095314236089917}
   pointB: {fileID: 1472622641687167780}
+  rb: {fileID: 4555993034477659661}
+  body: {fileID: 3047045893750062241}
+  anim: {fileID: 6722261615742612015}
   movingSpeed: 5
   chasingSpeed: 10
   patrolDestination: 0

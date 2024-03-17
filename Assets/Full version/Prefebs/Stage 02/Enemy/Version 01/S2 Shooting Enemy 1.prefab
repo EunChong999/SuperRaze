@@ -279,6 +279,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d989fbf20f102449bd2944c3042bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSpeed: 2.5
+  maxSpeed: 5
+  pointA: {fileID: 7292464260327101064}
+  pointB: {fileID: 7087434004768515845}
+  rb: {fileID: 702802322475995692}
+  body: {fileID: 1267117795195501419}
+  anim: {fileID: 5457075053068768210}
+  movingSpeed: 0
   isShooting: 0
   isShooted: 0
   canShoot: 0
@@ -287,11 +295,6 @@ MonoBehaviour:
   amountToPool: 5
   bulletPrefeb: {fileID: 2937711672827502538, guid: 208c4408ac5723e4582ab716888f25f1, type: 3}
   bulletPosition: {fileID: 1467162696971226979}
-  body: {fileID: 2805457383599084185}
-  rb: {fileID: 702802322475995692}
-  pointA: {fileID: 7292464260327101064}
-  pointB: {fileID: 7087434004768515845}
-  movingSpeed: 0
   patrolDestination: 0
   isGrounding: 0
   isUnGrounded: 0
