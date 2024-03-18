@@ -18,6 +18,11 @@ public class WalkingEnemyPatroller : BasicEnemy
 
     private void Update()
     {
+        Walk();
+    }
+
+    private void Walk()
+    {
         if (currentPoint == pointB)
         {
             rb.velocity = new Vector2(movingSpeed, 0);
