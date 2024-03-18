@@ -6,16 +6,16 @@ public class BombingEnemyExploder : BasicEnemy
 {
     [SerializeField] private float chasingSpeed;
     private float chasingSpeedTemp;
-    public int patrolDestination;
+    [SerializeField] int patrolDestination;
 
     private Transform playerTransform;
-    public bool isChasing;
-    public bool isGrounding;
-    public bool isUnGrounded;
-    public float chaseDistance;
+    [SerializeField] bool isChasing;
+    [SerializeField] bool isGrounding;
+    [SerializeField] bool isUnGrounded;
+    [SerializeField] float chaseDistance;
     [SerializeField] private GameObject ExplosionObj;
     private bool isDead;
-    [HideInInspector]public bool isBombing;
+    [HideInInspector] public bool isBombing;
     [SerializeField] private GameObject collisionChecker;
     private CameraShake cameraShake;
     [SerializeField] AudioSource explod;

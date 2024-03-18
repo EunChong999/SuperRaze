@@ -5,9 +5,9 @@ using UnityEngine;
 public class ShooingEnemyThrower : BasicEnemy
 {
     // Shoot
-    public bool isShooting;
-    public bool isShooted;
-    public bool canShoot;
+    [SerializeField] bool isShooting;
+    [SerializeField] bool isShooted;
+    [SerializeField] bool canShoot;
     [SerializeField] private float coolTime;
     [SerializeField] private static ShooingEnemyThrower instance;
     public Animator animator;
@@ -18,13 +18,13 @@ public class ShooingEnemyThrower : BasicEnemy
     [SerializeField] private GameObject bulletPrefeb;
     [SerializeField] private Transform bulletPosition;
 
-    public int patrolDestination;
+    [SerializeField] int patrolDestination;
 
     private Transform playerTransform;
 
-    public bool isGrounding;
-    public bool isUnGrounded;
-    public float chaseDistance;
+    [SerializeField] bool isGrounding;
+    [SerializeField] bool isUnGrounded;
+    [SerializeField] float chaseDistance;
 
     [SerializeField] AudioSource shoot;
 

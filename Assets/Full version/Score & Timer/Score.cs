@@ -73,7 +73,8 @@ public class Score : MonoBehaviour
 
         if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 6) 
         {
-            credit = GameObject.Find("Credit");
+            if (credit == null)
+                credit = GameObject.Find("Credit");
 
             if (credit != null)
             {
@@ -98,9 +99,14 @@ public class Score : MonoBehaviour
 
         if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 2 || screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 4)
         {
-            playerHealther = GameObject.Find("Player").GetComponent<PlayerHealther>();
-            Spawner = GameObject.Find("Spawner").GetComponent<EnemySpawner>();
-            waveState.text = "Wave " + (Spawner.nextWave + 1) + "/4";
+            if (playerHealther == null)
+                playerHealther = GameObject.Find("Player").GetComponent<PlayerHealther>();
+
+            if (Spawner == null)
+                Spawner = GameObject.Find("Spawner").GetComponent<EnemySpawner>();
+
+            if (Spawner != null)
+                waveState.text = "Wave " + (Spawner.nextWave + 1) + "/4";
 
             if (playerHealther != null && !playerHealther.isDead) 
             {

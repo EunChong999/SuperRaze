@@ -6,13 +6,13 @@ public class TrackingEnemyChaser : BasicEnemy
 {
     [SerializeField] private float chasingSpeed;
     private float chasingSpeedTemp;
-    public int patrolDestination;
+    [SerializeField] int patrolDestination;
 
     private Transform playerTransform;
-    public bool isChasing;
-    public bool isGrounding;
-    public bool isUnGrounded;
-    public float chaseDistance;
+    [SerializeField] bool isChasing;
+    [SerializeField] bool isGrounding;
+    [SerializeField] bool isUnGrounded;
+    [SerializeField] float chaseDistance;
 
     protected override void Init()
     {
