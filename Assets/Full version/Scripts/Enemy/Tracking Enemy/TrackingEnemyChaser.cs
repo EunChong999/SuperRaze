@@ -37,7 +37,7 @@ public class TrackingEnemyChaser : BasicEnemy
         CheckSpeed();
         CheckCollision();
         DecideChasing();
-        Move();
+        Chase();
     }
 
     void CheckGround()
@@ -98,7 +98,7 @@ public class TrackingEnemyChaser : BasicEnemy
         }
     }
 
-    void Move()
+    void Chase()
     {
         if (!isGrounding)
         {

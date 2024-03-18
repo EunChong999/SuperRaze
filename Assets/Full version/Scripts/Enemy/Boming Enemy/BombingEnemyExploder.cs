@@ -102,7 +102,7 @@ public class BombingEnemyExploder : BasicEnemy
         }
     }
 
-    public void Bomb()
+    private void Bomb()
     {
         if(!isDead)
         {
