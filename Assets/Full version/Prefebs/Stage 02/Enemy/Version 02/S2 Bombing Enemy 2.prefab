@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDamage: 0
   hit: {fileID: 8995346483666897630}
+  bombingEnemyExploder: {fileID: 3158562749007128537}
 --- !u!61 &5763884498378164397
 BoxCollider2D:
   m_ObjectHideFlags: 0

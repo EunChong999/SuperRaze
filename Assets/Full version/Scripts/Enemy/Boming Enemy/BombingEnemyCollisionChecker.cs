@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BombingEnemyCollisionChecker : CollisionChecker
 {
+    [SerializeField] BombingEnemyExploder bombingEnemyExploder;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
             Collision();
-            gameObject.transform.parent.parent.GetComponent<BombingEnemyExploder>().Bombed();
-            gameObject.transform.parent.parent.GetComponent<BombingEnemyExploder>().isBombing = true;
+            bombingEnemyExploder.Bombed();
+            bombingEnemyExploder.isBombing = true;
         }
     }
 }
