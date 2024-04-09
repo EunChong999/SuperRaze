@@ -1,4 +1,4 @@
-using Cinemachine;
+ï»¿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,6 @@ public class PlayerTimeRewinder : MonoBehaviour
 {
     public float effectDelay;
     [HideInInspector] public bool isRewinding = false;
-    public float recordTime = 5f;
     public float rewindSpeed = 5f;
 
     [SerializeField] private PlayerHealther playerHealther;
@@ -24,7 +23,6 @@ public class PlayerTimeRewinder : MonoBehaviour
     private Vector3 previousPosition;
     private float lerpStartTime;
     private float lerpDuration;
-    private float curTime = 0;
     [SerializeField] private GameObject skillEffect;
     ScreenTimer screenTimer;
 
@@ -75,7 +73,19 @@ public class PlayerTimeRewinder : MonoBehaviour
     {
         if (playerPointTime.Count > 0)
         {
-            DoRewind();
+            float timeSinceLerpStart = Time.time - lerpStartTime;
+            float t = Mathf.Clamp01(timeSinceLerpStart / (lerpDuration / rewindSpeed)); // rewindSpeed
+            body.transform.position = Vector3.Lerp(previousPosition, targetPosition, t);
+
+            if (t >= 1f)
+            {
+                PlayerPointTime pointInTime = playerPointTime.Pop();
+                targetPosition = pointInTime.position;
+                body.transform.rotation = pointInTime.rotation;
+                previousPosition = body.transform.position;
+                lerpStartTime = Time.time;
+                lerpDuration = Vector3.Distance(previousPosition, targetPosition) / rewindSpeed;
+            }
         }
         else
         {
@@ -83,40 +93,13 @@ public class PlayerTimeRewinder : MonoBehaviour
         }
     }
 
-    void DoRewind()
-    {
-        float timeSinceLerpStart = Time.time - lerpStartTime;
-        float t = Mathf.Clamp01(timeSinceLerpStart / (lerpDuration / rewindSpeed)); // rewindSpeed·Î ³ª´©¾î º¸Á¤
-        body.transform.position = Vector3.Lerp(previousPosition, targetPosition, t);
-
-        if (t >= 1f)
-        {
-            PlayerPointTime pointInTime = playerPointTime.Pop();
-            targetPosition = pointInTime.position;
-            body.transform.rotation = pointInTime.rotation;
-            previousPosition = body.transform.position;
-            lerpStartTime = Time.time;
-            lerpDuration = Vector3.Distance(previousPosition, targetPosition) / rewindSpeed;
-        }
-    }
-
     void Record()
     {
-        curTime += Time.deltaTime;
-
-        if (curTime >= recordTime)
+        if (rb.velocity.x != 0 || rb.velocity.y != 0)
         {
-            playerPointTime.Pop();
-        }
-        else
-        {
-            if (rb.velocity.x != 0 && rb.velocity.y != 0)
-            {
-                playerPointTime.Push(new PlayerPointTime(body.transform.position, body.transform.rotation));
-            }
+            playerPointTime.Push(new PlayerPointTime(body.transform.position, body.transform.rotation));
         }
     }
-
 
     public void StartRewind()
     {
@@ -140,7 +123,6 @@ public class PlayerTimeRewinder : MonoBehaviour
     {
         gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         afterImage.makeImage = false;
-        curTime = 0;
         playerPointTime.Clear();
         skillEffect.SetActive(false);
         isRewinding = false;
