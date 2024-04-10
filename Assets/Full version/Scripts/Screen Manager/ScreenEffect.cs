@@ -159,7 +159,6 @@ public class ScreenEffect : MonoBehaviour
             }
 
             Init = true;
-            
 
             for (int i = 0; i <= 14; i++)
             {

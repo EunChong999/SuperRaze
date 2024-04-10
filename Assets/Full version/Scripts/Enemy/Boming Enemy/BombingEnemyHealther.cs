@@ -14,10 +14,18 @@ public class BombingEnemyHealther : EnemyHealther
 
     public override void Live()
     {
+        if (timer == null)
+            timer = FindObjectOfType<Timer>();
+
         // 체력 및 마나
         if (!screenTimer.isTimeStop)
         {
-            if (bombingEnemyExploder.isBombing)
+            if (timer.isTimeOver && !isDead)
+            {
+                isDead = true;
+                isDissolving = true;
+            }
+            else if (bombingEnemyExploder.isBombing)
             {
                 isDead = true;
                 isDissolving = true;

@@ -11,7 +11,8 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private bool coolDown = true;
 
-    private bool isTimeOver = false;
+    [HideInInspector]
+    public bool isTimeOver = false;
 
     private float timer;
 
@@ -88,6 +89,7 @@ public class Timer : MonoBehaviour
                     {
                         firstTimeOverCount++;
                         isTimeOver = true;
+                        Debug.Log("»Æ¿Œ");
                     }
                     else if (screenManager.GetComponent<ScreenChange>().CurrentScreenNumber == 4 && !isTimeOver)
                     {
@@ -114,6 +116,7 @@ public class Timer : MonoBehaviour
         {
             timer = 0;
         }
+
         SetTextDisplay(true);
     }
 

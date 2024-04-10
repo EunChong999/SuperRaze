@@ -11,6 +11,12 @@ public class EnemyHealther : MonoBehaviour
     [HideInInspector] public ScreenTimer screenTimer;
     [SerializeField] private CollisionChecker collisionChecker;
     [SerializeField] private GameObject collisionCheck;
+    protected Timer timer;
+
+    private void Start()
+    {
+
+    }
 
     virtual public void Init()
     {
@@ -26,10 +32,18 @@ public class EnemyHealther : MonoBehaviour
 
     virtual public void Live()
     {
+        if (timer == null)
+            timer = FindObjectOfType<Timer>();
+
         // 체력 및 마나
         if (!screenTimer.isTimeStop)
         {
-            if (collisionChecker.isDamage)
+            if (timer.isTimeOver && !isDead)
+            {
+                isDead = true;
+                isDissolving = true;
+            }
+            else if (collisionChecker.isDamage)
             {
                 isDead = true;
                 isDissolving = true;

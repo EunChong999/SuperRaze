@@ -25,19 +25,41 @@ public class PlayerTimeRewinder : MonoBehaviour
     private float lerpDuration;
     [SerializeField] private GameObject skillEffect;
     ScreenTimer screenTimer;
+    PlayerPointTime pointInTime;
 
-    // Use this for initialization
     void Start()
     {
         playerPointTime = new Stack<PlayerPointTime>();
         screenTimer = GameObject.Find("Screen Manager").GetComponent<ScreenTimer>();
+        afterImage.delay = effectDelay;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        afterImage.delay = effectDelay;
+        if (Input.GetMouseButton(1))
+        {
+            if (playerPointTime.Count > 0 && playerHealther.currentEnergy > 10)
+            {
+                playerHealther.UseSkill();
+            }
+        }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (playerHealther.currentEnergy > 10 && !screenTimer.isTimeStop)
+            {
+                StartRewind();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(1) || playerPointTime.Count == 0 || playerHealther.currentEnergy < 10 || screenTimer.isTimeStop)
+        {
+            StopRewind();
+        }
+    }
+
+    private void FixedUpdate()
+    {
         if (isRewinding)
         {
             Rewind();
@@ -46,27 +68,6 @@ public class PlayerTimeRewinder : MonoBehaviour
         {
             Record();
         }
-
-        if (Input.GetMouseButton(1))
-        {
-            if (playerPointTime.Count != 0)
-            {
-                playerHealther.UseSkill();
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (playerHealther.currentEnergy >= 0 && !screenTimer.isTimeStop)
-            {
-                StartRewind();
-            }
-        }
-
-        if (Input.GetMouseButtonUp(1) || playerPointTime.Count == 0 || playerHealther.currentEnergy <= 0 || screenTimer.isTimeStop)
-        {
-            StopRewind();
-        }
     }
 
     void Rewind()
@@ -74,17 +75,17 @@ public class PlayerTimeRewinder : MonoBehaviour
         if (playerPointTime.Count > 0)
         {
             float timeSinceLerpStart = Time.time - lerpStartTime;
-            float t = Mathf.Clamp01(timeSinceLerpStart / (lerpDuration / rewindSpeed)); // rewindSpeed
+            float t = Mathf.Clamp01(timeSinceLerpStart / (lerpDuration * 0.2f)); // rewindSpeed
             body.transform.position = Vector3.Lerp(previousPosition, targetPosition, t);
 
             if (t >= 1f)
             {
-                PlayerPointTime pointInTime = playerPointTime.Pop();
+                pointInTime = playerPointTime.Pop();
                 targetPosition = pointInTime.position;
                 body.transform.rotation = pointInTime.rotation;
                 previousPosition = body.transform.position;
                 lerpStartTime = Time.time;
-                lerpDuration = Vector3.Distance(previousPosition, targetPosition) / rewindSpeed;
+                lerpDuration = (previousPosition - targetPosition).sqrMagnitude * 0.2f;
             }
         }
         else
@@ -95,7 +96,7 @@ public class PlayerTimeRewinder : MonoBehaviour
 
     void Record()
     {
-        if (rb.velocity.x != 0 || rb.velocity.y != 0)
+        if (rb.velocity.magnitude >= 1)
         {
             playerPointTime.Push(new PlayerPointTime(body.transform.position, body.transform.rotation));
         }
@@ -110,12 +111,9 @@ public class PlayerTimeRewinder : MonoBehaviour
 
         if (playerPointTime.Count > 0)
         {
-            PlayerPointTime pointInTime = playerPointTime.Peek();
+            pointInTime = playerPointTime.Peek();
             targetPosition = pointInTime.position;
             body.transform.rotation = pointInTime.rotation;
-            previousPosition = body.transform.position;
-            lerpStartTime = Time.time;
-            lerpDuration = Vector3.Distance(previousPosition, targetPosition) / rewindSpeed;
         }
     }
 

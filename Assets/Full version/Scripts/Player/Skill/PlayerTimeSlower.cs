@@ -17,11 +17,6 @@ public class PlayerTimeSlower : MonoBehaviour
         StopSlowmotion();
     }
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         afterImage.delay = effectDelay;
